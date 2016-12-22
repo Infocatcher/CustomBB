@@ -2,6 +2,7 @@
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
 <?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://custombb/skin/preview.css" type="text/css" ?>
 
 <!DOCTYPE overlay [
 	<!ENTITY % label SYSTEM "chrome://custombb/locale/label.dtd" >
@@ -13,7 +14,7 @@
 <window	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id="custombb-preview-window"
 	title="&custombb.prev.title;"
-	onload="init();"
+	onload="init(event);"
 	onunload="destroy();"
 	width="640px"
 	height="480px"
@@ -22,12 +23,17 @@
 	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/preview.js" />
 
 	<script type="application/x-javascript">
 	<![CDATA[
-		function init() {
+		function init(event) {
 			setColors(true);
 			setButton(document.getElementById("previewColorsShowHide"));
+			preview.init(event);
+
+			var navPanel  = document.getElementById("nav-panel");
+			navPanel.style.marginBottom = "-" + window.getComputedStyle(navPanel, null).height;
 
 			window.addEventListener("select", colorToText, false);
 			window.addEventListener("input", textToColor, false);
@@ -39,6 +45,7 @@
 			window.removeEventListener("dragexit", textToColor, false);
 
 			setColors();
+			preview.destroy();
 		}
 		function colorToText(event) {
 			var et = event.target;
@@ -129,7 +136,7 @@
 			gr.hidden = !std;
 			setButton(bttn);
 		}
-		var insSmileys = function(val) {
+		function insSmileys(val) {
 			var ccs = custombbCmmSet;
 			var cc = custombbCommon;
 			var ccp = cc.prefs;
@@ -159,11 +166,11 @@
 					);
 			}
 			return val;
-		};
-		var getH = function() {
+		}
+		function getH() {
 			var fr = document.getElementById("prevFrame");
 			return parseInt(window.getComputedStyle(fr, "").height.replace(/[^\d\.]/g, ""));
-		};
+		}
 	]]>
 	</script>
 
@@ -171,7 +178,14 @@
 		<key keycode="VK_ESCAPE" oncommand="window.close();" />
 	</keyset>
 
-	<iframe id="prevFrame" tooltip="previewTooltip" flex="1" src="chrome://custombb/content/preview.html" style="color: red;" />
+	<hbox id="nav-panel" align="right">
+		<button class="nav-button" oncommand="preview.frame.goBack();" label="&lt;" tooltiptext="Go back" />
+		<button class="nav-button" oncommand="preview.frame.goForward();" label="&gt;" tooltiptext="Go forward" />
+	</hbox>
+	<browser id="prevFrame" tooltip="previewTooltip" flex="1" type="content"
+		 src="chrome://custombb/content/preview.html"
+		 onclick="preview.click(event);"
+		 ondblclick="preview.setColors(event, true);" />
 
 	<button id="previewColorsShowHide" label="&custombb.prev.colors;" oncommand="showHideColors(this);" tooltip="previewSetColorsTooltip" />
 	<grid id="previewColorsGrid" hidden="true" persist="hidden" >
