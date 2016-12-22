@@ -1,8 +1,10 @@
 content	custombb jar:chrome/custombb.jar!/content/
-overlay chrome://browser/content/browser.xul		chrome://custombb/content/custombb.xul
+overlay chrome://browser/content/browser.xul chrome://custombb/content/custombb.xul
 
 skin custombb classic/1.0 jar:chrome/custombb.jar!/skin/
-style chrome://global/content/customizeToolbar.xul	chrome://custombb/skin/custombb.css
+style chrome://global/content/customizeToolbar.xul chrome://custombb/skin/custombb.css
 
-locale custombb en-US	jar:chrome/custombb.jar!/locale/en-US/
-locale custombb ru	jar:chrome/custombb.jar!/locale/ru/
+skin custombb-icon classic/1.0 .
+
+locale custombb en-US jar:chrome/custombb.jar!/locale/en-US/
+locale custombb ru    jar:chrome/custombb.jar!/locale/ru/

@@ -5,10 +5,10 @@
 
 		<em:id>{BBAFE38F-904D-4012-BAA3-DCD7702A1106}</em:id>
 		<em:name>CustomBB</em:name>
-		<em:iconURL>chrome://custombb/skin/img/cbb32.png</em:iconURL>
+		<em:iconURL>chrome://custombb-icon/skin/icon.png</em:iconURL>
 		<em:optionsURL>chrome://custombb/content/settings.xul</em:optionsURL>
 		<em:aboutURL>chrome://custombb/content/about.xul</em:aboutURL>
-		<em:version>0.1.0.6</em:version>
+		<em:version>0.1.0.7</em:version>
 		<em:creator>Infocatcher</em:creator>
 		<em:developer>Per Persson (original PHPkod extension)</em:developer>
 
@@ -21,7 +21,7 @@
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>1.5</em:minVersion>
-				<em:maxVersion>3.1*</em:maxVersion>
+				<em:maxVersion>4.0b9pre</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 

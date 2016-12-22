@@ -28,7 +28,7 @@ var custombbCommon = {
 
 	repairColorStyle: function(c, s) {
 		s = s.match(/^(black|white)$/)
-			? "background-image: url(chrome://custombb/skin/img/back_" + s + ".png);"
+			? "background-image: url(chrome://custombb/skin/img/back_" + s + ".png); -moz-appearance: none !important;"
 			: "";
 
 		if(c)

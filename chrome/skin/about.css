@@ -1,6 +1,6 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-#custombb-about-ico	{list-style-image: url(img/cbb32.png);}
+#custombb-about-ico	{list-style-image: url("chrome://custombb-icon/skin/icon.png");}
 #custombb-about-name	{font-size: 180%; font-weight: bold; font-family: Verdana;}
 .custombb-title		{font-size: 140%; font-weight: bold;}
 .custombb-url		{color: blue;}

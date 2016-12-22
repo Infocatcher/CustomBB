@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://custombb/skin/about.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://custombb/skin/about.css" type="text/css"?>
 
 <!DOCTYPE dialog [
 	<!ENTITY % about SYSTEM "chrome://custombb/locale/about.dtd" >
@@ -27,9 +27,9 @@
 		<label id="custombb-about-name" value="CustomBB" />
 		<spaser flex="1" />
 		<label value="&custombb.about.version;" />
-		<label value="0.1.0.2" />
+		<label value="0.1.0.7" />
 	</bbox>
-	
+
 	<separator height="5px" />
 
 	<description id="custombb-about-description" >
@@ -37,31 +37,31 @@
 	</description>
 
 	<groupbox flex="1" >
-	<caption label="&custombb.about.creators;" class="custombb-title" />
+		<caption label="&custombb.about.creators;" class="custombb-title" />
 
-	<grid flex="1" style="overflow: auto;" >
-		<columns>
-		   <column />
-		   <column />
-		</columns>
+		<grid flex="1" style="overflow: auto;" >
+			<columns>
+				<column />
+				<column />
+			</columns>
 
-		<rows>
-		   <row>
-			<label value="Per Persson" />
-			<hbox>
-			<label value="&custombb.about.original;" />
-			<label value="PHPkod" class="custombb-url" tooltiptext="https://addons.mozilla.org/firefox/1175/" onclick="custombbAbout.openURL(this)" />
-			</hbox>
-		   </row>
+			<rows>
+				<row>
+					<label value="Per Persson" />
+					<hbox>
+						<label value="&custombb.about.original;" />
+						<label value="PHPkod" class="custombb-url"
+							tooltiptext="https://addons.mozilla.org/firefox/1175/"
+							onclick="custombbAbout.openURL(this)" />
+					</hbox>
+				</row>
 
-		   <row>
-			<label value="Infocatcher" />
-			<label value="&custombb.about.creatAction;" />
-		   </row>
-		</rows>
-
-	</grid>
-
+				<row>
+					<label value="Infocatcher" />
+					<label value="&custombb.about.creatAction;" />
+				</row>
+			</rows>
+		</grid>
 	</groupbox>
 
 </dialog>

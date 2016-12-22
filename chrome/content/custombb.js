@@ -48,7 +48,7 @@
 	},
 
 	showWarning: function(ttl, txt) {
-		var ico = "chrome://custombb/skin/img/cbb32.png";
+		var ico = "chrome://custombb-icon/skin/icon.png";
 		ttl = "CustomBB: " + ttl;
 		var alerts = Components.classes["@mozilla.org/alerts-service;1"].getService(Components.interfaces.nsIAlertsService);
 		alerts.showAlertNotification(ico, ttl, txt, false, null, null);

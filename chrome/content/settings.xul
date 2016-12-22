@@ -937,13 +937,13 @@
 
 
   <popupset>
-	<popup id="custombb-settings" position="before_start" >
+	<menupopup id="custombb-settings" position="before_start" >
 		<menuitem id="custombb-defaults" label="&custombb.settings.toDefault;" oncommand="custombbSet.settings('toDefault'); custombbSet.settings('load');" />
 		<menuseparator />
 		<menuitem id="custombb-import" label="&custombb.settings.import;" oncommand="custombbSet.settings('import'); custombbSet.settings('load');" key="custombb.settings.key.import" />
 		<menuitem id="custombb-export" label="&custombb.settings.export;" oncommand="custombbSet.settings('write'); custombbSet.settings('load'); custombbSet.settings('export');" key="custombb.settings.key.export" />
-	</popup>
-	<popup id="custombb-VKpopup" onpopupshowing="custombbSet.initVKpopup();" >
+	</menupopup>
+	<menupopup id="custombb-VKpopup" onpopupshowing="custombbSet.initVKpopup();" >
 		<menuitem id="custombb-noVK"		label="&custombb.settings.VKpopupSymbol;..." />
 		<menuseparator />
 		<menuitem id="custombb-VK_F1"		label="F1" />
@@ -982,7 +982,7 @@
 		<menuitem id="custombb-VK_CAPS_LOCK"	label="Caps Lock" />
 		<menuitem id="custombb-VK_NUM_LOCK"	label="Num Lock" />
 		<menuitem id="custombb-VK_SCROLL_LOCK"	label="Scroll Lock" />
-	</popup>
+	</menupopup>
   </popupset>
 
 </dialog>
