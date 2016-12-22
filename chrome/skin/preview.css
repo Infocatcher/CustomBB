@@ -1,0 +1,15 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.button-compact,
+.button-compact > .button-box {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.button-compact {
+	margin: 1px !important;
+	min-width: 2.3em !important;
+	min-height: 0.5em !important;
+}
+.button-compact > .button-box > .button-text {
+	margin: 0 0.2em !important;
+}

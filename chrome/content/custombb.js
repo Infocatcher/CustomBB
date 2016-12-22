@@ -44,6 +44,21 @@ var custombb = {
 			d.getElementById("toolbar-context-menu").addEventListener("popuphidden", c.initToolbar, false);
 			d.getElementById("viewToolbarsMenu")    .addEventListener("popuphidden", c.initToolbar, false);
 		}
+
+		if("CustomizableUI" in window) // Australis
+			c.registerToolbar();
+	},
+	registerToolbar: function() {
+		var tbId = "custombb";
+		if(CustomizableUI.getAreaType(tbId))
+			return;
+		CustomizableUI.registerArea(tbId, {
+			legacy: true,
+			type: CustomizableUI.TYPE_TOOLBAR,
+			defaultPlacements: document.getElementById(tbId)
+				.getAttribute("defaultset")
+				.split(",")
+		});
 	},
 
 	destroy: function() {

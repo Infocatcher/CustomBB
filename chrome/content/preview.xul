@@ -32,9 +32,6 @@
 			setButton(document.getElementById("previewColorsShowHide"));
 			preview.init(event);
 
-			var navPanel  = document.getElementById("nav-panel");
-			navPanel.style.marginBottom = "-" + window.getComputedStyle(navPanel, null).height;
-
 			window.addEventListener("select", colorToText, false);
 			window.addEventListener("input", textToColor, false);
 			window.addEventListener("dragexit", textToColor, false);
@@ -102,15 +99,15 @@
 				}
 				try {
 					var hrfIt = tn;
-					var hrf = hrfIt.getAttribute("href");
+					var hrf = hrfIt.getAttribute("href") && hrfIt.href;
 					while(!hrf) {
 						var hrfIt = hrfIt.parentNode;
-						var hrf = hrfIt.getAttribute("href");
+						var hrf = hrfIt.getAttribute("href") && hrfIt.href;
 					}
 				}
 				catch(e) {
 				}
-				var src = tn.getAttribute("src");
+				var src = tn.getAttribute("src") && tn.src;
 				var alt = tn.getAttribute("alt");
 			}
 			catch(e) {
@@ -127,11 +124,11 @@
 			return false;
 		}
 		function setButton(bttn) {
-			var std = !bttn.nextSibling.hidden;
+			var std = !bttn.parentNode.nextSibling.hidden;
 			bttn.setAttribute("label", bttn.getAttribute("label").replace(/ ?[<>]{2}$/, "") + (std ? " <<" : " >>"));
 		}
 		function showHideColors(bttn) {
-			var gr = bttn.nextSibling;
+			var gr = bttn.parentNode.nextSibling;
 			var std = gr.hidden;
 			gr.hidden = !std;
 			setButton(bttn);
@@ -178,16 +175,18 @@
 		<key keycode="VK_ESCAPE" oncommand="window.close();" />
 	</keyset>
 
-	<hbox id="nav-panel" align="right">
-		<button class="nav-button" oncommand="preview.frame.goBack();" label="&lt;" tooltiptext="Go back" />
-		<button class="nav-button" oncommand="preview.frame.goForward();" label="&gt;" tooltiptext="Go forward" />
-	</hbox>
 	<browser id="prevFrame" tooltip="previewTooltip" flex="1" type="content"
 		 src="chrome://custombb/content/preview.html"
 		 onclick="preview.click(event);"
 		 ondblclick="preview.setColors(event, true);" />
 
-	<button id="previewColorsShowHide" label="&custombb.prev.colors;" oncommand="showHideColors(this);" tooltip="previewSetColorsTooltip" />
+	<hbox id="buttons-panel">
+		<button class="button-compact" oncommand="preview.frame.goBack();" label="&lt;" tooltiptext="Go back" />
+		<button class="button-compact" oncommand="preview.frame.goForward();" label="&gt;" tooltiptext="Go forward" />
+		<spacer flex="1" />
+		<button class="button-compact" id="previewColorsShowHide" label="&custombb.prev.colors;" oncommand="showHideColors(this);" tooltip="previewSetColorsTooltip" />
+	</hbox>
+
 	<grid id="previewColorsGrid" hidden="true" persist="hidden" >
 		<columns>
 			<column />
