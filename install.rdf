@@ -1,0 +1,29 @@
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+	<Description about="urn:mozilla:install-manifest">
+
+		<em:id>{BBAFE38F-904D-4012-BAA3-DCD7702A1106}</em:id>
+		<em:name>CustomBB</em:name>
+		<em:iconURL>chrome://custombb/skin/img/cbb32.png</em:iconURL>
+		<em:optionsURL>chrome://custombb/content/settings.xul</em:optionsURL>
+		<em:aboutURL>chrome://custombb/content/about.xul</em:aboutURL>
+		<em:version>0.1.0.6</em:version>
+		<em:creator>Infocatcher</em:creator>
+		<em:developer>Per Persson (original PHPkod extension)</em:developer>
+
+		<em:updateURL>http://infocatcher.ucoz.net/ext/fx/custombb/update.rdf</em:updateURL>
+		<em:updateKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDLgtEbrhCdZetIAanFNvkT441WwBgXcg1Zzlo5s5
+		              j9VLByj/L6UXAVqSria1dejjkKfxVbRXvqalJ7mENRambKpZ4AfV3dBCKUDjME56CMaAK7+DxMqaM3
+		              KEDKXn8XfqL2qkFsgcVjqh6AfltKRcyLGkU9+YQ82EXo6xm47hywoQIDAQAB</em:updateKey>
+
+		<em:targetApplication> <!-- Firefox -->
+			<Description>
+				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+				<em:minVersion>1.5</em:minVersion>
+				<em:maxVersion>3.1*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+
+	</Description>
+</RDF>

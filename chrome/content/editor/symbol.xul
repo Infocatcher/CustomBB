@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
+
+<!DOCTYPE dialog [
+	<!ENTITY % settings SYSTEM "chrome://custombb/locale/settings.dtd" >
+	%settings;
+	<!ENTITY % tooltip SYSTEM "chrome://custombb/locale/tooltip.dtd" >
+	%tooltip;
+]>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="custombb-editor-symbol-dialog"
+	title="&custombb.editor.symbol;"
+	buttons="accept, cancel, extra2"
+	buttonlabelextra2="&custombb.settings.toDefault;"
+	onload="custombbSet.symbolEditor('load');"
+	ondialogaccept="custombbSet.symbolEditor('write');"
+	ondialogextra2="custombbSet.symbolEditor('default');" >
+
+  <script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+  <script type="application/x-javascript" src="chrome://custombb/content/settings.js" />
+  <script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+
+  <keyset>
+	<key modifiers="control" key="S"	oncommand="custombbSet.symbolEditor('write');" />
+	<key keycode="VK_F5"			oncommand="custombbSet.symbolEditor('load');" />
+	<key modifiers="control" key="R"	oncommand="custombbSet.symbolEditor('load');" />
+  </keyset>
+
+
+	<groupbox flex="1" >
+
+		<hbox align="center" >
+			<textbox id="custombb.symbolEditor.symbol" tooltiptext="&custombb.tooltip.symbol;" flex="1" />
+			<textbox id="custombb.symbolEditor.label" tooltiptext="&custombb.tooltip.symbol.lbl;" flex="2" />
+		</hbox>
+
+	</groupbox>
+
+</dialog>

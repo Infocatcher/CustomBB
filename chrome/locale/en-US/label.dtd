@@ -1,0 +1,28 @@
+﻿<!-- Labels -->
+<!ENTITY custombb "CustomBB">
+
+<!ENTITY custombb.code "Code">
+<!ENTITY custombb.inv_commas "«Commas»">
+
+<!ENTITY custombb.quote '"Quote"'>
+<!ENTITY custombb.list "List">
+<!ENTITY custombb.img "IMG">
+<!ENTITY custombb.url "URL">
+<!ENTITY custombb.bold "B">
+<!ENTITY custombb.italic "I">
+<!ENTITY custombb.underline "U">
+<!ENTITY custombb.strike "Str">
+
+<!ENTITY custombb.color "Color">
+<!ENTITY custombb.size "Size">
+<!ENTITY custombb.font "Font">
+<!ENTITY custombb.symbol "Symbol">
+
+<!ENTITY custombb.smile.code "Smiles">
+<!ENTITY custombb.smile.url "Smiles (URL)">
+
+<!ENTITY custombb.style "Style">
+<!ENTITY custombb.custom "Custom">
+<!ENTITY custombb.settings "Settings">
+
+<!ENTITY custombb.toolbar.name "CustomBB">

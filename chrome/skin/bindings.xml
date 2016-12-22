@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<bindings id="custombbBindings"
+	xmlns="http://www.mozilla.org/xbl"
+	xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:xbl="http://www.mozilla.org/xbl">
+
+	<binding id="cbb-menu-vertical" display="xul:menu" extends="chrome://global/content/bindings/toolbarbutton.xml#toolbarbutton">
+	<!-- Code by Firefox 2.0 (attribute orient="vertical" does not work in FF 2.0) -->
+		<content>
+			<children includes="observes|template|menupopup|tooltip" />
+			<xul:hbox flex="1" align="center">
+				<xul:vbox flex="1" align="center">
+					<xul:image class="toolbarbutton-icon" xbl:inherits="validate,src=image,toolbarmode,buttonstyle" />
+					<xul:label class="toolbarbutton-text" crop="right" flex="1"
+						xbl:inherits="value=label,accesskey,crop,dragover-top,toolbarmode,buttonstyle" />
+				</xul:vbox>
+				<xul:dropmarker type="menu" class="toolbarbutton-menu-dropmarker" xbl:inherits="disabled" />
+			</xul:hbox>
+		</content>
+	</binding>
+
+	<binding id="cbb-menuitem-iconic" extends="chrome://global/content/bindings/menu.xml#menuitem">
+	<!-- Code by Firefox 3.0a8pre ("menu-iconic-icon" -> "custombb-menu-iconic-icon") -->
+		<content>
+			<xul:hbox class="menu-iconic-left" align="center" pack="center"
+				xbl:inherits="selected,_moz-menuactive,disabled,checked">
+				<xul:image class="custombb-menu-iconic-icon" xbl:inherits="src=image,validate,src" />
+			</xul:hbox>
+			<xul:label class="menu-iconic-text" flex="1" xbl:inherits="value=label,accesskey,crop" crop="right" />
+			<xul:hbox anonid="accel">
+				<xul:label class="menu-iconic-accel" xbl:inherits="value=acceltext" />
+			</xul:hbox>
+		</content>
+	</binding>
+
+</bindings>

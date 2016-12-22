@@ -1,0 +1,73 @@
+﻿<!-- Pop-up text -->
+<!ENTITY custombb.tooltip.code "Code">
+<!ENTITY custombb.tooltip.bold "Bold">
+<!ENTITY custombb.tooltip.italic "Italic">
+<!ENTITY custombb.tooltip.underline "Underline">
+<!ENTITY custombb.tooltip.strike "Strikethrough">
+
+<!ENTITY custombb.tooltip.color "Color">
+<!ENTITY custombb.tooltip.size "Size">
+<!ENTITY custombb.tooltip.font "Font">
+
+<!ENTITY custombb.tooltip.quote "Quote">
+<!ENTITY custombb.tooltip.inv_commas "Inverted commas">
+<!ENTITY custombb.tooltip.img "Image">
+<!ENTITY custombb.tooltip.url "URL">
+<!ENTITY custombb.tooltip.list "List">
+
+<!ENTITY custombb.tooltip.symbol "Symbol">
+
+<!ENTITY custombb.tooltip.smilesCodes "Smiles (codes)">
+<!ENTITY custombb.tooltip.smileCode "Smile (code)">
+
+<!ENTITY custombb.tooltip.smilesURL "Smiles (URL)">
+<!ENTITY custombb.tooltip.smileURL "Smile (URL)">
+
+<!ENTITY custombb.tooltip.style "Style">
+<!ENTITY custombb.tooltip.customs "Custom tags">
+<!ENTITY custombb.tooltip.custom "Custom tag">
+<!ENTITY custombb.tooltip.settings "CustomBB settings">
+<!ENTITY custombb.tooltip.settings.middle "Ctrl+Left-click / Middle-click – to switch the inserting mode">
+
+<!-- Editor pop-ups -->
+<!ENTITY custombb.tooltip.custom.src "Link to icon">
+<!ENTITY custombb.tooltip.custom.browse "Select icon for menu item">
+<!ENTITY custombb.tooltip.custom.lbl "Label of menu item">
+<!ENTITY custombb.tooltip.custom.top1 "Open tag">
+<!ENTITY custombb.tooltip.custom.top2 "– title of text's inquiry">
+<!ENTITY custombb.tooltip.custom.tcl "Close tag (\n – line feed)">
+
+<!ENTITY custombb.tooltip.profileDir "– path to the profile">
+
+<!ENTITY custombb.tooltip.smile.src "Link to smile">
+<!ENTITY custombb.tooltip.smile.browse "Select smile">
+<!ENTITY custombb.tooltip.smile.ins "Inserted text">
+<!ENTITY custombb.tooltip.smile.label "Smile">
+<!ENTITY custombb.tooltip.smile.URLerror "Error: it required images from Internet">
+
+<!ENTITY custombb.tooltip.color.ex "Example of the current style">
+<!ENTITY custombb.tooltip.color.lbl "Label of menu item">
+
+<!ENTITY custombb.tooltip.symbol "Inserted symbol">
+<!ENTITY custombb.tooltip.symbol.lbl "Label of menu item">
+
+<!ENTITY custombb.tooltip.sizeIns "Font size for inserting">
+<!ENTITY custombb.tooltip.styleSize "Font size for menu item">
+<!ENTITY custombb.tooltip.size.lbl "Label of menu item">
+<!ENTITY custombb.tooltip.size.ex "Example of the current font size">
+<!ENTITY custombb.tooltip.sizeUnit "Unit of measurements">
+
+<!ENTITY custombb.tooltip.font.lbl "Label of menu item">
+<!ENTITY custombb.tooltip.font.ex "Example of the current font">
+
+<!-- Additional tooltips -->
+<!ENTITY custombb.tooltip.showAllsubItems "Shift+click – show all sub items">
+
+<!ENTITY custombb.tooltip.R-shiftM_click "Right-click / Shift+Middle-click">
+<!ENTITY custombb.tooltip.editItem "– edit item">
+
+<!ENTITY custombb.tooltip.M-shiftR_click "Middle-click / Shift+Right-click">
+<!ENTITY custombb.tooltip.showAllItems "– show all items">
+
+<!ENTITY custombb.tooltip.ctrlR-ctrlM_click "Ctrl+Right-click / Ctrl+Middle-click">
+<!ENTITY custombb.tooltip.copySet "– select items for settings swap">

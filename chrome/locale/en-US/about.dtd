@@ -1,0 +1,9 @@
+﻿<!-- About dialog -->
+<!ENTITY custombb.about "About CustomBB">
+<!ENTITY custombb.about.version "version">
+<!ENTITY custombb-description "Adds toolbar and context-menu for tags inserting (for forums etc.).">
+<!ENTITY custombb.about.creators "Creators">
+<!ENTITY custombb.about.original "original">
+<!ENTITY custombb.about.creatAction "customization and settings scripts">
+
+<!ENTITY custombb.about.settings "Settings">

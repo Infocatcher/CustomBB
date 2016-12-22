@@ -1,0 +1,83 @@
+﻿<!-- Text for settings window -->
+<!ENTITY custombb.settings.title "Настройки CustomBB">
+<!ENTITY custombb.settings.tabMain "Основные">
+<!ENTITY custombb.settings.constrain "Основные настройки">
+<!ENTITY custombb.settings.constrain.sites "Включить контекстное меню на следующих сайтах:">
+<!ENTITY custombb.settings.constrain.sites_help "Справка">
+<!ENTITY custombb.settings.list "Обозначать начало элементов списка с помощью «*»">
+<!ENTITY custombb.settings.constrain.links "Не использовать некорректные ссылки">
+
+<!ENTITY custombb.settings.constrain.style "Кнопка «Стиль»:">
+<!ENTITY custombb.settings.constrain.style.dash "Заменять короткие тире длинными">
+<!ENTITY custombb.settings.constrain.style.dashPlus "Заменять также « -» и «- »">
+<!ENTITY custombb.settings.constrain.style.commas 'Заменять "прямые" кавычки «парными»'>
+<!ENTITY custombb.settings.constrain.style.symbols "Заменять (с), (тм) и (р) соответствующими символами">
+<!ENTITY custombb.settings.constrain.style.punktMarks "Исправлять пробелы при знаках препинания">
+<!ENTITY custombb.settings.selectOutput "Выделять вставляемый текст">
+
+<!ENTITY custombb.settings.tabKeys "Сочетания клавиш">
+
+<!ENTITY custombb.settings.keysSet "Настройки сочетаний клавиш">
+<!ENTITY custombb.settings.enableKey "Вкл.">
+<!ENTITY custombb.settings.key "Клавиша">
+
+<!ENTITY custombb.settings.key.show_toolbar "Показать / скрыть панель CustomBB">
+<!ENTITY custombb.settings.key.code "Код">
+<!ENTITY custombb.settings.key.url "Ссылка">
+<!ENTITY custombb.settings.key.bold "Жирный">
+<!ENTITY custombb.settings.key.italic "Курсив">
+<!ENTITY custombb.settings.key.underline "Подчеркнутый">
+<!ENTITY custombb.settings.key.color "Цвет">
+<!ENTITY custombb.settings.key.quote "Цитата">
+<!ENTITY custombb.settings.key.inv_commas "Кавычки">
+<!ENTITY custombb.settings.key.list "Список">
+<!ENTITY custombb.settings.key.img "Картинка">
+<!ENTITY custombb.settings.key.symbol "Символ">
+<!ENTITY custombb.settings.key.style "Стиль">
+
+<!ENTITY custombb.settings.keyNote "Сочетание клавиш будет отображаться в подсказках">
+
+<!ENTITY custombb.settings.tabSmiles "Смайлы">
+<!ENTITY custombb.settings.tabSmilesCodes "Смайлы-коды">
+<!ENTITY custombb.settings.tabSmilesURL "Смайлы-ссылки">
+
+<!ENTITY custombb.settings.smilesCodesSet "Настройки смайлов-кодов">
+<!ENTITY custombb.settings.smilesURLSet "Настройки смайлов-ссылок">
+
+<!ENTITY custombb.settings.tabCustom "Дополнительные тэги">
+<!ENTITY custombb.settings.customSet "Настройки дополнительных тэгов">
+<!ENTITY custombb.settings.text "Текст">
+
+<!ENTITY custombb.settings.tabAdditional "Дополнительные">
+<!ENTITY custombb.settings.additionalSet "Дополнительные настройки">
+<!ENTITY custombb.settings.toolbarBehaviour "Поведение панели инструментов">
+<!ENTITY custombb.settings.toolbarAutoShow "Автоматически показывать панель CustomBB при наведении курсора">
+<!ENTITY custombb.settings.toolbarAutoShowAlways "Показывать всегда (не только на разрешенных сайтах)">
+<!ENTITY custombb.settings.misc "Разное">
+<!ENTITY custombb.settings.showAllTooltips "Показывать дополнительные всплывающие подсказки">
+
+<!ENTITY custombb.settings.VKpopupSymbol "Символ">
+
+<!ENTITY custombb.settings.browse "Обзор">
+
+<!ENTITY custombb.apply.label "Применить">
+<!ENTITY custombb.settings.label "Настройки">
+<!ENTITY custombb.settings.toDefault "По умолчанию">
+<!ENTITY custombb.settings.import "Импорт из файла">
+<!ENTITY custombb.settings.export "Экспорт в файл">
+
+<!ENTITY custombb.settings.onlyNewWindowNote "изменения вступят в силу только в новых окнах">
+
+<!-- Text for small settings windows (right click on the custom menu item) -->
+<!ENTITY custombb.editor.custom "CustomBB: настройки дополнительного тэга">
+<!ENTITY custombb.editor.smile "CustomBB: настройки смайла">
+<!ENTITY custombb.editor.color "CustomBB: настройки цвета">
+<!ENTITY custombb.editor.symbol "CustomBB: настройки символа">
+<!ENTITY custombb.editor.size "CustomBB: настройки размера шрифта">
+<!ENTITY custombb.editor.font "CustomBB: настройки шрифта">
+<!ENTITY custombb.editor.color.style "Стиль">
+<!ENTITY custombb.editor.color.style.black "Черный">
+<!ENTITY custombb.editor.color.style.white "Белый">
+<!ENTITY custombb.editor.color.style.none "Без стиля">
+<!ENTITY custombb.editor.size.style "Размер">
+<!ENTITY custombb.editor.font.example "Шрифт">

@@ -1,0 +1,62 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.custombb-v { -moz-box-orient: vertical; list-style-image: url(img/cbb_ico16.png) !important; }
+.custombb-h { list-style-image: url(img/cbb_ico16.png) !important; }
+.custombb-popup-smile:hover	{background-color: #0A246A; color: white; }
+.custombb-copy { border: 1px solid red; -moz-border-radius: 6px; }
+
+.custombb-button { -moz-box-orient: vertical; list-style-image: url(img/cbb16.png) !important; }
+
+/* Pop-up (context) menu icon */
+#custombb-popup {list-style-image: url(img/cbb16.png); }
+
+/* Labels style */
+#custombb-popup-tb-code,      #custombb-popup-cm-code,      #custombb-button-code      { -moz-image-region: rect(16px 48px 32px 32px); }
+#custombb-popup-tb-url,       #custombb-popup-cm-url,       #custombb-button-url       { -moz-image-region: rect(32px 48px 48px 32px); }
+#custombb-popup-tb-bold,      #custombb-popup-cm-bold,      #custombb-button-bold      { font-weight: bold; -moz-image-region: rect(0px 16px 16px 0px); }
+#custombb-popup-tb-italic,    #custombb-popup-cm-italic,    #custombb-button-italic    { font-style: italic; -moz-image-region: rect(16px 16px 32px 0px); }
+#custombb-popup-tb-underline, #custombb-popup-cm-underline, #custombb-button-underline { text-decoration: underline; -moz-image-region: rect(32px 16px 48px 0px); }
+#custombb-popup-tb-strike,    #custombb-popup-cm-strike,    #custombb-button-strike    { text-decoration: line-through; -moz-image-region: rect(48px 16px 64px 0px); }
+
+#custombb-popup-cm-color, #custombb-button-color { color: #990000; -moz-image-region: rect(0px 32px 16px 16px); }
+#custombb-popup-cm-size,  #custombb-button-size  { font-size: 120%; -moz-image-region: rect(48px 64px 64px 48px); }
+#custombb-popup-cm-font,  #custombb-button-font  { font-family: Times New Roman, Times, serif; -moz-image-region: rect(16px 32px 32px 16px); }
+
+#custombb-popup-cm-quote,      #custombb-button-quote      { -moz-image-region: rect(0px 64px 16px 48px); }
+#custombb-popup-cm-inv_commas, #custombb-button-inv_commas { -moz-image-region: rect(32px 32px 48px 16px); }
+#custombb-popup-cm-list,       #custombb-button-list       { -moz-image-region: rect(48px 32px 64px 16px); }
+#custombb-popup-cm-img,        #custombb-button-img        { -moz-image-region: rect(48px 48px 64px 32px); }
+#custombb-popup-cm-symbol,     #custombb-button-symbol     { -moz-image-region: rect(0px 48px 16px 32px); }
+
+#custombb-popup-cm-smile-code, #custombb-button-smile-code { -moz-image-region: rect(16px 64px 32px 48px); }
+#custombb-popup-cm-smile-url,  #custombb-button-smile-url  { -moz-image-region: rect(32px 64px 48px 48px); }
+
+#custombb-popup-cm-style,    #custombb-button-style    { -moz-image-region: rect(0px 80px 16px 64px); }
+#custombb-popup-cm-custom,   #custombb-button-custom   { -moz-image-region: rect(32px 80px 48px 64px); }
+#custombb-popup-cm-settings, #custombb-button-settings { -moz-image-region: rect(16px 80px 32px 64px); }
+
+/* fix dropmarker orient for toolbarbutton[type="menu"] in FF 2.0+ */
+#custombb-button-color,      #custombb-button-size,      #custombb-button-font,   #custombb-button-symbol,
+#custombb-button-smile-code, #custombb-button-smile-url, #custombb-button-custom {
+	-moz-binding: url("bindings.xml#cbb-menu-vertical");
+}
+
+/* Autoshow CustomBB toolbar */
+#custombb[custombbautoshow="always"], #custombb[custombbautoshow="auto"] {
+	display: none;
+}
+#navigator-toolbox:hover > #custombb[custombbautoshow="always"] {
+	display: -moz-box;
+}
+#navigator-toolbox:hover > #custombb[custombbautoshow="auto"] {
+	display: none;
+}
+
+menuitem[id^="custombb-"] {
+	/* fix width & height error (width: 16px; height: 16px => fixed size) */
+	-moz-binding: url("bindings.xml#cbb-menuitem-iconic");
+
+	/* for background of <menuitem> in fx 3.0+ */
+	-moz-appearance: none !important;
+	padding: 2px 0 2px 0 !important;
+}

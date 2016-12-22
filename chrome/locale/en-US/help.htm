@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		body {font-family: verdana;}
+		.re {color: #3333ff; font-weight: bold;}
+	</style>
+	<title>Regular expressions</title>
+</head>
+<body>
+Use regular expressions (without brackets). Shielding of a symbol "/" is unessential.<br>
+<b>Example:</b><br>
+<bb>site1\.com|site2\.com/forum/</bb><br>
+That is <b>site1.com</b> or <b>site2.com/forum/<br>
+<blockquote>
+<b>The brief review of regular expressions</b>
+</blockquote>
+<table border="1" cellpadding="4" cellspacing="2">
+	<tbody>
+		<tr>
+			<td class="re">|</td>
+			<td>or</td>
+		</tr>
+		<tr>
+			<td class="re">.</td>
+			<td>any single character</td>
+		</tr>
+		<tr>
+			<td class="re">^</td>
+			<td>marker of the beginning (for example, <b>^http://</b>)</td>
+		</tr>
+		<tr>
+			<td class="re">$</td>
+			<td>marker of the ending (for example, <b>\.html$</b>)</td>
+		</tr>
+		<tr>
+			<td class="re">m*</td>
+			<td>any quantity of characters "m" (0, 1, ...)</td>
+		</tr>
+		<tr>
+			<td class="re">m+</td>
+			<td>one and more "m" character</td>
+		</tr>
+		<tr>
+			<td class="re">m?</td>
+			<td>one or no one</td>
+		</tr>
+		<tr>
+			<td class="re">m{2}</td>
+			<td>precisely two</td>
+		</tr>
+		<tr>
+			<td class="re">m{2,4}</td>
+			<td>from two up to four (inclusively)</td>
+		</tr>
+		<tr>
+			<td class="re">m{4,}</td>
+			<td>four and more</td>
+		</tr>
+		<tr>
+			<td class="re">[ab]</td>
+			<td>(only for single characters) "a" or "b"</td>
+		</tr>
+		<tr>
+			<td class="re">[^ab]</td>
+			<td>(only for single characters) any character, except "a" and "b"</td>
+		</tr>
+		<tr>
+			<td class="re">[a-z]</td>
+			<td>(only for single characters) any character from "a" up to "z"</td>
+		</tr>
+		<tr>
+			<td class="re">\d</td>
+			<td>any digit (similarly <bb>[0-9]</bb>)</td>
+		</tr>
+		<tr>
+			<td class="re">a(bc|de)</td>
+			<td>"abc" or "ade"</td>
+		</tr>
+		<tr>
+			<td class="re">\.</td>
+			<td>point (instead of any character)</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

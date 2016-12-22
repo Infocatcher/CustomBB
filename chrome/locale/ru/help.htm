@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		body {font-family: verdana;}
+		.re {color: #3333ff; font-weight: bold;}
+	</style>
+	<title>Регулярные выражения</title>
+</head>
+<body>
+Используйте регулярные выражения (без скобок). Экранирование символа
+"/" необязательно.<br>
+<b>Пример:</b><br>
+<bb>site1\.com|site2\.com/forum/</bb><br>
+То есть <b>site1.com</b> или <b>site2.com/forum/<br>
+<blockquote>
+<b>Краткий обзор регулярных выражений</b>
+</blockquote>
+<table border="1" cellpadding="4" cellspacing="2">
+	<tbody>
+		<tr>
+			<td class="re">|</td>
+			<td>или</td>
+		</tr>
+		<tr>
+			<td class="re">.</td>
+			<td>любой единичный символ</td>
+		</tr>
+		<tr>
+			<td class="re">^</td>
+			<td>маркер начала (например, <b>^http://</b>)</td>
+		</tr>
+		<tr>
+			<td class="re">$</td>
+			<td>маркер окончания (например, <b>\.html$</b>)</td>
+		</tr>
+		<tr>
+			<td class="re">m*</td>
+			<td>любое количество символов "m" (0, 1, ...)</td>
+		</tr>
+		<tr>
+			<td class="re">m+</td>
+			<td>один и более символ "m"</td>
+		</tr>
+		<tr>
+			<td class="re">m?</td>
+			<td>один или ни одного</td>
+		</tr>
+		<tr>
+			<td class="re">m{2}</td>
+			<td>ровно два</td>
+		</tr>
+		<tr>
+			<td class="re">m{2,4}</td>
+			<td>от двух до четырех (включительно)</td>
+		</tr>
+		<tr>
+			<td class="re">m{4,}</td>
+			<td>четыре и более</td>
+		</tr>
+		<tr>
+			<td class="re">[ab]</td>
+			<td>(только для единичных символов) "a" или "b"</td>
+		</tr>
+		<tr>
+			<td class="re">[^ab]</td>
+			<td>(только для единичных символов) любой символ, кроме "a" и "b"</td>
+		</tr>
+		<tr>
+			<td class="re">[a-z]</td>
+			<td>(только для единичных символов) любой символ от "a" до "z"</td>
+		</tr>
+		<tr>
+			<td class="re">\d</td>
+			<td>любая цифра (тоже самое, что <bb>[0-9]</bb>)</td>
+		</tr>
+		<tr>
+			<td class="re">a(bc|de)</td>
+			<td> "abc" или "ade"</td>
+		</tr>
+		<tr>
+			<td class="re">\.</td>
+			<td> точка (а не любой символ)</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

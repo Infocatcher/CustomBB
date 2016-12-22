@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
+
+<!DOCTYPE dialog [
+	<!ENTITY % settings SYSTEM "chrome://custombb/locale/settings.dtd" >
+	%settings;
+	<!ENTITY % tooltip SYSTEM "chrome://custombb/locale/tooltip.dtd" >
+	%tooltip;
+]>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="custombb-editor-color-dialog"
+	title="&custombb.editor.color;"
+	buttons="accept, cancel, extra2"
+	buttonlabelextra2="&custombb.settings.toDefault;"
+	onload="custombbSet.colorEditor('load');"
+	ondialogaccept="custombbSet.colorEditor('write');"
+	ondialogextra2="custombbSet.colorEditor('default');" >
+
+  <script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+  <script type="application/x-javascript" src="chrome://custombb/content/settings.js" />
+  <script type="application/x-javascript" src="editor.js" />
+  <script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+
+  <keyset>
+	<key modifiers="control" key="S"	oncommand="custombbSet.colorEditor('write');" />
+	<key keycode="VK_F5"			oncommand="custombbSet.colorEditor('load');" />
+	<key modifiers="control" key="R"	oncommand="custombbSet.colorEditor('load');" />
+  </keyset>
+
+
+	<groupbox flex="1" >
+
+		<hbox align="center" >
+			<colorpicker id="custombb.colorEditor.colorpicker" type="button" onchange="custombbEdit.colorToText(this.color);" />		<!-- onchange => 2 x set... May be other method? -->
+			<textbox id="custombb.colorEditor.color" tooltiptext="&custombb.tooltip.color;" oninput="custombbEdit.textToColor();" ondragexit="custombbEdit.textToColor();" flex="1" />
+
+			<menuitem id="custombb.colorEditor.example" tooltiptext="&custombb.tooltip.color.ex;" label="&custombb.editor.color.style;:" />
+			<menulist id="custombb.colorEditor.style" oncommand="custombbEdit.setColorExStyle();" >
+				<menupopup>
+					<menuitem label="&custombb.editor.color.style.black;" value="black" />
+					<menuitem label="&custombb.editor.color.style.white;" value="white" />
+					<menuitem label="&custombb.editor.color.style.none;" value="none" />
+				</menupopup>
+			</menulist>
+		</hbox>
+
+		<textbox id="custombb.colorEditor.label" tooltiptext="&custombb.tooltip.color.lbl;" />
+
+	</groupbox>
+
+</dialog>

@@ -1,0 +1,81 @@
+﻿<!-- Text for settings window -->
+<!ENTITY custombb.settings.title "CustomBB Settings">
+<!ENTITY custombb.settings.tabMain "Main">
+<!ENTITY custombb.settings.constrain "Main settings">
+<!ENTITY custombb.settings.constrain.sites "To include the context menu on the following sites:">
+<!ENTITY custombb.settings.constrain.sites_help "Help">
+<!ENTITY custombb.settings.constrain.links "To not use non-correct links">
+
+<!ENTITY custombb.settings.constrain.style "The «Style» button:">
+<!ENTITY custombb.settings.constrain.style.dash "To replace short dashes with long dashes">
+<!ENTITY custombb.settings.constrain.style.dashPlus "To replace also « -» and «- »">
+<!ENTITY custombb.settings.constrain.style.commas 'To replace "direct" inverted commas with «pair» inverted commas'>
+<!ENTITY custombb.settings.constrain.style.symbols "To replace (c), (tm) and (r) with corresponding symbols">
+<!ENTITY custombb.settings.constrain.style.punktMarks "To correct blanks at punctuation marks">
+<!ENTITY custombb.settings.list "To designate the beginning of elements of the list with «*»">
+<!ENTITY custombb.settings.selectOutput "To select the inserted text">
+
+<!ENTITY custombb.settings.tabKeys "Hotkeys">
+<!ENTITY custombb.settings.keysSet "Hotkeys settings">
+<!ENTITY custombb.settings.enableKey "Enable">
+<!ENTITY custombb.settings.key "Key">
+
+<!ENTITY custombb.settings.key.show_toolbar "Show / collaps CustomBB toolbar">
+<!ENTITY custombb.settings.key.code "Code">
+<!ENTITY custombb.settings.key.url "URL">
+<!ENTITY custombb.settings.key.bold "Bold">
+<!ENTITY custombb.settings.key.italic "Italic">
+<!ENTITY custombb.settings.key.underline "Underline">
+<!ENTITY custombb.settings.key.color "Color">
+<!ENTITY custombb.settings.key.quote "Quote">
+<!ENTITY custombb.settings.key.inv_commas "Inverted commas">
+<!ENTITY custombb.settings.key.list "List">
+<!ENTITY custombb.settings.key.img "Image">
+<!ENTITY custombb.settings.key.symbol "Symbol">
+<!ENTITY custombb.settings.key.style "Style">
+
+<!ENTITY custombb.settings.keyNote "The hotkeys are shown in the context menu">
+
+<!ENTITY custombb.settings.tabSmiles "Smiles">
+<!ENTITY custombb.settings.tabSmilesCodes "Smiles codes">
+<!ENTITY custombb.settings.tabSmilesURL "Smiles URL">
+
+<!ENTITY custombb.settings.smilesCodesSet "Smiles codes settings">
+<!ENTITY custombb.settings.smilesURLSet "Smiles URL settings">
+
+<!ENTITY custombb.settings.tabCustom "Custom tags">
+<!ENTITY custombb.settings.customSet "Custom tags settings">
+<!ENTITY custombb.settings.text "Text">
+
+<!ENTITY custombb.settings.tabAdditional "Additional">
+<!ENTITY custombb.settings.additionalSet "Additional settings">
+<!ENTITY custombb.settings.toolbarBehaviour "Toolbar behaviour">
+<!ENTITY custombb.settings.toolbarAutoShow "Autoshow CustomBB toolbar over cursor">
+<!ENTITY custombb.settings.toolbarAutoShowAlways "To autoshow always (not only on the resolved sites)">
+<!ENTITY custombb.settings.misc "Misc">
+<!ENTITY custombb.settings.showAllTooltips "Show additional tooltips">
+
+<!ENTITY custombb.settings.VKpopupSymbol "Symbol">
+
+<!ENTITY custombb.settings.browse "Browse">
+
+<!ENTITY custombb.apply.label "Apply">
+<!ENTITY custombb.settings.label "Settings">
+<!ENTITY custombb.settings.toDefault "Restore defaults">
+<!ENTITY custombb.settings.import "Import from file">
+<!ENTITY custombb.settings.export "Export to file">
+
+<!ENTITY custombb.settings.onlyNewWindowNote "changes will come into force only for new windows">
+
+<!-- Text for small settings window (right click on the custom menu item) -->
+<!ENTITY custombb.editor.custom "CustomBB: custom tag settings">
+<!ENTITY custombb.editor.smile "CustomBB: smile settings">
+<!ENTITY custombb.editor.color "CustomBB: color settings">
+<!ENTITY custombb.editor.symbol "CustomBB: symbol settings">
+<!ENTITY custombb.editor.size "CustomBB: font size settings">
+<!ENTITY custombb.editor.color.style "Style">
+<!ENTITY custombb.editor.color.style.black "Black">
+<!ENTITY custombb.editor.color.style.white "White">
+<!ENTITY custombb.editor.color.style.none "No style">
+<!ENTITY custombb.editor.size.style "Size">
+<!ENTITY custombb.editor.font.example "Font">

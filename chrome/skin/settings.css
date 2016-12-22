@@ -1,0 +1,13 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.custombb-notsaved		{border: 1px dotted red; padding: 3px 3px;}
+.custombb-notsaved:hover	{border: 1px solid red; padding: 3px 3px;}
+
+#custombb-settings-links-url	{list-style-image: url(img/cbb_ico16.png); -moz-image-region: rect(32px 48px 48px 32px);}
+#custombb-settings-links-img	{list-style-image: url(img/cbb_ico16.png); -moz-image-region: rect(48px 48px 64px 32px);}
+#custombb-settings-style	{list-style-image: url(img/cbb_ico16.png); -moz-image-region: rect(0px 80px 16px 64px);}
+#custombb-settings-list		{list-style-image: url(img/cbb_ico16.png); -moz-image-region: rect(48px 32px 64px 16px);}
+
+#custombb-VKpopup			{height: 350px; width: 170px;}
+#custombb-VKpopup autorepeatbutton	{display: none;}
+#custombb-VKpopup scrollbox		{overflow-y: auto;}
