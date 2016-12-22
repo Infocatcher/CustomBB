@@ -22,7 +22,7 @@
 	ondialogextra1="custombbEdit.settings('apply');"
 	ondialogextra2="custombbEdit.settings('default');" >
 
-	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/prefs.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/editor/editor.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />

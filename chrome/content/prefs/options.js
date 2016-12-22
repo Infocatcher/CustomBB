@@ -24,7 +24,7 @@ var custombbOpts = {
 			custombbOpts.getStartWinHeight(); // bug?
 		}, 0);
 
-		if(nsPreferences.getBoolPref("browser.preferences.instantApply", false))
+		if(custombbPrefs.getPref("browser.preferences.instantApply", false))
 			document.documentElement.getButton("accept").hidden = false;
 	},
 
@@ -215,7 +215,7 @@ var custombbOpts = {
 				var keyIt = document.getElementById(keyId);
 
 				if(load || exp)
-					var keyPref = nsPreferences.copyUnicharPref(keyId, "");
+					var keyPref = custombbPrefs.getPref(keyId, "");
 
 				if(load && this.keysPaneIsLoaded) {
 					var keyVal = /(^| )key=\{(.|vk_\w+)\}( |$)/i.test(keyPref)
@@ -263,7 +263,7 @@ var custombbOpts = {
 						keyPrefOut += " meta";
 
 					keyPrefOut += " key={" + keyVal + "}";
-					nsPreferences.setUnicharPref(keyId, keyPrefOut);
+					custombbPrefs.setPref(keyId, keyPrefOut);
 				}
 
 				if(def)
@@ -282,7 +282,7 @@ var custombbOpts = {
 			var numIt = document.getElementById(numId);
 
 			if(load || exp)
-				var numVal = nsPreferences.getIntPref(numId, 1);
+				var numVal = custombbPrefs.getPref(numId, 1);
 
 			if(load && this.keysPaneIsLoaded) {
 				numIt.value = numVal;
@@ -293,7 +293,7 @@ var custombbOpts = {
 				numIt.setAttribute("label", lbl);
 			}
 			if((save || apply) && this.keysPaneIsLoaded)
-				nsPreferences.setIntPref(numId, numIt.value);
+				custombbPrefs.setPref(numId, numIt.value);
 
 			if(def)
 				custombbCmmSet.toDefault(numId);
@@ -320,14 +320,14 @@ var custombbOpts = {
 				if(exp) {
 					switch(pPaneTps[i]) {
 						case "bool":
-							pArr[z++] = cId + "=" + nsPreferences.getBoolPref(cId, true);
+							pArr[z++] = cId + "=" + custombbPrefs.getPref(cId, true);
 						break;
 
 						case "string":
-							pArr[z++] = cId + '="' + nsPreferences.copyUnicharPref(cId, "") + '"';
+							pArr[z++] = cId + '="' + custombbPrefs.getPref(cId, "") + '"';
 						break;
 						case "int":
-							pArr[z++] = cId + "=" + nsPreferences.getIntPref(cId, 1);
+							pArr[z++] = cId + "=" + custombbPrefs.getPref(cId, 1);
 						break;
 						default:
 							alert("settings(mode) error:\npPaneTps[" + i + "] = " + pPaneTps[i]); return;
@@ -352,13 +352,13 @@ var custombbOpts = {
 		}
 		if(exp) {
 			for(var i = 0; i < opChar.length; i++)
-				pArr[z++] = opChar[i] + '="' + nsPreferences.copyUnicharPref(opChar[i], "") + '"';
+				pArr[z++] = opChar[i] + '="' + custombbPrefs.getPref(opChar[i], "") + '"';
 
 			for(var i = 0; i < opInt.length; i++)
-				pArr[z++] = opInt[i] + "=" + nsPreferences.getIntPref(opInt[i], 1);
+				pArr[z++] = opInt[i] + "=" + custombbPrefs.getPref(opInt[i], 1);
 
 			for(var i = 0; i < opBool.length; i++)
-				pArr[z++] = opBool[i] + "=" + nsPreferences.getBoolPref(opBool[i], true);
+				pArr[z++] = opBool[i] + "=" + custombbPrefs.getPref(opBool[i], true);
 
 			//pArr.sort();
 
@@ -406,13 +406,13 @@ var custombbOpts = {
 					if(ok) {
 						try {
 							if(/^(true|false)$/.test(pValue))
-								nsPreferences.setBoolPref(pName, pValue == "true");
+								custombbPrefs.setPref(pName, pValue == "true");
 							else
 								if(/^-?\d+$/.test(pValue))
-									nsPreferences.setIntPref(pName, pValue);
+									custombbPrefs.setPref(pName, pValue);
 								else
 									if(/^".*"$/.test(pValue))
-										nsPreferences.setUnicharPref(pName, pValue.substring(1, pValue.length - 1));
+										custombbPrefs.setPref(pName, pValue.substring(1, pValue.length - 1));
 									else
 										alert(invSynt + ":\n" + pArr[i]);
 						}

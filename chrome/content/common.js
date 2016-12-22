@@ -31,7 +31,7 @@ var custombbCommon = {
 			this.pId = src;
 			var srcId = "custombb." + src;
 			this.srcId = srcId;
-			this.src = nsPreferences.copyUnicharPref(srcId, "");
+			this.src = custombbPrefs.getPref(srcId, "");
 
 			if(initNums)
 				this.initNums(src);
@@ -58,8 +58,8 @@ var custombbCommon = {
 					alert("prefs.initNums(src):\ninvalid src (" + src + ")");
 			}
 			this.aNums = aNums;
-			this.nums = q ? q : nsPreferences.getIntPref(this.srcId + "Quantity", 1);
-			this.cols = nsPreferences.getIntPref(this.srcId + "Columns", 1);
+			this.nums = q ? q : custombbPrefs.getPref(this.srcId + "Quantity", 1);
+			this.cols = custombbPrefs.getPref(this.srcId + "Columns", 1);
 		},
 		getAttr: function(attr, num) {
 			var pId = this.pId;
@@ -148,7 +148,7 @@ var custombbCommon = {
 						prefs = this.pushAdd(prefs, aNums + 1 - prefs.length);
 				pref.push(prefs.join(this.sep));
 			}
-			nsPreferences.setUnicharPref(this.srcId, pref.join(this.gSep));
+			custombbPrefs.setPref(this.srcId, pref.join(this.gSep));
 		},
 		swap: function(oldNum, newNum) {
 			var pObj = this.getAll();

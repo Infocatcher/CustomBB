@@ -3,8 +3,7 @@ var custombbFirstrun = {
 	convert: function() {
 		window.removeEventListener("load", custombbFirstrun.convert, false);
 
-		var pSvc = Components.classes["@mozilla.org/preferences-service;1"]
-			.getService(Components.interfaces.nsIPrefBranch);
+		var pSvc = custombbPrefs.prefs;
 
 		var gSep = custombbCommon.prefs.gSep;
 		var sep = custombbCommon.prefs.sep;
@@ -17,8 +16,8 @@ var custombbFirstrun = {
 				var ins = "custombb.smile." + smt + "." + i + ".ins";
 				var src = "custombb.smile." + smt + "." + i + ".src";
 
-				var insv = nsPreferences.copyUnicharPref(ins, "");
-				var srcv = nsPreferences.copyUnicharPref(src, "");
+				var insv = custombbPrefs.getPref(ins, "");
+				var srcv = custombbPrefs.getPref(src, "");
 
 				if(insv || srcv)
 					def = false;
@@ -32,11 +31,11 @@ var custombbFirstrun = {
 		}
 		var scPref = getNewSmileyPref("code");
 		if(scPref)
-			nsPreferences.setUnicharPref("custombb.smileysCodes", scPref);
+			custombbPrefs.setPref("custombb.smileysCodes", scPref);
 
 		var suPref = getNewSmileyPref("url");
 		if(suPref)
-			nsPreferences.setUnicharPref("custombb.smileysURLs", suPref);
+			custombbPrefs.setPref("custombb.smileysURLs", suPref);
 
 		var getNewCustomPref = function(b, n) {
 			var ncp = "";
@@ -47,8 +46,8 @@ var custombbFirstrun = {
 				var ins = "custombb.custom." + b + i;
 				var src = "custombb.custom." + b + i + ".src";
 
-				var insv = nsPreferences.copyUnicharPref(ins, "");
-				var srcv = nsPreferences.copyUnicharPref(src, "");
+				var insv = custombbPrefs.getPref(ins, "");
+				var srcv = custombbPrefs.getPref(src, "");
 
 				if(insv || srcv)
 					def = false;
@@ -73,19 +72,19 @@ var custombbFirstrun = {
 
 		var cPref = getNewCustomPref("", 20);
 		if(cPref)
-			nsPreferences.setUnicharPref("custombb.customs", cPref);
+			custombbPrefs.setPref("custombb.customs", cPref);
 
 		var cbPref = getNewCustomPref("b", 5);
 		if(cbPref)
-			nsPreferences.setUnicharPref("custombb.customButtons", cbPref);
+			custombbPrefs.setPref("custombb.customButtons", cbPref);
 
 		function newCharId(pId, newpId) {
 			var idArr = [".main", ".locale"];
 			for(var i = 0; i < idArr.length; i++) {
 				var cpId = "custombb.key." + pId + idArr[i];
-				var pVal = nsPreferences.copyUnicharPref(cpId, "");
+				var pVal = custombbPrefs.getPref(cpId, "");
 				if(pVal)
-					nsPreferences.setUnicharPref("custombb.key." + newpId + idArr[i], pVal);
+					custombbPrefs.setPref("custombb.key." + newpId + idArr[i], pVal);
 				pSvc.deleteBranch(cpId);
 			}
 		}
@@ -95,20 +94,20 @@ var custombbFirstrun = {
 		var pArr = ["color", "size", "font", "symbol"];
 		for(var i = 0; i < pArr.length; i++) {
 			var id = "custombb." + pArr[i] + "s";
-			var cPref = nsPreferences.copyUnicharPref(id, "");
+			var cPref = custombbPrefs.getPref(id, "");
 			var nPref = cPref.replace(/^[a-z]+\d+=\{/i, "")
 				.replace(/\}$/, "")
 				.replace(RegExp("\\} +" + pArr[i] + "\\d+=\\{", "ig"), gSep)
 				.replace(/\} +[a-z]+\d+=\{/ig, sep);
 
-			nsPreferences.setUnicharPref(id, nPref);
+			custombbPrefs.setPref(id, nPref);
 		}
 
 		pSvc.deleteBranch("custombb.tempReplaceCache");
 		pSvc.deleteBranch("custombb.profileDir");
 
-		nsPreferences.setBoolPref("custombb.firstRun", false);
+		custombbPrefs.setPref("custombb.firstRun", false);
 	}
 };
-if(nsPreferences.getBoolPref("custombb.firstRun", false))
+if(custombbPrefs.getPref("custombb.firstRun", false))
 	window.addEventListener("load", custombbFirstrun.convert, false);

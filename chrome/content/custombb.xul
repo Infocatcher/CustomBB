@@ -11,7 +11,7 @@
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/prefs.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/~firstrun.js" /> <!-- temp -->
 	<script type="application/x-javascript" src="chrome://custombb/content/custombb.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />

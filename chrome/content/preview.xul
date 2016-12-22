@@ -20,7 +20,7 @@
 	height="480px"
 	persist="screenX screenY width height" >
 
-	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/prefs.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
 	<script type="application/x-javascript" src="chrome://custombb/content/preview.js" />
@@ -153,7 +153,7 @@
 			var smURLs = ccp.getAll();
 			for(var i = 0; i < smURLs.nums; i++) {
 				var sm = smURLs[i][0];
-				var url = nsPreferences.getBoolPref("custombb.previewUseExternalSmileysURLs", false)
+				var url = custombbPrefs.getPref("custombb.previewUseExternalSmileysURLs", false)
 					? sm
 					: cc.testPatch(smURLs[i][1]);
 				if(sm)

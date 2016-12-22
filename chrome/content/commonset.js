@@ -12,7 +12,7 @@ var custombbCmmSet = {
 
 		var n = num
 			? num
-			: nsPreferences.getIntPref("custombb." + id + "Quantity", 15);
+			: custombbPrefs.getPref("custombb." + id + "Quantity", 15);
 
 		var pId = num
 			? "customButtons"

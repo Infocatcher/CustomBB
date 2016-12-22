@@ -33,7 +33,7 @@ var custombb = {
 
 		window.addEventListener("click", c.testClick, true);
 
-		var preL = nsPreferences.getIntPref("custombb.preloadTimeout", 2000);
+		var preL = custombbPrefs.getPref("custombb.preloadTimeout", 2000);
 		if(preL > 0) {
 			setTimeout(function() {
 				custombb.createAllMenuitems();
@@ -82,7 +82,7 @@ var custombb = {
 	},
 
 	get hiddenStatus() {
-		return !new RegExp(nsPreferences.copyUnicharPref("custombb.constrain.sites", "."), "i")
+		return !new RegExp(custombbPrefs.getPref("custombb.constrain.sites", "."), "i")
 			.test(content.location.href);
 	},
 
@@ -93,7 +93,7 @@ var custombb = {
 
 	initAutoShow: function() {
 		var ahIt = document.getElementById("custombb-button-autohide");
-		var ah = nsPreferences.getBoolPref("custombb.toolbarAutoShow", true);
+		var ah = custombbPrefs.getPref("custombb.toolbarAutoShow", true);
 		if(ah)
 			this.toggleAutoShow(ahIt, true);
 		else {
@@ -124,7 +124,7 @@ var custombb = {
 		else
 			cbb.setAttribute("custombbautoshow", "always");
 
-		this.setAutoHide(nsPreferences.getBoolPref("custombb.toolbarAutoShowAlways", true) || rmv);
+		this.setAutoHide(custombbPrefs.getPref("custombb.toolbarAutoShowAlways", true) || rmv);
 	},
 
 	setAutoHide: function(rmv) {
@@ -143,7 +143,7 @@ var custombb = {
 	},
 
 	showWarning: function(ttl, txt) {
-		var dur = nsPreferences.getIntPref("custombb.notifyOpenTime", 5000);
+		var dur = custombbPrefs.getPref("custombb.notifyOpenTime", 5000);
 		if(dur < 0)
 			return;
 		window.openDialog(
@@ -232,7 +232,7 @@ var custombb = {
 		d.getElementById("custombb-tooltip-separator").hidden = noL;
 
 		// Additional tooltips:
-		var hideAll = !nsPreferences.getBoolPref("custombb.showAllTooltips", true) || !dtn.hasAttribute("cbbeditable");
+		var hideAll = !custombbPrefs.getPref("custombb.showAllTooltips", true) || !dtn.hasAttribute("cbbeditable");
 		d.getElementById("custombb-tooltip-help").hidden = hideAll;
 		if(!hideAll) {
 			var button = dtn.getAttribute("cbbeditable") == "button";
@@ -370,7 +370,7 @@ var custombb = {
 
 		var err = custombbCommon.getLocalised("error");
 		var clipEmpty = custombbCommon.getLocalised("clipboardEmpty");
-		var cLinks = nsPreferences.getBoolPref("custombb.constrain.links", true);
+		var cLinks = custombbPrefs.getPref("custombb.constrain.links", true);
 		var subst = null;
 
 		switch(what) {
@@ -387,7 +387,7 @@ var custombb = {
 		break;
 
 		case "img":
-			var urlImgMask = new RegExp(nsPreferences.copyUnicharPref("custombb.urlImgMask",
+			var urlImgMask = new RegExp(custombbPrefs.getPref("custombb.urlImgMask",
 				"^(ht|f)tps?:\/\/[^\\\\\s]+\.(jp(e?g|2)|png|gif|w?bmp|tiff?|ico)$"), "i");
 			if(tgglMd)
 				cLinks = !cLinks;
@@ -422,7 +422,7 @@ var custombb = {
 		break;
 
 		case "invCommas":
-			var icUseClip = nsPreferences.getBoolPref("custombb.invCommasUseClipboard", false);
+			var icUseClip = custombbPrefs.getPref("custombb.invCommasUseClipboard", false);
 			if(tgglMd)
 				icUseClip = !icUseClip;
 
@@ -446,7 +446,7 @@ var custombb = {
 		break;
 
 		case "url":
-			var urlMask = new RegExp(nsPreferences.copyUnicharPref("custombb.urlMask", "^(ht|f)tps?:\/\/[^\s\\\\]+$"), "i");
+			var urlMask = new RegExp(custombbPrefs.getPref("custombb.urlMask", "^(ht|f)tps?:\/\/[^\s\\\\]+$"), "i");
 			if(tgglMd)
 				cLinks = !cLinks;
 
@@ -485,7 +485,7 @@ var custombb = {
 		break;
 
 		case "list":
-			var lAst = nsPreferences.getBoolPref("custombb.listAsterisk", true);
+			var lAst = custombbPrefs.getPref("custombb.listAsterisk", true);
 			if(tgglMd)
 				lAst = !lAst;
 			subst = lAst
@@ -499,9 +499,9 @@ var custombb = {
 			var and = custombbCommon.getLocalised("and");
 			var codeBreak = custombbCommon.getLocalised("codeBreak") + "!";
 
-			var cStDash = nsPreferences.getBoolPref("custombb.constrain.style.dash", true);
-			var cStDashPlus = nsPreferences.getBoolPref("custombb.constrain.style.dashPlus", false);
-			var cStCommas = nsPreferences.getBoolPref("custombb.constrain.style.commas", true);
+			var cStDash = custombbPrefs.getPref("custombb.constrain.style.dash", true);
+			var cStDashPlus = custombbPrefs.getPref("custombb.constrain.style.dashPlus", false);
+			var cStCommas = custombbPrefs.getPref("custombb.constrain.style.commas", true);
 
 			subst = strUsed;
 
@@ -549,12 +549,12 @@ var custombb = {
 					.replace(/" *:/g, "»:")
 					.replace(/" +/g, "» ");
 
-			if(nsPreferences.getBoolPref("custombb.constrain.style.symbols", true))
+			if(custombbPrefs.getPref("custombb.constrain.style.symbols", true))
 				subst = subst.replace(/\([сСcC]\)/g, "©")
 					.replace(/\([rRрР]\)/g, "®")
 					.replace(/\([tTтТ][mMмМ]\)/g, "™");
 
-			if(nsPreferences.getBoolPref("custombb.constrain.style.punktMarks", false)) {
+			if(custombbPrefs.getPref("custombb.constrain.style.punktMarks", false)) {
 
 				for(var i = 0; i < subst.length - 3; i++)
 					if(/\d[\.,:]\d/.test(subst.substring(i, i + 3))) {
@@ -774,13 +774,13 @@ var custombb = {
 
 		if(qPast) {
 			subst += /\n|\r/.test(subst) ? "" : "\n";
-			var f = nsPreferences.getBoolPref("custombb.focusTextareaAfterQuickPaste", true);
+			var f = custombbPrefs.getPref("custombb.focusTextareaAfterQuickPaste", true);
 			this.insertText(ta, subst, !f) && f && ta.focus();
 		}
 		else {
 			this.insertText(ta, subst);
 		}
-		var selOut = nsPreferences.getBoolPref("custombb.selectOutput", false);
+		var selOut = custombbPrefs.getPref("custombb.selectOutput", false);
 		if(tgglSelMd)
 			selOut = !selOut;
 
@@ -949,7 +949,7 @@ var custombb = {
 
 		for(var i = 0; i < kTypes.length; i++)
 			for(var j = 0; j < kNames.length; j++) {
-				var kPref = nsPreferences.copyUnicharPref("custombb.key." + kNames[j] + "." + kTypes[i], "");
+				var kPref = custombbPrefs.getPref("custombb.key." + kNames[j] + "." + kTypes[i], "");
 				var kId = "custombb-key-" + kNames[j] + "-" + kTypes[i];
 
 				if(/(^| )enable=true( |$)/i.test(kPref) && /(^| )key=\{(.|vk_\w+)\}( |$)/i.test(kPref)) {
@@ -999,7 +999,7 @@ var custombb = {
 
 		for(var i = 0; i < kCmd.length; i++) {
 			var kc = kCmd[i];
-			this.keyCopy[kc] = nsPreferences.getIntPref("custombb.key." + kc, 1); // copy
+			this.keyCopy[kc] = custombbPrefs.getPref("custombb.key." + kc, 1); // copy
 		}
 	},
 
@@ -1013,7 +1013,7 @@ var custombb = {
 		var miId = mp.getAttribute("id").replace(/^custombb-mpopup/, ""); // -tb-custom
 		var tp = miId.replace(/^-(tb|cm)-/, ""); // type
 
-		var num = nsPreferences.getIntPref(fpId + "Quantity", 15); // max
+		var num = custombbPrefs.getPref(fpId + "Quantity", 15); // max
 		if(num == 0)  num = 1;
 		if(num > 200) num = 200;
 
@@ -1050,7 +1050,7 @@ var custombb = {
 
 			mp.setAttribute("cbb_current_num", num);
 		}
-		var src = nsPreferences.copyUnicharPref(fpId, "");
+		var src = custombbPrefs.getPref(fpId, "");
 		var cSrc = mp.getAttribute("cbb_current_src");
 
 		if(!cSrc || src != cSrc || mp.cbb_redraw_required || reNum) {
@@ -1180,7 +1180,7 @@ var custombb = {
 	},
 
 	openColorpicker: function(event) {
-		var modal = nsPreferences.getBoolPref("custombb.modalColorpicker", true);
+		var modal = custombbPrefs.getPref("custombb.modalColorpicker", true);
 		window.openDialog(
 			"chrome://custombb/content/colorpicker.xul",
 			"",
@@ -1199,12 +1199,12 @@ var custombb = {
 		var pId = mp.getAttribute("cbbsource");
 		var miId = mpId.replace(/^custombb-mpopup/, "");
 
-		var num = nsPreferences.getIntPref("custombb." + pId + "Quantity", 20); // max items
+		var num = custombbPrefs.getPref("custombb." + pId + "Quantity", 20); // max items
 		if(num == 0)   num = 1;
 		if(num > 400) num = 400;
 		var cNum = mp.getAttribute("cbb_current_num");
 		cNum = cNum ? parseInt(cNum) : 0;
-		var col = nsPreferences.getIntPref("custombb." + pId + "Columns", 4); // columns
+		var col = custombbPrefs.getPref("custombb." + pId + "Columns", 4); // columns
 		if(col == 0) col = 1;
 		if(col > 100) col = 100;
 		var cCol = mp.getAttribute("cbb_current_col");
@@ -1269,7 +1269,7 @@ var custombb = {
 				cbb_current_col: col
 			});
 		}
-		var src = nsPreferences.copyUnicharPref("custombb." + pId, "");
+		var src = custombbPrefs.getPref("custombb." + pId, "");
 		var cSrc = mp.getAttribute("cbb_current_src");
 		var reDr = mp.cbb_redraw_required;
 
@@ -1454,7 +1454,7 @@ var custombb = {
 		else if(bttn == 1 || (bttn == 0 && ctrl)) {
 			if(set) {
 				var pId = "custombb.selectOutput";
-				nsPreferences.setBoolPref(pId, !nsPreferences.getBoolPref(pId, true));
+				custombbPrefs.setPref(pId, !custombbPrefs.getPref(pId, true));
 			}
 			else
 				this.openSettings();
@@ -1543,7 +1543,7 @@ var custombb = {
 			var val = isCE ? ta.innerHTML : ta.value;
 			if(val) {
 				var lb = this.getLineBreak(val);
-				var time = nsPreferences.getIntPref("custombb.previewUpdateTimeout", 300);
+				var time = custombbPrefs.getPref("custombb.previewUpdateTimeout", 300);
 				window.openDialog(
 					"chrome://custombb/content/preview.xul",
 					"",

@@ -141,7 +141,7 @@ var custombbEdit = {
 					maxId = "smileysURL";
 			}
 			if(!max)
-				max = nsPreferences.getIntPref("custombb." + maxId + "sQuantity", 10);
+				max = custombbPrefs.getPref("custombb." + maxId + "sQuantity", 10);
 
 			var nVal = parseInt(cVal);
 			if(sDir == 1)
@@ -310,7 +310,7 @@ var custombbEdit = {
 					document.getElementById("custombb-smileyEditor-ins").value = pObj[num - 1][0];
 					document.getElementById("custombb-smileyEditor-src").value = pObj[num - 1][1];
 
-					colsIt.value = nsPreferences.getIntPref(colsPref, 4);
+					colsIt.value = custombbPrefs.getPref(colsPref, 4);
 
 					var hasImg = true;
 				break;
@@ -327,7 +327,7 @@ var custombbEdit = {
 					var hasImg = true;
 				break;
 			}
-			var q = nsPreferences.getIntPref("custombb." + qpId + "sQuantity", 15);
+			var q = custombbPrefs.getPref("custombb." + qpId + "sQuantity", 15);
 			if(!cbNum)
 				document.getElementById("custombb-" + qId + "Editor-quantity").value = q;
 
@@ -337,7 +337,7 @@ var custombbEdit = {
 
 
 			if(keyIt) {
-				var keyVal = nsPreferences.getIntPref(keyId, 1);
+				var keyVal = custombbPrefs.getPref(keyId, 1);
 				keyIt.checked = keyVal == num;
 				if(tp == "custom")
 					keyIt.removeAttribute("hidden");
@@ -375,7 +375,7 @@ var custombbEdit = {
 
 					var cols = parseInt(colsIt.value);
 					if(!cols || cols == 0) cols = 4;
-					nsPreferences.setIntPref(colsPref, cols);
+					custombbPrefs.setPref(colsPref, cols);
 				break;
 
 				case "custom-b":
@@ -403,13 +403,13 @@ var custombbEdit = {
 						else
 							var wcl = true;
 
-				nsPreferences.setIntPref("custombb." + qpId + "sQuantity", q);
+				custombbPrefs.setPref("custombb." + qpId + "sQuantity", q);
 				pObj.nums = q;
 			}
 			pServ.setAll(pObj);
 
 			if(keyIt && keyIt.checked)
-				nsPreferences.setIntPref(keyId, num);
+				custombbPrefs.setPref(keyId, num);
 
 			if(apply)
 				this.settings("load");

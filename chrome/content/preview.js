@@ -34,7 +34,7 @@ function init(event) {
 	setColors(event);
 
 	document.getElementById("prev").style.whiteSpace =
-		parent.nsPreferences.getBoolPref("custombb.previewShowAllSpaces", false)
+		parent.custombbPrefs.getPref("custombb.previewShowAllSpaces", false)
 			? "pre"
 			: "normal";
 }
