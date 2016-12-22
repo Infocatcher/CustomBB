@@ -1,28 +1,54 @@
-﻿<!-- Labels -->
+<!-- Labels -->
 <!ENTITY custombb "CustomBB">
 
 <!ENTITY custombb.code "Код">
-<!ENTITY custombb.inv_commas "«Кавычки»">
+<!ENTITY custombb.invCommas "«Кавычки»">
 
 <!ENTITY custombb.quote '"Цитата"'>
 <!ENTITY custombb.list "Список">
-<!ENTITY custombb.img "Картинка">
+<!ENTITY custombb.img "Изображение">
 <!ENTITY custombb.url "Ссылка">
+
 <!ENTITY custombb.bold "Ж">
+<!ENTITY custombb.boldFull "Полужирный">
 <!ENTITY custombb.italic "К">
+<!ENTITY custombb.italicFull "Курсив">
 <!ENTITY custombb.underline "Ч">
+<!ENTITY custombb.underFull "Подчеркнутый">
 <!ENTITY custombb.strike "Зач">
+<!ENTITY custombb.strikeFull "Зачеркнутый">
 
 <!ENTITY custombb.color "Цвет">
 <!ENTITY custombb.size "Размер">
 <!ENTITY custombb.font "Шрифт">
 <!ENTITY custombb.symbol "Символ">
 
-<!ENTITY custombb.smile.code "Смайлы">
-<!ENTITY custombb.smile.url "Смайлы (URL)">
+<!ENTITY custombb.smiley.code "Смайлики">
+<!ENTITY custombb.smiley.url "Смайлики (URL)">
 
 <!ENTITY custombb.style "Стиль">
 <!ENTITY custombb.custom "Дополнително">
 <!ENTITY custombb.settings "Настройки">
 
 <!ENTITY custombb.toolbar.name "CustomBB">
+
+<!-- If JavaScript not set... (button in toolbarpalette) -->
+<!ENTITY custombb.fix "Закрепить / автоскрытие">
+<!ENTITY custombb.showhide "Показать / скрыть">
+
+<!-- Preview window -->
+<!ENTITY custombb.prev.title "CustomBB: предпросмотр">
+<!ENTITY custombb.prev.colors "Настройки цветов">
+
+<!ENTITY custombb.prev.bgColor "Цвет фона:">
+<!ENTITY custombb.prev.txtColor "Цвет текста:">
+<!ENTITY custombb.prev.linksColor "Цвет ссылок:">
+<!ENTITY custombb.prev.codeBgColor "Фон кода (CODE):">
+<!ENTITY custombb.prev.codeBorderColor "Цвет рамки кода (CODE):">
+<!ENTITY custombb.prev.quoteBgColor "Фон цитат (QUOTE):">
+<!ENTITY custombb.prev.quoteBorderColor "Цвет рамки цитат (QUOTE):">
+
+<!-- Colorpicker -->
+<!ENTITY custombb.colorpicker.title "CustomBB: выбор цвета">
+<!ENTITY custombb.colorpicker.prev "Предыдущий цвет:">
+<!ENTITY custombb.colorpicker.note 'Кликните на цвете или введите его HTML-код (пример: "#ff0000" или "red"):'>

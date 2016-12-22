@@ -1,4 +1,4 @@
-﻿<!-- Pop-up text -->
+<!-- Pop-up text -->
 <!ENTITY custombb.tooltip.code "Code">
 <!ENTITY custombb.tooltip.bold "Bold">
 <!ENTITY custombb.tooltip.italic "Italic">
@@ -6,59 +6,33 @@
 <!ENTITY custombb.tooltip.strike "Strikethrough">
 
 <!ENTITY custombb.tooltip.color "Color">
-<!ENTITY custombb.tooltip.size "Size">
+<!ENTITY custombb.tooltip.size "Font size">
 <!ENTITY custombb.tooltip.font "Font">
 
 <!ENTITY custombb.tooltip.quote "Quote">
-<!ENTITY custombb.tooltip.inv_commas "Inverted commas">
+<!ENTITY custombb.tooltip.invCommas "Inverted commas">
 <!ENTITY custombb.tooltip.img "Image">
 <!ENTITY custombb.tooltip.url "URL">
 <!ENTITY custombb.tooltip.list "List">
 
 <!ENTITY custombb.tooltip.symbol "Symbol">
 
-<!ENTITY custombb.tooltip.smilesCodes "Smiles (codes)">
-<!ENTITY custombb.tooltip.smileCode "Smile (code)">
-
-<!ENTITY custombb.tooltip.smilesURL "Smiles (URL)">
-<!ENTITY custombb.tooltip.smileURL "Smile (URL)">
+<!ENTITY custombb.tooltip.smileysCodes "Smileys (codes)">
+<!ENTITY custombb.tooltip.smileysURLs "Smileys (URLs)">
 
 <!ENTITY custombb.tooltip.style "Style">
 <!ENTITY custombb.tooltip.customs "Custom tags">
 <!ENTITY custombb.tooltip.custom "Custom tag">
+
 <!ENTITY custombb.tooltip.settings "CustomBB settings">
-<!ENTITY custombb.tooltip.settings.middle "Ctrl+Left-click / Middle-click – to switch the inserting mode">
+<!ENTITY custombb.tooltip.settings.middle "Ctrl+Left-click / Middle-click – switch inserting mode">
+<!ENTITY custombb.tooltip.settings2 "Ctrl+Left-click / Middle-click – CustomBB settings">
 
-<!-- Editor pop-ups -->
-<!ENTITY custombb.tooltip.custom.src "Link to icon">
-<!ENTITY custombb.tooltip.custom.browse "Select icon for menu item">
-<!ENTITY custombb.tooltip.custom.lbl "Label of menu item">
-<!ENTITY custombb.tooltip.custom.top1 "Open tag">
-<!ENTITY custombb.tooltip.custom.top2 "– title of text's inquiry">
-<!ENTITY custombb.tooltip.custom.tcl "Close tag (\n – line feed)">
+<!ENTITY custombb.tooltip.preview "Double-click – preview">
 
-<!ENTITY custombb.tooltip.profileDir "– path to the profile">
-
-<!ENTITY custombb.tooltip.smile.src "Link to smile">
-<!ENTITY custombb.tooltip.smile.browse "Select smile">
-<!ENTITY custombb.tooltip.smile.ins "Inserted text">
-<!ENTITY custombb.tooltip.smile.label "Smile">
-<!ENTITY custombb.tooltip.smile.URLerror "Error: it required images from Internet">
-
-<!ENTITY custombb.tooltip.color.ex "Example of the current style">
-<!ENTITY custombb.tooltip.color.lbl "Label of menu item">
-
-<!ENTITY custombb.tooltip.symbol "Inserted symbol">
-<!ENTITY custombb.tooltip.symbol.lbl "Label of menu item">
-
-<!ENTITY custombb.tooltip.sizeIns "Font size for inserting">
-<!ENTITY custombb.tooltip.styleSize "Font size for menu item">
-<!ENTITY custombb.tooltip.size.lbl "Label of menu item">
-<!ENTITY custombb.tooltip.size.ex "Example of the current font size">
-<!ENTITY custombb.tooltip.sizeUnit "Unit of measurements">
-
-<!ENTITY custombb.tooltip.font.lbl "Label of menu item">
-<!ENTITY custombb.tooltip.font.ex "Example of the current font">
+<!-- If JavaScript not set... (button in toolbarpalette) -->
+<!ENTITY custombb.tooltip.autohide "Fix / Switch on autohiding of CustomBB toolbar">
+<!ENTITY custombb.tooltip.showTb "Show / hide CustomBB toolbar">
 
 <!-- Additional tooltips -->
 <!ENTITY custombb.tooltip.showAllsubItems "Shift+click – show all sub items">
@@ -71,3 +45,7 @@
 
 <!ENTITY custombb.tooltip.ctrlR-ctrlM_click "Ctrl+Right-click / Ctrl+Middle-click">
 <!ENTITY custombb.tooltip.copySet "– select items for settings swap">
+
+<!-- Preview window tooltips -->
+<!ENTITY custombb.tooltip.prev.ctrlL "Ctrl+Clck in preview area – set colors">
+<!ENTITY custombb.tooltip.prev.ctrlDbl "Ctrl+double-click – restore defaults">

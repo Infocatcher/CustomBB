@@ -1,52 +1,79 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
 <?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://custombb/skin/custombb.css" type="text/css" ?>
 
 <!DOCTYPE dialog [
 	<!ENTITY % settings SYSTEM "chrome://custombb/locale/settings.dtd" >
 	%settings;
-	<!ENTITY % tooltip SYSTEM "chrome://custombb/locale/tooltip.dtd" >
-	%tooltip;
+	<!ENTITY % setTooltip SYSTEM "chrome://custombb/locale/settings_tooltips.dtd" >
+	%setTooltip;
 ]>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id="custombb-editor-color-dialog"
 	title="&custombb.editor.color;"
-	buttons="accept, cancel, extra2"
-	buttonlabelextra2="&custombb.settings.toDefault;"
-	onload="custombbSet.colorEditor('load');"
-	ondialogaccept="custombbSet.colorEditor('write');"
-	ondialogextra2="custombbSet.colorEditor('default');" >
+	buttons="accept, cancel, extra1, extra2"
+	buttonlabelextra1="&custombb.apply.label;"
+	buttonlabelextra2="&custombb.options.toDefault;"
+	onload="custombbEdit.init();"
+	onunload="custombbEdit.destroy();"
+	ondialogaccept="custombbEdit.settings('save');"
+	ondialogextra1="custombbEdit.settings('apply');"
+	ondialogextra2="custombbEdit.settings('default');" >
 
-  <script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
-  <script type="application/x-javascript" src="chrome://custombb/content/settings.js" />
-  <script type="application/x-javascript" src="editor.js" />
-  <script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/editor/editor.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
 
-  <keyset>
-	<key modifiers="control" key="S"	oncommand="custombbSet.colorEditor('write');" />
-	<key keycode="VK_F5"			oncommand="custombbSet.colorEditor('load');" />
-	<key modifiers="control" key="R"	oncommand="custombbSet.colorEditor('load');" />
-  </keyset>
+	<stringbundleset id="custombb-stringbundleset-color">
+		<stringbundle id="custombb-strings" src="chrome://custombb/locale/jstext.properties" />
+	</stringbundleset>
 
+	<keyset>
+		<key modifiers="control" key="S" oncommand="custombbEdit.settings('apply');" />
+		<key keycode="VK_F5" oncommand="custombbEdit.settings('load');" />
+		<key modifiers="control" key="R" oncommand="custombbEdit.settings('load');" />
+	</keyset>
 
 	<groupbox flex="1" >
 
 		<hbox align="center" >
-			<colorpicker id="custombb.colorEditor.colorpicker" type="button" onchange="custombbEdit.colorToText(this.color);" />		<!-- onchange => 2 x set... May be other method? -->
-			<textbox id="custombb.colorEditor.color" tooltiptext="&custombb.tooltip.color;" oninput="custombbEdit.textToColor();" ondragexit="custombbEdit.textToColor();" flex="1" />
-
-			<menuitem id="custombb.colorEditor.example" tooltiptext="&custombb.tooltip.color.ex;" label="&custombb.editor.color.style;:" />
-			<menulist id="custombb.colorEditor.style" oncommand="custombbEdit.setColorExStyle();" >
+			<label value="&custombb.editor.color.name;:" />
+			<textbox id="custombb-colorEditor-color" tooltiptext="&custombb.tooltip.colorIns;" accesskey="&custombb.editor.accesskey.colorIns;"
+				oninput="custombbEdit.textToColor();" ondragexit="custombbEdit.textToColor();" flex="1" />
+			<colorpicker id="custombb-colorEditor-colorpicker" type="button" tooltiptext="&custombb.tooltip.color.sel;"
+				onselect="custombbEdit.colorToText(this.color);" style="margin-right: 5px;" />
+			<menuitem id="custombb-colorEditor-example" tooltiptext="&custombb.tooltip.color.ex;" label="&custombb.editor.color.style;:" />
+			<menulist id="custombb-colorEditor-style" oncommand="custombbEdit.setColorExStyle();" >
 				<menupopup>
-					<menuitem label="&custombb.editor.color.style.black;" value="black" />
-					<menuitem label="&custombb.editor.color.style.white;" value="white" />
+					<menuitem label="&custombb.editor.color.style.black;" value="black" class="custombb-bg-black" style="color: white;" />
+					<menuitem label="&custombb.editor.color.style.white;" value="white" class="custombb-bg-white" style="color: black;" />
 					<menuitem label="&custombb.editor.color.style.none;" value="none" />
 				</menupopup>
 			</menulist>
 		</hbox>
 
-		<textbox id="custombb.colorEditor.label" tooltiptext="&custombb.tooltip.color.lbl;" />
+		<hbox align="center" >
+			<label value="&custombb.editor.label.name;:" />
+			<textbox id="custombb-colorEditor-label" tooltiptext="&custombb.tooltip.color.lbl;" accesskey="&custombb.editor.accesskey.label;" flex="1" />
+		</hbox>
+
+		<spacer flex="1" />
+
+		<hbox align="center">
+			<label value="&custombb.editor.quantity.name;:" />
+			<textbox id="custombb-colorEditor-quantity" maxlength="3" size="3" accesskey="&custombb.editor.accesskey.quantity;" cbbnumbers="int" />
+			<spacer flex="1" />
+			<label value="&custombb.editor.edit.name;" />
+			<menulist id="custombb-colorEditor-num" width="140px" oncommand="custombbEdit.setLoad(this);" >
+				<menupopup onpopupshowing="custombbCmmSet.createNumPopup(this, 'colors');" />
+			</menulist>
+		</hbox>
+
+		<checkbox id="custombb-colorEditor-key" label="&custombb.editor.key;" />
 
 	</groupbox>
 

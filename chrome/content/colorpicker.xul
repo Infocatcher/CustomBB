@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://custombb/skin/colorpicker.css" type="text/css" ?>
+
+<!DOCTYPE dialog [
+	<!ENTITY % label SYSTEM "chrome://custombb/locale/label.dtd" >
+	%label;
+]>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="custombb-color"
+	title="&custombb.colorpicker.title;"
+	buttons="accept, cancel"
+	onload="custombbCP.init();"
+	ondialogaccept="custombbCP.paste();" >
+
+	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
+	<script type="application/x-javascript">
+	<![CDATA[
+		var custombbCP = {
+			init: function() {
+				this.setOld();
+
+				var wa = window.arguments;
+
+				var srce = document.getElementById("custombb-color-src-ex");
+				srce.removeAttribute("tooltiptext");
+				srce.style.cursor = wa[2] ? "" : "pointer";
+
+				if(wa[2])
+					return;
+
+				srce.setAttribute("tooltiptext", custombbCommon.getLocalised("colorpickerClick"));
+				srce.onclick = function(event) {
+					custombbCP.setEvent(event);
+					custombbCP.paste();
+				}
+				var src = document.getElementById("custombb-color-src");
+				src.focus();
+				src.select();
+			},
+			setEvent: function(event) {
+				var wa = window.arguments;
+				wa[0] = event.shiftKey;
+				wa[1] = event.ctrlKey;
+			},
+			setTb: function(cp) { // set textbox
+				var clr = document.getElementById("custombb-color-" + (cp ? "cp" : "src-old")).color;
+				var src = document.getElementById("custombb-color-src");
+				src.value = clr;
+				src.focus();
+				src.select();
+				if(!clr)
+					return false;
+
+				this.setEx(clr);
+				return true;
+			},
+			setEx: function(clr) {
+				clr = custombbCommon.repairStyle.color(clr, true);
+				document.getElementById("custombb-color-src-ex").style.backgroundColor = clr;
+			},
+			qPaste: function(cp, event) { // quick paste
+				if(!custombbCP.setTb(cp))
+					return;
+
+				this.setEvent(event);
+				custombbCP.paste();
+				if(window.arguments[2])
+					window.close();
+			},
+			setOld: function(color, setStyle) {
+				var clr = color;
+				var bt = document.getElementById("custombb-color-src-old");
+				if(!color)
+					var clr = bt.getAttribute("color");
+
+				var sClr = custombbCommon.repairStyle.color(clr, true);
+				if(setStyle || !color) {
+					var sp = bt.lastChild;
+					sp.style.backgroundColor = sClr;
+				}
+				bt.setAttribute("color", clr);
+				bt.color = clr;
+
+				document.getElementById("custombb-color-src").value = clr;
+				this.setEx(clr);
+			},
+			paste: function() {
+				var clrIt = document.getElementById("custombb-color-src");
+				var clr = clrIt.value;
+				if(!clr)
+					return;
+
+				this.setOld(clr, true);
+
+				var wa = window.arguments;
+				custombbCmmSet.execInMainWindow(function(w) {
+					w.custombb.insert("customColor", clr, wa[0], wa[1]);
+					var fe = w.custombb.fe;
+					w.focus();
+					fe && fe.focus();
+				});
+			}
+		};
+	]]>
+	</script>
+
+	<stringbundleset id="custombb-stringbundleset-colorpicker">
+		<stringbundle id="custombb-strings" src="chrome://custombb/locale/jstext.properties" />
+	</stringbundleset>
+
+	<colorpicker id="custombb-color-cp" onselect="custombbCP.setTb(true);" ondblclick="custombbCP.qPaste(true, event);" />
+
+	<button id="custombb-color-src-old" persist="color" onclick="custombbCP.setTb(false);" ondblclick="custombbCP.qPaste(false, event);" >
+		<label value="&custombb.colorpicker.prev;" />
+		<spacer flex="1" />
+		<spacer class="custombb-color" />
+	</button>
+
+	<description style="width: 100px;">
+		&custombb.colorpicker.note;
+	</description>
+
+	<hbox align="center">
+		<textbox id="custombb-color-src" flex="1" oninput="custombbCP.setEx(this.value);" ondragexit="custombbCP.setEx(this.value);" />
+		<spacer id="custombb-color-src-ex" class="custombb-color" />
+	</hbox>
+
+	<separator class="groove" />
+
+</dialog>

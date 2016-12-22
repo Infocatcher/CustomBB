@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
+
+<!DOCTYPE dialog [
+	<!ENTITY % settings SYSTEM "chrome://custombb/locale/settings.dtd" >
+	%settings;
+	<!ENTITY % setTooltip SYSTEM "chrome://custombb/locale/settings_tooltips.dtd" >
+	%setTooltip;
+]>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="custombb-editor-custom-dialog"
+	title="&custombb.editor.smiley;"
+	buttons="accept, cancel, extra1, extra2"
+	buttonlabelextra1="&custombb.apply.label;"
+	buttonlabelextra2="&custombb.options.toDefault;"
+	onload="custombbEdit.init();"
+	onunload="custombbEdit.destroy();"
+	ondialogaccept="custombbEdit.settings('save');"
+	ondialogextra1="custombbEdit.settings('apply');"
+	ondialogextra2="custombbEdit.settings('default');" >
+
+	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/editor/editor.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
+
+	<stringbundleset id="custombb-stringbundleset-smiley">
+		<stringbundle id="custombb-strings" src="chrome://custombb/locale/jstext.properties" />
+	</stringbundleset>
+
+	<keyset>
+		<key modifiers="control" key="S" oncommand="custombbEdit.settings('apply');" />
+		<key keycode="VK_F5" oncommand="custombbEdit.settings('load');" />
+		<key modifiers="control" key="R" oncommand="custombbEdit.settings('load');" />
+
+		<key modifiers="control" key="O" oncommand="custombbEdit.selectImg('smileyEditor');" />
+	</keyset>
+
+	<groupbox flex="1" >
+
+		<hbox align="center" >
+			<label value="&custombb.editor.smiley.name;:" />
+			<textbox id="custombb-smileyEditor-ins" tooltiptext="&custombb.tooltip.smileyIns;" accesskey="&custombb.editor.accesskey.smileyIns;" flex="1" />
+			<label id="custombb-smileyEditor-preview" value="[?]" tooltip="custombb-loadsmiley" />
+		</hbox>
+
+		<spacer flex="1" />
+
+		<hbox align="center" >
+			<label value="&custombb.editor.smiley.style;:" />
+			<image id="custombb-smileyEditor-img" cbbresize="true" tooltip="custombb-imgTooltip" persist="cbbresize" />
+			<textbox id="custombb-smileyEditor-src" tooltiptext="&custombb.tooltip.smiley.src; (%profile% &custombb.tooltip.profileDir;);" accesskey="&custombb.editor.accesskey.smileyStyle;" flex="1"
+				oninput="custombbEdit.textToImg();" ondragexit="custombbEdit.textToImg();" />
+			<button label="&custombb.options.browse;..." oncommand="custombbEdit.selectImg('smileyEditor');" tooltiptext="&custombb.tooltip.smiley.browse; Ctrl+O" class="custombb-browse" />
+		</hbox>
+
+		<spacer flex="1" />
+
+		<hbox align="center" >
+			<label value="&custombb.editor.quantity.name;:" />
+			<textbox id="custombb-smileyEditor-quantity" maxlength="3" size="3" accesskey="&custombb.editor.accesskey.quantity;" cbbnumbers="int" />
+			<spacer flex="1" />
+			<label value="&custombb.editor.columns.name;:" />
+			<textbox id="custombb-smileyEditor-columns" maxlength="2" size="3" accesskey="&custombb.editor.accesskey.columns;" cbbnumbers="int" />
+		</hbox>
+
+		<hbox align="center" >
+			<spacer flex="1" />
+			<label value="&custombb.editor.edit.name;" />
+			<menulist id="custombb-smileyEditor-num" minwidth="120px" flex="10" oncommand="custombbEdit.setLoad(this);" >
+				<menupopup onpopupshowing="custombbCmmSet.createNumPopup(this, 'smileys' + (window.arguments[1] == 'smiley-code' ? 'Code' : 'URL') + 's');" />
+			</menulist>
+		</hbox>
+
+	</groupbox>
+
+	<popupset>
+		<tooltip id="custombb-loadsmiley" noautohide="true" onpopupshowing="custombbEdit.fillImgInTooltip();">
+			<vbox id="custombb-loadsmiley-vbox" align="left" flex="1">
+				<label id="custombb-loadsmiley-title" value="&custombb.tooltip.smiley.label;:" />
+				<label id="custombb-loadsmiley-error" value="&custombb.tooltip.smiley.URLerror; (http://...)" style="color: #d00;" />
+				<image id="custombb-loadsmiley-img" />
+			</vbox>
+		</tooltip>
+		<tooltip id="custombb-imgTooltip" orient="vertical" style="padding: 0px;" onpopupshowing="return custombbEdit.fillInTooltip(this);" >
+			<label value="line 1" />
+			<label value="line 2" />
+		</tooltip>
+	</popupset>
+
+</dialog>

@@ -1,64 +1,91 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
 <?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
 
 <!DOCTYPE dialog [
 	<!ENTITY % settings SYSTEM "chrome://custombb/locale/settings.dtd" >
 	%settings;
-	<!ENTITY % tooltip SYSTEM "chrome://custombb/locale/tooltip.dtd" >
-	%tooltip;
+	<!ENTITY % setTooltip SYSTEM "chrome://custombb/locale/settings_tooltips.dtd" >
+	%setTooltip;
 ]>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id="custombb-editor-custom-dialog"
 	title="&custombb.editor.custom;"
-	buttons="accept, cancel, extra2"
-	buttonlabelextra2="&custombb.settings.toDefault;"
-	onload="custombbSet.customEditor('load');"
-	ondialogaccept="custombbSet.customEditor('write');"
-	ondialogextra2="custombbSet.customEditor('default');" >
+	buttons="accept, cancel, extra1, extra2"
+	buttonlabelextra1="&custombb.apply.label;"
+	buttonlabelextra2="&custombb.options.toDefault;"
+	onload="custombbEdit.init();"
+	onunload="custombbEdit.destroy();"
+	ondialogaccept="custombbEdit.settings('save');"
+	ondialogextra1="custombbEdit.settings('apply');"
+	ondialogextra2="custombbEdit.settings('default');" >
 
-  <script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
-  <script type="application/x-javascript" src="chrome://custombb/content/settings.js" />
-  <script type="application/x-javascript" src="editor.js" />
-  <script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/editor/editor.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
 
-  <stringbundleset id="custombb-stringbundleset-custom">
-	<stringbundle id="custombb-strings" src="chrome://custombb/locale/jstext.properties" />
-  </stringbundleset>
+	<stringbundleset id="custombb-stringbundleset-custom">
+		<stringbundle id="custombb-strings" src="chrome://custombb/locale/jstext.properties" />
+	</stringbundleset>
 
-  <keyset>
-	<key modifiers="control" key="S"	oncommand="custombbSet.customEditor('write'); custombbSet.customEditor('load');" />
-	<key keycode="VK_F5"			oncommand="custombbSet.customEditor('load');" />
-	<key modifiers="control" key="R"	oncommand="custombbSet.customEditor('load');" />
-	<key modifiers="control" key="O"	oncommand="custombbSet.selectImg('customEditor');" />
-  </keyset>
+	<keyset>
+		<key modifiers="control" key="S" oncommand="custombbEdit.settings('apply');" />
+		<key keycode="VK_F5" oncommand="custombbEdit.settings('load');" />
+		<key modifiers="control" key="R" oncommand="custombbEdit.settings('load');" />
+		<key modifiers="control" key="O" oncommand="custombbEdit.selectImg('customEditor');" />
+	</keyset>
 
 	<groupbox flex="1" >
-	<grid flex="1" style="overflow: auto; height: 60px; width: 520px;">
-		<columns>
-		   <column />
-		   <column minwidth="120" flex="1" />
-		   <column />
-		   <column minwidth="120" flex="1" />
-		</columns>
 
-		<rows>
-		   <row align="center" >
-			<image id="custombb.customEditor.img" />
-			<textbox id="custombb.customEditor.src" tooltiptext="&custombb.tooltip.custom.src; (%profile% &custombb.tooltip.profileDir;);" oninput="custombbEdit.textToImg();" ondragexit="custombbEdit.textToImg();" />
-			<button label="&custombb.settings.browse;..." oncommand="custombbSet.selectImg('customEditor');" tooltiptext="&custombb.tooltip.custom.browse; Ctrl+O" />
-			<textbox id="custombb.customEditor.lbl" tooltiptext="&custombb.tooltip.custom.lbl;" />
-		   </row>
-		   <row align="center" >
-			<spaser />
-			<textbox id="custombb.customEditor.top" tooltiptext="&custombb.tooltip.custom.top1; (%&custombb.settings.text;% &custombb.tooltip.custom.top2;);" />
-			<label value="+ &custombb.settings.text; +" />
-			<textbox id="custombb.customEditor.tcl" tooltiptext="&custombb.tooltip.custom.tcl;" />
-		   </row>
-		</rows>
-	</grid>
+		<hbox align="center" >
+			<label value="&custombb.editor.custom.top;:" />
+			<textbox id="custombb-customEditor-top" tooltiptext="&custombb.tooltip.custom.top1; (%&custombb.editor.text;% &custombb.tooltip.custom.top2;);" accesskey="&custombb.editor.accesskey.customTop;" flex="1" />
+
+			<label value="&custombb.editor.custom.tcl;:" />
+			<textbox id="custombb-customEditor-tcl" tooltiptext="&custombb.tooltip.custom.tcl;" accesskey="&custombb.editor.accesskey.customTcl;" flex="1" />
+		</hbox>
+
+		<hbox align="center" >
+			<label value="&custombb.editor.label.name;:" />
+			<textbox id="custombb-customEditor-lbl" tooltiptext="&custombb.tooltip.custom.lbl;" accesskey="&custombb.editor.accesskey.label;" flex="1" />
+		</hbox>
+
+		<spacer flex="1" />
+
+		<hbox align="center" >
+			<label value="&custombb.editor.custom.icon;:" />
+			<image id="custombb-customEditor-img" cbbresize="true" tooltip="custombb-imgTooltip" persist="cbbresize" />
+			<textbox id="custombb-customEditor-src" tooltiptext="&custombb.tooltip.custom.src; (%profile% &custombb.tooltip.profileDir;);" accesskey="&custombb.editor.accesskey.customIco;"
+				oninput="custombbEdit.textToImg();" ondragexit="custombbEdit.textToImg();" flex="1" />
+			<button label="&custombb.options.browse;..." oncommand="custombbEdit.selectImg('customEditor');" tooltiptext="&custombb.tooltip.custom.browse; Ctrl+O" class="custombb-browse" />
+		</hbox>
+
+		<spacer flex="1" />
+
+		<hbox align="center" >
+			<hbox id="custombb-customEditor-quantityBox" align="center" >
+				<label value="&custombb.editor.quantity.name;:" />
+				<textbox id="custombb-customEditor-quantity" maxlength="3" size="3" accesskey="&custombb.editor.accesskey.quantity;" cbbnumbers="int" />
+			</hbox>
+			<spacer flex="1" />
+			<label value="&custombb.editor.edit.name;" />
+			<menulist id="custombb-customEditor-num" width="140px" oncommand="custombbEdit.setLoad(this);" >
+				<menupopup onpopupshowing="custombbCmmSet.createNumPopup(this, 'customs', window.arguments[1] == 'custom-b' ? 5 : null);" />
+			</menulist>
+		</hbox>
+
+		<checkbox id="custombb-customEditor-key" label="&custombb.editor.key;" hidden="true" />
+
 	</groupbox>
 
+	<popupset>
+		<tooltip id="custombb-imgTooltip" orient="vertical" style="padding: 0px;" onpopupshowing="return custombbEdit.fillInTooltip(this);" >
+			<label value="line 1" />
+			<label value="line 2" />
+		</tooltip>
+	</popupset>
 
 </dialog>

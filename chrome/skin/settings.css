@@ -1,13 +1,81 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-.custombb-notsaved		{border: 1px dotted red; padding: 3px 3px;}
-.custombb-notsaved:hover	{border: 1px solid red; padding: 3px 3px;}
+.custombb-not-saved {
+	border: 1px dotted red;
+	padding: 3px;
+}
+.custombb-not-saved:hover {
+	border: 1px solid red;
+}
 
-#custombb-settings-links-url	{list-style-image: url(img/cbb_ico16.png); -moz-image-region: rect(32px 48px 48px 32px);}
-#custombb-settings-links-img	{list-style-image: url(img/cbb_ico16.png); -moz-image-region: rect(48px 48px 64px 32px);}
-#custombb-settings-style	{list-style-image: url(img/cbb_ico16.png); -moz-image-region: rect(0px 80px 16px 64px);}
-#custombb-settings-list		{list-style-image: url(img/cbb_ico16.png); -moz-image-region: rect(48px 32px 64px 16px);}
+#custombb-VKpopup {
+	height: 350px;
+	width: 150px;
+}
+#custombb-VKpopup autorepeatbutton {
+	display: none;
+}
+#custombb-VKpopup scrollbox {
+	overflow: auto;
+}
 
-#custombb-VKpopup			{height: 350px; width: 170px;}
-#custombb-VKpopup autorepeatbutton	{display: none;}
-#custombb-VKpopup scrollbox		{overflow-y: auto;}
+.custombb-selected-item {
+	border: 1px dotted red;
+}
+
+.custombb-browse {
+	list-style-image: url("img/browse.png");
+}
+.custombb-browse image {
+	-moz-padding-end: 4px;
+}
+
+#custombb-smileyEditor-preview {
+	padding: 2px;
+}
+#custombb-smileyEditor-preview:hover {
+	background-color: #ffe;
+}
+
+.custombb-selected-row {
+	background-color: #ffe;
+	color: #007;
+}
+
+#custombb-keys-modifiers {
+	font-size: 11px !important;
+}
+#custombb-options-keysGrid {
+	height: 27em;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/* Icons by Firefox 2.0 default theme and All-in-One Sidebar (keys) */
+radio[pane=custombb-options-main], radio[pane=custombb-options-keys], radio[pane=custombb-options-advanced] {
+	list-style-image: url("img/prefs.png");
+}
+radio[pane=custombb-options-main] {
+	-moz-image-region: rect(0px, 32px, 32px, 0px);
+}
+radio[pane=custombb-options-keys] {
+	-moz-image-region: rect(0px, 64px, 32px, 32px);
+}
+radio[pane=custombb-options-advanced] {
+	-moz-image-region: rect(0px, 96px, 32px, 64px);
+}
+
+@-moz-document url("chrome://custombb/content/preview.xul") {
+	textbox {
+		width: 7em;
+	}
+}
+
+#custombb-colorEditor-style menuitem {
+	color: -moz-DialogText;
+	background-color: -moz-Dialog;
+}
+#custombb-colorEditor-style menuitem:hover {
+	color: HighlightText;
+	background-color: Highlight;
+}

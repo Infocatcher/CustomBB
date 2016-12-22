@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
+<?xml-stylesheet href="chrome://custombb/skin/custombb.css" type="text/css" ?>
+
+<!DOCTYPE prefwindow [
+	<!ENTITY % settings SYSTEM "chrome://custombb/locale/settings.dtd" >
+	%settings;
+]>
+
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="custombb-options"
+	title="&custombb.options.title;"
+	buttons="accept, cancel, extra2"
+	buttonlabelextra2="&custombb.options.label;"
+	onload="custombbOpts.init();"
+	ondialogaccept="custombbOpts.settings('save');"
+	persist="screenX screenY" >
+
+	<box>
+		<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+		<script type="application/x-javascript" src="chrome://custombb/content/prefs/options.js" />
+		<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+		<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
+
+		<stringbundleset id="custombb-stringbundleset-options">
+			<stringbundle id="custombb-strings" src="chrome://custombb/locale/jstext.properties" />
+		</stringbundleset>
+
+		<keyset>
+			<key modifiers="control" key="S" oncommand="custombbOpts.settings('apply');" />
+			<key keycode="VK_F5" oncommand="custombbOpts.settings('load');" />
+			<key modifiers="control" key="R" oncommand="custombbOpts.settings('load');" />
+			<key id="custombb-options-key-import" modifiers="control" key="I" oncommand="custombbOpts.settings('import');" />
+			<key id="custombb-options-key-export" modifiers="control" key="E" oncommand="custombbOpts.settings('export');" />
+		</keyset>
+
+		<popupset>
+			<menupopup id="custombb-options-popup" position="before_start" >
+				<menuitem id="custombb-default" label="&custombb.options.toDefault;" oncommand="custombbOpts.settings('default');" />
+				<menuseparator />
+				<menuitem id="custombb-import" label="&custombb.options.import;" key="custombb-options-key-import" oncommand="custombbOpts.settings('import');" />
+				<menuitem id="custombb-export" label="&custombb.options.export;" key="custombb-options-key-export" oncommand="custombbOpts.settings('export');" />
+			</menupopup>
+		</popupset>
+	</box>
+
+	<prefpane id="custombb-options-main" label="&custombb.options.main;" flex="1" >
+
+		<preferences>
+			<preference id="cSites" type="string" name="custombb.constrain.sites" />
+			<preference id="cLinks" type="bool" name="custombb.constrain.links" />
+			<preference id="cStDash" type="bool" name="custombb.constrain.style.dash" />
+			<preference id="cStDashPl" type="bool" name="custombb.constrain.style.dashPlus" />
+			<preference id="cStCommas" type="bool" name="custombb.constrain.style.commas" />
+			<preference id="cStSymbols" type="bool" name="custombb.constrain.style.symbols" />
+			<preference id="cStPMarks" type="bool" name="custombb.constrain.style.punktMarks" />
+			<preference id="listAst" type="bool" name="custombb.listAsterisk" />
+			<preference id="selOut" type="bool" name="custombb.selectOutput" />
+		</preferences>
+
+		<groupbox>
+		<caption label="&custombb.options.mainSet;" />
+
+			<groupbox>
+			<caption label="&custombb.options.constrain.sites;" />
+				<hbox>
+					<textbox preference="cSites" flex="1" />
+					<button label="&custombb.options.constrain.sites_help;" oncommand="custombbOpts.help();" />
+				</hbox>
+			</groupbox>
+
+			<checkbox preference="cLinks" label="&custombb.options.constrain.links; &custombb.options.shift;" />
+
+			<groupbox>
+			<caption id="custombb-options-style" label=" &custombb.options.constrain.style;" />
+				<checkbox id="custombb-options-parentCBox1" preference="cStDash" label="&custombb.options.constrain.style.dash;" oncommand="custombbOpts.disableSubCheckbox(this);" />
+					<checkbox preference="cStDashPl" label="&custombb.options.constrain.style.dashPlus;" style="margin-left: 25px" />
+				<checkbox preference="cStCommas" label="&custombb.options.constrain.style.commas;" />
+				<checkbox preference="cStSymbols" label="&custombb.options.constrain.style.symbols;" />
+				<checkbox preference="cStPMarks" label="&custombb.options.constrain.style.punktMarks;" />
+			</groupbox>
+
+			<checkbox preference="listAst" label="&custombb.options.list; &custombb.options.shift;" />
+			<checkbox preference="selOut" label="&custombb.options.selectOutput;" />
+
+		</groupbox>
+
+	</prefpane>
+
+	<!-- ******************* -->
+
+	<prefpane id="custombb-options-keys" label="&custombb.options.keys;" flex="1" src="chrome://custombb/content/prefs/keys.xul" style="height: 35em !important;" />
+
+	<!-- ******************* -->
+
+	<prefpane id="custombb-options-advanced" label="&custombb.options.advanced;" flex="1" >
+
+		<preferences>
+			<preference id="tbAShow" type="bool" name="custombb.toolbarAutoShow" />
+			<preference id="tbAShowAlw" type="bool" name="custombb.toolbarAutoShowAlways" />
+
+			<preference id="prevExtSmileys" type="bool" name="custombb.previewUseExternalSmileysURLs" />
+			<preference id="prevShowSpaces" type="bool" name="custombb.previewShowAllSpaces" />
+			<preference id="prevUpdTOut" type="int" name="custombb.previewUpdateTimeout" />
+
+			<preference id="allTTips" type="bool" name="custombb.showAllTooltips" />
+			<preference id="commasClip" type="bool" name="custombb.invCommasUseClipboard" />
+			<preference id="modalCP" type="bool" name="custombb.modalColorpicker" />
+			<preference id="focusTA" type="bool" name="custombb.focusTextareaAfterQuickPaste" />
+		</preferences>
+
+		<groupbox>
+		<caption label="&custombb.options.advancedSet;" />
+
+			<groupbox>
+			<caption label="&custombb.options.toolbarBehaviour;" />
+				<checkbox id="custombb-options-parentCBox2" preference="tbAShow" label="&custombb.options.toolbarAutoShow;" oncommand="custombbOpts.disableSubCheckbox(this);" />
+					<checkbox preference="tbAShowAlw" label="&custombb.options.toolbarAutoShowAlways;" style="margin-left: 25px" />
+			</groupbox>
+
+			<groupbox>
+			<caption label="Preview" />
+				<checkbox preference="prevExtSmileys" label="Use external smileys URLs" />
+				<checkbox preference="prevShowSpaces" label="Show all spaces" />
+				<hbox align="center" >
+					<label value="Refresh every" />
+					<textbox preference="prevUpdTOut" size="4" />
+					<label value="ms (-1 - disable refreshing)" />
+				</hbox>
+			</groupbox>
+
+			<groupbox>
+			<caption label="&custombb.options.misc;" />
+				<checkbox preference="allTTips" label="&custombb.options.showAllTooltips;" />
+				<checkbox preference="commasClip" label="&custombb.options.invCommasClip; &custombb.options.shift;" />
+				<checkbox preference="modalCP" label="Modal colorpicker" />
+
+				<checkbox preference="focusTA" label="Focus text area after quick paste" />
+			</groupbox>
+
+			<!--caption label="&custombb.options.extendedSet;" /-->
+
+		</groupbox>
+
+	</prefpane>
+
+	<!-- ******************* -->
+
+	<prefpane id="custombb-options-extended" label="Extended" flex="1" >
+		<preferences>
+			<preference id="urlMask" type="string" name="custombb.urlMask" />
+			<preference id="urlImgMask" type="string" name="custombb.urlImgMask" />
+			<preference id="preloadTOut" type="int" name="custombb.preloadTimeout" />
+		</preferences>
+
+		<groupbox>
+		<caption label="Extended settings" />
+			<groupbox>
+			<caption label="&custombb.options.urlMask; (RegExp):" />
+				<textbox preference="urlMask" />
+			</groupbox>
+
+			<groupbox>
+			<caption label="&custombb.options.urlImgMask; (RegExp):" />
+				<textbox preference="urlImgMask" />
+			</groupbox>
+
+			<hbox align="center" >
+				<label value="Preload timeout" />
+				<textbox preference="preloadTOut" size="4" />
+				<label value="ms (-1 - disable preload)" />
+			</hbox>
+		</groupbox>
+	</prefpane>
+
+</prefwindow>

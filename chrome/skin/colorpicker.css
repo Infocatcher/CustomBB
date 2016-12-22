@@ -1,0 +1,13 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.custombb-color {
+	border: 2px outset #ccc;
+	width: 22px;
+	height: 22px;
+	margin: 0px;
+}
+
+#custombb-color-src-old {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

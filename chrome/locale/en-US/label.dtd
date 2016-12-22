@@ -1,28 +1,54 @@
-﻿<!-- Labels -->
+<!-- Labels -->
 <!ENTITY custombb "CustomBB">
 
 <!ENTITY custombb.code "Code">
-<!ENTITY custombb.inv_commas "«Commas»">
+<!ENTITY custombb.invCommas "«Commas»">
 
 <!ENTITY custombb.quote '"Quote"'>
 <!ENTITY custombb.list "List">
 <!ENTITY custombb.img "IMG">
 <!ENTITY custombb.url "URL">
+
 <!ENTITY custombb.bold "B">
+<!ENTITY custombb.boldFull "Bold">
 <!ENTITY custombb.italic "I">
+<!ENTITY custombb.italicFull "Italic">
 <!ENTITY custombb.underline "U">
+<!ENTITY custombb.underFull "Underline">
 <!ENTITY custombb.strike "Str">
+<!ENTITY custombb.strikeFull "Strikethrough">
 
 <!ENTITY custombb.color "Color">
 <!ENTITY custombb.size "Size">
 <!ENTITY custombb.font "Font">
 <!ENTITY custombb.symbol "Symbol">
 
-<!ENTITY custombb.smile.code "Smiles">
-<!ENTITY custombb.smile.url "Smiles (URL)">
+<!ENTITY custombb.smiley.code "Smileys">
+<!ENTITY custombb.smiley.url "Smileys (URLs)">
 
 <!ENTITY custombb.style "Style">
 <!ENTITY custombb.custom "Custom">
 <!ENTITY custombb.settings "Settings">
 
 <!ENTITY custombb.toolbar.name "CustomBB">
+
+<!-- If JavaScript not set... (button in toolbarpalette) -->
+<!ENTITY custombb.fix "Fix / autohide">
+<!ENTITY custombb.showhide "Show / hide">
+
+<!-- Preview window -->
+<!ENTITY custombb.prev.title "CustomBB: preview">
+<!ENTITY custombb.prev.colors "Colors options">
+
+<!ENTITY custombb.prev.bgColor "Background color:">
+<!ENTITY custombb.prev.txtColor "Text color:">
+<!ENTITY custombb.prev.linksColor "Links color:">
+<!ENTITY custombb.prev.codeBgColor "Background of code (CODE):">
+<!ENTITY custombb.prev.codeBorderColor "Border color of code (CODE):">
+<!ENTITY custombb.prev.quoteBgColor "Background of quotes (QUOTE):">
+<!ENTITY custombb.prev.quoteBorderColor "Border color of quotes (QUOTE):">
+
+<!-- Colorpicker -->
+<!ENTITY custombb.colorpicker.title "CustomBB: color's choice">
+<!ENTITY custombb.colorpicker.prev "Previous color:">
+<!ENTITY custombb.colorpicker.note 'Click on color or insert HTML-code (example: "#ff0000" or "red"):'>

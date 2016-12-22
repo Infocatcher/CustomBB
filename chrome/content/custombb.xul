@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://custombb/skin/" type="text/css" ?>
+
+<?xml-stylesheet href="chrome://custombb/skin/custombb.css" type="text/css" ?>
 
 <!DOCTYPE overlay [
 	<!ENTITY % label SYSTEM "chrome://custombb/locale/label.dtd" >
@@ -11,470 +12,180 @@
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
 	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
-	<script type="application/x-javascript" src="custombb.js" />
-	<script type="application/x-javascript" src="common.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/~firstrun.js" /> <!-- temp -->
+	<script type="application/x-javascript" src="chrome://custombb/content/custombb.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
 
 	<stringbundleset id="stringbundleset">
 		<stringbundle id="custombb-strings" src="chrome://custombb/locale/jstext.properties" />
 	</stringbundleset>
 
 	<keyset id="mainKeyset">
-		<key id="custombb-key-show_toolbar-locale"	oncommand="custombb.showToolbar();"		disabled="true" />
+		<key id="custombb-key-showToolbar-locale" oncommand="custombb.showHideToolbar();" disabled="true" />
 
-		<key id="custombb-key-code-locale"		oncommand="custombb.insert('code');"		disabled="true" />
-		<key id="custombb-key-url-locale"		oncommand="custombb.insert('url');"		disabled="true" />
-		<key id="custombb-key-bold-locale"		oncommand="custombb.insert('bold');"		disabled="true" />
-		<key id="custombb-key-italic-locale"		oncommand="custombb.insert('italic');"		disabled="true" />
-		<key id="custombb-key-underline-locale"		oncommand="custombb.insert('underline');"	disabled="true" />
-		<key id="custombb-key-color-locale"		oncommand="custombb.insert('color', '1');"	disabled="true" />
-		<key id="custombb-key-quote-locale"		oncommand="custombb.insert('quote');"		disabled="true" />
-		<key id="custombb-key-inv_commas-locale"	oncommand="custombb.insert('inv_commas');"	disabled="true" />
-		<key id="custombb-key-list-locale"		oncommand="custombb.insert('list');"		disabled="true" />
-		<key id="custombb-key-img-locale"		oncommand="custombb.insert('img');"		disabled="true" />
-		<key id="custombb-key-symbol-locale"		oncommand="custombb.insert('symbol', '1');"	disabled="true" />
-		<key id="custombb-key-style-locale"		oncommand="custombb.insert('style');"		disabled="true" />
+		<key id="custombb-key-code-locale" oncommand="custombb.insert('code');" disabled="true" />
+		<key id="custombb-key-url-locale" oncommand="custombb.insert('url');" disabled="true" />
+		<key id="custombb-key-bold-locale" oncommand="custombb.insert('bold');" disabled="true" />
+		<key id="custombb-key-italic-locale" oncommand="custombb.insert('italic');" disabled="true" />
+		<key id="custombb-key-underline-locale" oncommand="custombb.insert('underline');" disabled="true" />
+		<key id="custombb-key-strike-locale" oncommand="custombb.insert('strike');" disabled="true" />
+		<key id="custombb-key-color-locale" oncommand="custombb.customizableInsert('color');" disabled="true" />
+		<key id="custombb-key-quote-locale" oncommand="custombb.insert('quote');" disabled="true" />
+		<key id="custombb-key-invCommas-locale" oncommand="custombb.insert('invCommas');" disabled="true" />
+		<key id="custombb-key-list-locale" oncommand="custombb.insert('list');" disabled="true" />
+		<key id="custombb-key-img-locale" oncommand="custombb.insert('img');" disabled="true" />
+		<key id="custombb-key-symbol-locale" oncommand="custombb.customizableInsert('symbol');" disabled="true" />
+		<key id="custombb-key-style-locale" oncommand="custombb.insert('style');" disabled="true" />
+		<key id="custombb-key-custom-locale" oncommand="custombb.customizableInsert('custom');" disabled="true" />
 
-		<key id="custombb-key-show_toolbar-main"	oncommand="custombb.showToolbar();"		disabled="true" />
+		<key id="custombb-key-showToolbar-main" oncommand="custombb.showHideToolbar();" disabled="true" />
 
-		<key id="custombb-key-code-main"		oncommand="custombb.insert('code');"		disabled="true" />
-		<key id="custombb-key-url-main"			oncommand="custombb.insert('url');"		disabled="true" />
-		<key id="custombb-key-bold-main"		oncommand="custombb.insert('bold');"		disabled="true" />
-		<key id="custombb-key-italic-main"		oncommand="custombb.insert('italic');"		disabled="true" />
-		<key id="custombb-key-underline-main"		oncommand="custombb.insert('underline');"	disabled="true" />
-		<key id="custombb-key-color-main"		oncommand="custombb.insert('color', '1');"	disabled="true" />
-		<key id="custombb-key-quote-main"		oncommand="custombb.insert('quote');"		disabled="true" />
-		<key id="custombb-key-inv_commas-main"		oncommand="custombb.insert('inv_commas');"	disabled="true" />
-		<key id="custombb-key-list-main"		oncommand="custombb.insert('list');"		disabled="true" />
-		<key id="custombb-key-img-main"			oncommand="custombb.insert('img');"		disabled="true" />
-		<key id="custombb-key-symbol-main"		oncommand="custombb.insert('symbol', '1');"	disabled="true" />
-		<key id="custombb-key-style-main"		oncommand="custombb.insert('style');"		disabled="true" />
+		<key id="custombb-key-code-main" oncommand="custombb.insert('code');" disabled="true" />
+		<key id="custombb-key-url-main" oncommand="custombb.insert('url');" disabled="true" />
+		<key id="custombb-key-bold-main" oncommand="custombb.insert('bold');" disabled="true" />
+		<key id="custombb-key-italic-main" oncommand="custombb.insert('italic');" disabled="true" />
+		<key id="custombb-key-underline-main" oncommand="custombb.insert('underline');" disabled="true" />
+		<key id="custombb-key-strike-main" oncommand="custombb.insert('strike');" disabled="true" />
+		<key id="custombb-key-color-main" oncommand="custombb.customizableInsert('color');" disabled="true" />
+		<key id="custombb-key-quote-main" oncommand="custombb.insert('quote');" disabled="true" />
+		<key id="custombb-key-invCommas-main" oncommand="custombb.insert('invCommas');" disabled="true" />
+		<key id="custombb-key-list-main" oncommand="custombb.insert('list');" disabled="true" />
+		<key id="custombb-key-img-main" oncommand="custombb.insert('img');" disabled="true" />
+		<key id="custombb-key-symbol-main" oncommand="custombb.customizableInsert('symbol');" disabled="true" />
+		<key id="custombb-key-style-main" oncommand="custombb.insert('style');" disabled="true" />
+		<key id="custombb-key-custom-main" oncommand="custombb.customizableInsert('custom');" disabled="true" />
 	</keyset>
 
 	<commandset id="mainCommandSet">
-		<command id="custombb-cmd-code"		label="&custombb.code;"		oncommand="custombb.insert('code');" />
-		<command id="custombb-cmd-url"		label="&custombb.url;"		oncommand="custombb.insert('url');" />
-		<command id="custombb-cmd-bold"		label="&custombb.bold;"		oncommand="custombb.insert('bold');" />
-		<command id="custombb-cmd-italic"	label="&custombb.italic;"	oncommand="custombb.insert('italic');" />
-		<command id="custombb-cmd-underline"	label="&custombb.underline;"	oncommand="custombb.insert('underline');" />
-		<command id="custombb-cmd-strike"	label="&custombb.strike;"	oncommand="custombb.insert('strike');" />
+		<command id="custombb-cmd-code" label="&custombb.code;" oncommand="custombb.initInsert(event, 'code');" />
+		<command id="custombb-cmd-url" label="&custombb.url;" oncommand="custombb.initInsert(event, 'url');" />
+		<command id="custombb-cmd-bold" oncommand="custombb.initInsert(event, 'bold');" />
+		<command id="custombb-cmd-italic" oncommand="custombb.initInsert(event, 'italic');" />
+		<command id="custombb-cmd-underline" oncommand="custombb.initInsert(event, 'underline');" />
+		<command id="custombb-cmd-strike" oncommand="custombb.initInsert(event, 'strike');" />
 
-		<command id="custombb-cmd-quote"	label="&custombb.quote;"	oncommand="custombb.insert('quote');" />
-		<command id="custombb-cmd-inv_commas"	label="&custombb.inv_commas;"	oncommand="custombb.insert('inv_commas');" />
-		<command id="custombb-cmd-list"		label="&custombb.list;"		oncommand="custombb.insert('list');" />
-		<command id="custombb-cmd-img"		label="&custombb.img;"		oncommand="custombb.insert('img');" />
+		<command id="custombb-cmd-quote" label="&custombb.quote;" oncommand="custombb.initInsert(event, 'quote');" />
+		<command id="custombb-cmd-invCommas" label="&custombb.invCommas;" oncommand="custombb.initInsert(event, 'invCommas');" />
+		<command id="custombb-cmd-list" label="&custombb.list;" oncommand="custombb.initInsert(event, 'list');" />
+		<command id="custombb-cmd-img" label="&custombb.img;" oncommand="custombb.initInsert(event, 'img');" />
 
-		<command id="custombb-cmd-style"	label="&custombb.style;"	oncommand="custombb.insert('style');" />
+		<command id="custombb-cmd-style" label="&custombb.style;" oncommand="custombb.initInsert(event, 'style');" />
 	</commandset>
 
 	<!-- Context menu -->
 	<popup id="contentAreaContextMenu">
-		<menu id="custombb-popup" label="&custombb;" position="1" class="menu-iconic" onpopupshowing="custombb.initCustomItems('popup'); custombb.initCustomItems('button');" onclick="custombb.showAllMenuitems(event);" >
-			<menupopup>
-				<menuitem id="custombb-popup-cm-code"	command="custombb-cmd-code"	key="custombb-key-code-main" />
-				<menuitem id="custombb-popup-cm-url"	command="custombb-cmd-url"	key="custombb-key-url-main" />
+
+		<menu id="custombb-popup" label="&custombb;" position="1" class="menu-iconic" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="CustomBB" line2="&custombb.tooltip.preview;" cbbeditable="menu" accesskey="C" onclick="custombb.showAllSubItems(event, true);" ondblclick="custombb.openPreview(event);" >
+			<menupopup id="custombb-mpopup" cbbsource="customButtons" onpopupshowing="custombb.initCustomItems('popup'); custombb.initCustomItems('button');" onpopuphidden="custombb.setShowStatus(this, true);" >
+				<menuitem id="custombb-popup-cm-code" command="custombb-cmd-code" line1="&custombb.tooltip.code;" class="menuitem-iconic custombb-h" key="custombb-key-code-main" />
+				<menuitem id="custombb-popup-cm-url" command="custombb-cmd-url" line1="&custombb.tooltip.url;" class="menuitem-iconic custombb-h" key="custombb-key-url-main" />
 
 				<menuseparator id="custombb-separator-1" />
 
-				<menuitem id="custombb-popup-cm-bold"		command="custombb-cmd-bold"		key="custombb-key-bold-main" />
-				<menuitem id="custombb-popup-cm-italic"		command="custombb-cmd-italic"		key="custombb-key-italic-main" />
-				<menuitem id="custombb-popup-cm-underline"	command="custombb-cmd-underline"	key="custombb-key-underline-main" />
-				<menuitem id="custombb-popup-cm-strike"		command="custombb-cmd-strike" />
+				<menuitem id="custombb-popup-cm-bold" label="&custombb.boldFull;" command="custombb-cmd-bold" line1="&custombb.tooltip.bold;" class="menuitem-iconic custombb-h" key="custombb-key-bold-main" />
+				<menuitem id="custombb-popup-cm-italic" label="&custombb.italicFull;" command="custombb-cmd-italic" line1="&custombb.tooltip.italic;" class="menuitem-iconic custombb-h" key="custombb-key-italic-main" />
+				<menuitem id="custombb-popup-cm-underline" label="&custombb.underFull;" command="custombb-cmd-underline" line1="&custombb.tooltip.underline;" class="menuitem-iconic custombb-h" key="custombb-key-underline-main" />
+				<menuitem id="custombb-popup-cm-strike" label="&custombb.strikeFull;" command="custombb-cmd-strike" line1="&custombb.tooltip.strike;" class="menuitem-iconic custombb-h" key="custombb-key-strike-main" />
 
-				<menu id="custombb-popup-cm-color" label="&custombb.color;" onpopupshowing="custombb.initColors('cm');" onclick="custombb.showAllSubItems(event, 'color', 'cm');" >
-					<menupopup>
-						<menuitem id="custombb-popup-cm-color-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 1, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 2, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 3, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 4, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 5, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 6, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 7, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 8, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 9, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 10, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-11" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 11, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-12" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 12, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-13" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 13, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-14" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 14, 'cm');" />
-						<menuitem id="custombb-popup-cm-color-15" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 15, 'cm');" />
-					</menupopup>
+				<menu id="custombb-popup-cm-color" cbbkey="custombb-key-color-main" label="&custombb.color;" class="menu-iconic custombb-h" line1="&custombb.tooltip.color;" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" >
+					<menupopup id="custombb-mpopup-cm-color" cbbsource="colors" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
 				</menu>
-
-				<menu id="custombb-popup-cm-size" label="&custombb.size;" onpopupshowing="custombb.initSizes('cm');" onclick="custombb.showAllSubItems(event, 'size', 'cm');" >
-					<menupopup>
-						<menuitem id="custombb-popup-cm-size-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 1, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 2, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 3, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 4, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 5, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 6, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 7, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 8, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 9, 'cm');" />
-						<menuitem id="custombb-popup-cm-size-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 10, 'cm');" />
-					</menupopup>
+				<menu id="custombb-popup-cm-size" label="&custombb.size;" line1="&custombb.tooltip.size;" class="menu-iconic custombb-h" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" >
+					<menupopup id="custombb-mpopup-cm-size" cbbsource="sizes" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
 				</menu>
-
-				<menu id="custombb-popup-cm-font" label="&custombb.font;" onpopupshowing="custombb.initFonts('cm');" onclick="custombb.showAllSubItems(event, 'font', 'cm');" >
-					<menupopup>
-						<menuitem id="custombb-popup-cm-font-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 1, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 2, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 3, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 4, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 5, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 6, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 7, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 8, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 9, 'cm');" />
-						<menuitem id="custombb-popup-cm-font-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 10, 'cm');" />
-					</menupopup>
+				<menu id="custombb-popup-cm-font" label="&custombb.font;" line1="&custombb.tooltip.font;" class="menu-iconic custombb-h" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" >
+					<menupopup id="custombb-mpopup-cm-font" cbbsource="fonts" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
 				</menu>
 
 				<menuseparator id="custombb-separator-2" />
 
-				<menuitem id="custombb-popup-cm-quote"		command="custombb-cmd-quote"		key="custombb-key-quote-main" />
-				<menuitem id="custombb-popup-cm-inv_commas"	command="custombb-cmd-inv_commas"	key="custombb-key-inv_commas-main" />
-				<menuitem id="custombb-popup-cm-list"		command="custombb-cmd-list"		key="custombb-key-list-main" />
-				<menuitem id="custombb-popup-cm-img"		command="custombb-cmd-img"		key="custombb-key-img-main" />
+				<menuitem id="custombb-popup-cm-quote" command="custombb-cmd-quote" line1="&custombb.tooltip.quote;" class="menuitem-iconic custombb-h" key="custombb-key-quote-main" />
+				<menuitem id="custombb-popup-cm-invCommas" command="custombb-cmd-invCommas" line1="&custombb.tooltip.invCommas;" class="menuitem-iconic custombb-h" key="custombb-key-invCommas-main" />
+				<menuitem id="custombb-popup-cm-list" command="custombb-cmd-list" line1="&custombb.tooltip.list;" class="menuitem-iconic custombb-h" key="custombb-key-list-main" />
+				<menuitem id="custombb-popup-cm-img" command="custombb-cmd-img" line1="&custombb.tooltip.img;" class="menuitem-iconic custombb-h" key="custombb-key-img-main" />
 
-				<menu id="custombb-popup-cm-symbol" label="&custombb.symbol;" onpopupshowing="custombb.initSymbols('cm');" onclick="custombb.showAllSubItems(event, 'symbol', 'cm');" >
-					<menupopup>
-						<menuitem id="custombb-popup-cm-symbol-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 1, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 2, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 3, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 4, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 5, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 6, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 7, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 8, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 9, 'cm');" />
-						<menuitem id="custombb-popup-cm-symbol-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 10, 'cm');" />
-					</menupopup>
+				<menu id="custombb-popup-cm-symbol" cbbkey="custombb-key-symbol-main" label="&custombb.symbol;" line1="&custombb.tooltip.symbol;" class="menu-iconic custombb-h" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" >
+					<menupopup id="custombb-mpopup-cm-symbol" cbbsource="symbols" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
+				</menu>
+				<menu id="custombb-popup-cm-smiley-code" label="&custombb.smiley.code;" class="menu-iconic custombb-h" line1="&custombb.tooltip.smileysCodes;" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" >
+					<menupopup id="custombb-mpopup-cm-smiley-code" cbbsource="smileysCodes" onpopupshowing="custombb.createSmileys(this);" onpopuphidden="custombb.setShowStatus(this);" />
+				</menu>
+				<menu id="custombb-popup-cm-smiley-url" label="&custombb.smiley.url;" class="menu-iconic custombb-h" line1="&custombb.tooltip.smileysURLs;" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" >
+					<menupopup id="custombb-mpopup-cm-smiley-url" cbbsource="smileysURLs" onpopupshowing="custombb.createSmileys(this);" onpopuphidden="custombb.setShowStatus(this);" />
 				</menu>
 
-				<menu id="custombb-popup-cm-smile-code" label="&custombb.smile.code;" class="menu-iconic custombb-h" onpopupshowing="custombb.initSmiles('code', 'cm');" onclick="custombb.showAllSubItems(event, 'smile-code', 'cm');" >
-				<menupopup>
-				<grid>
-				  <columns>
-					<column />
-					<column />
-					<column />
-					<column />
-				  </columns>
-				  <rows>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-code-1" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 1, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-2" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 2, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-3" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 3, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-4" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 4, 'cm');" />
-				     </row>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-code-5" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 5, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-6" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 6, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-7" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 7, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-8" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 8, 'cm');" />
-				     </row>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-code-9" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 9, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-10" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 10, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-11" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 11, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-12" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 12, 'cm');" />
-				     </row>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-code-13" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 13, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-14" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 14, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-15" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 15, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-16" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 16, 'cm');" />
-				     </row>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-code-17" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 17, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-18" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 18, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-19" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 19, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-code-20" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 20, 'cm');" />
-				     </row>
-				  </rows>
-				</grid>
-				</menupopup>
+				<menuitem id="custombb-popup-cm-style" command="custombb-cmd-style" line1="&custombb.tooltip.style;" class="menuitem-iconic custombb-h" key="custombb-key-style-main" />
+
+				<menu id="custombb-popup-cm-custom" cbbkey="custombb-key-custom-main" label="&custombb.custom;" line1="&custombb.tooltip.customs;" class="menu-iconic custombb-h" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" >
+					<menupopup id="custombb-mpopup-cm-custom" cbbsource="customs" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
 				</menu>
 
-				<menu id="custombb-popup-cm-smile-url" label="&custombb.smile.url;" class="menu-iconic custombb-h" onpopupshowing="custombb.initSmiles('url', 'cm');" onclick="custombb.showAllSubItems(event, 'smile-url', 'cm');" >
-				<menupopup>
-				<grid>
-				  <columns>
-					<column />
-					<column />
-					<column />
-					<column />
-				  </columns>
-				  <rows>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-url-1" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 1, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-2" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 2, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-3" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 3, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-4" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 4, 'cm');" />
-				     </row>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-url-5" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 5, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-6" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 6, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-7" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 7, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-8" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 8, 'cm');" />
-				     </row>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-url-9" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 9, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-10" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 10, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-11" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 11, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-12" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 12, 'cm');" />
-				     </row>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-url-13" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 13, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-14" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 14, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-15" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 15, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-16" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 16, 'cm');" />
-				     </row>
-				     <row>
-					<menuitem id="custombb-popup-cm-smile-url-17" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 17, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-18" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 18, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-19" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 19, 'cm');" />
-					<menuitem id="custombb-popup-cm-smile-url-20" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 20, 'cm');" />
-				     </row>
-				  </rows>
-				</grid>
-				</menupopup>
-				</menu>
-				<menuitem id="custombb-popup-cm-style" command="custombb-cmd-style" key="custombb-key-style-main" />
-
-				<menu id="custombb-popup-cm-custom" label="&custombb.custom;" onpopupshowing="custombb.initCustom('cm');" onclick="custombb.showAllSubItems(event, 'custom', 'cm');" >
-					<menupopup>
-						<menuitem id="custombb-popup-cm-custom-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '1', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '2', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '3', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '4', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '5', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '6', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '7', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '8', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '9', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '10', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-11" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '11', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-12" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '12', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-13" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '13', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-14" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '14', 'cm');" />
-						<menuitem id="custombb-popup-cm-custom-15" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '15', 'cm');" />
-					</menupopup>
-				</menu>
-
-				<menuitem id="custombb-popup-custom-1" label="CustomBB 1" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="menuitem-iconic" onclick="custombb.openButtonsEditor(event, 'b1', 'cm');" />
-				<menuitem id="custombb-popup-custom-2" label="CustomBB 2" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="menuitem-iconic" onclick="custombb.openButtonsEditor(event, 'b2', 'cm');" />
-				<menuitem id="custombb-popup-custom-3" label="CustomBB 3" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="menuitem-iconic" onclick="custombb.openButtonsEditor(event, 'b3', 'cm');" />
-				<menuitem id="custombb-popup-custom-4" label="CustomBB 4" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="menuitem-iconic" onclick="custombb.openButtonsEditor(event, 'b4', 'cm');" />
-				<menuitem id="custombb-popup-custom-5" label="CustomBB 5" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="menuitem-iconic" onclick="custombb.openButtonsEditor(event, 'b5', 'cm');" />
+				<menuitem id="custombb-popup-custom-b-1" line1="&custombb.tooltip.custom;:" class="menuitem-iconic custombb-mi" cbbeditable="menuitem" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
+				<menuitem id="custombb-popup-custom-b-2" line1="&custombb.tooltip.custom;:" class="menuitem-iconic custombb-mi" cbbeditable="menuitem" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
+				<menuitem id="custombb-popup-custom-b-3" line1="&custombb.tooltip.custom;:" class="menuitem-iconic custombb-mi" cbbeditable="menuitem" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
+				<menuitem id="custombb-popup-custom-b-4" line1="&custombb.tooltip.custom;:" class="menuitem-iconic custombb-mi" cbbeditable="menuitem" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
+				<menuitem id="custombb-popup-custom-b-5" line1="&custombb.tooltip.custom;:" class="menuitem-iconic custombb-mi" cbbeditable="menuitem" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
 
 				<menuseparator id="custombb-separator-3" />
 
-				<menuitem id="custombb-popup-cm-settings" label="&custombb.settings;" tooltip="custombb-tooltip" line1="&custombb.tooltip.settings;" line2="&custombb.tooltip.settings.middle;" class="menuitem-iconic custombb-h" onclick="custombb.openSettings(event);" />
+				<menuitem id="custombb-popup-cm-settings" label="&custombb.settings;" line1="&custombb.tooltip.settings;" line2="&custombb.tooltip.settings.middle;" class="menuitem-iconic custombb-h" onclick="custombb.switchClick(event);" />
 			</menupopup>
 		</menu>
+
 	</popup>
 
 	<!-- Toolbar buttons -->
 	<toolbarpalette id="BrowserToolbarPalette">
-		<toolbarbutton	id="custombb-button-code"	command="custombb-cmd-code"		tooltiptext="&custombb.tooltip.code;"		class="toolbarbutton-1 custombb-v" />
-		<toolbarbutton	id="custombb-button-url"	command="custombb-cmd-url"		tooltiptext="&custombb.tooltip.url;"		class="toolbarbutton-1 custombb-v" />
 
-		<toolbarbutton	id="custombb-button-bold"	command="custombb-cmd-bold"		tooltiptext="&custombb.tooltip.bold;"		class="toolbarbutton-1 custombb-v" />
-		<toolbarbutton	id="custombb-button-italic"	command="custombb-cmd-italic"		tooltiptext="&custombb.tooltip.italic;"		class="toolbarbutton-1 custombb-v" />
-		<toolbarbutton	id="custombb-button-underline"	command="custombb-cmd-underline"	tooltiptext="&custombb.tooltip.underline;"	class="toolbarbutton-1 custombb-v" />
-		<toolbarbutton	id="custombb-button-strike"	command="custombb-cmd-strike"		tooltiptext="&custombb.tooltip.strike;"		class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-showhide" type="checkbox" cbbkey="custombb-key-showToolbar-main" label="&custombb.showhide;" onclick="custombb.switchClick(event);" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.showTb;" line2="&custombb.tooltip.settings2;" class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-autohide" cbbfixtoolbar="true" persist="cbbfixtoolbar" label="&custombb.fix;" oncommand="custombb.toggleAutoShow(this);" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.autohide;" class="toolbarbutton-1 custombb-v" />
 
-		<toolbarbutton id="custombb-button-color" label="&custombb.color;" type="menu" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;" class="toolbarbutton-1 custombb-v" onpopupshowing="custombb.initColors('tb');" onclick="custombb.showAllSubItems(event, 'color', 'tb');" onmouseover="custombb.openToolbarButton(this);" >
-			<menupopup>
-				<menuitem id="custombb-popup-tb-color-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 1, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 2, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 3, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 4, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 5, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 6, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 7, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 8, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 9, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 10, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-11" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 11, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-12" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 12, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-13" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 13, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-14" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 14, 'tb');" />
-				<menuitem id="custombb-popup-tb-color-15" tooltip="custombb-tooltip" line1="&custombb.tooltip.color;:" onclick="custombb.openEditor(event, 'color', 15, 'tb');" />
-			</menupopup>
+		<toolbarbutton id="custombb-button-code" cbbkey="custombb-key-code-main" command="custombb-cmd-code" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.code;" class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-url"	cbbkey="custombb-key-url-main" command="custombb-cmd-url" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.url;" class="toolbarbutton-1 custombb-v" />
+
+		<toolbarbutton id="custombb-button-bold" label="&custombb.bold;" cbbkey="custombb-key-bold-main" command="custombb-cmd-bold" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.bold;" class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-italic" label="&custombb.italic;" cbbkey="custombb-key-italic-main" command="custombb-cmd-italic" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.italic;" class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-underline" label="&custombb.underline;" cbbkey="custombb-key-underline-main" command="custombb-cmd-underline" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.underline;" class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-strike" label="&custombb.strike;" cbbkey="custombb-key-strike-main" command="custombb-cmd-strike" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.strike;" class="toolbarbutton-1 custombb-v" />
+
+		<toolbarbutton id="custombb-button-color" cbbkey="custombb-key-color-main" label="&custombb.color;" type="menu" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.color;" class="toolbarbutton-1 custombb-v" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" onmouseover="custombb.openToolbarButton(this);" >
+			<menupopup id="custombb-mpopup-tb-color" cbbsource="colors" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
+		</toolbarbutton>
+		<toolbarbutton id="custombb-button-size" label="&custombb.size;" type="menu" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.size;" class="toolbarbutton-1 custombb-v" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" onmouseover="custombb.openToolbarButton(this);" >
+			<menupopup id="custombb-mpopup-tb-size" cbbsource="sizes" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
+		</toolbarbutton>
+		<toolbarbutton id="custombb-button-font" label="&custombb.font;" type="menu" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.font;" class="toolbarbutton-1 custombb-v" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" onmouseover="custombb.openToolbarButton(this);" >
+			<menupopup id="custombb-mpopup-tb-font" cbbsource="fonts" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
 		</toolbarbutton>
 
-		<toolbarbutton id="custombb-button-size" label="&custombb.size;" type="menu" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;" class="toolbarbutton-1 custombb-v" onpopupshowing="custombb.initSizes('tb');" onclick="custombb.showAllSubItems(event, 'size', 'tb');" onmouseover="custombb.openToolbarButton(this);" >
-			<menupopup>
-				<menuitem id="custombb-popup-tb-size-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 1, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 2, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 3, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 4, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 5, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 6, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 7, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 8, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 9, 'tb');" />
-				<menuitem id="custombb-popup-tb-size-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.size;:" onclick="custombb.openEditor(event, 'size', 10, 'tb');" />
-			</menupopup>
+		<toolbarbutton id="custombb-button-quote" cbbkey="custombb-key-quote-main" command="custombb-cmd-quote" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.quote;" class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-invCommas" cbbkey="custombb-key-invCommas-main" command="custombb-cmd-invCommas" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.invCommas;" class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-list" cbbkey="custombb-key-list-main" command="custombb-cmd-list" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.list;" class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-img" cbbkey="custombb-key-img-main" command="custombb-cmd-img" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.img;" class="toolbarbutton-1 custombb-v" />
+
+		<toolbarbutton	id="custombb-button-symbol" cbbkey="custombb-key-symbol-main" label="&custombb.symbol;" type="menu" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.symbol;" class="toolbarbutton-1 custombb-v" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" onmouseover="custombb.openToolbarButton(this);" >
+			<menupopup id="custombb-mpopup-tb-symbol" cbbsource="symbols" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
+		</toolbarbutton>
+		<toolbarbutton id="custombb-button-smiley-code" label="&custombb.smiley.code;" type="menu" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.smileysCodes;" class="toolbarbutton-1 custombb-v" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" onmouseover="custombb.openToolbarButton(this);" >
+			<menupopup id="custombb-mpopup-tb-smiley-code" cbbsource="smileysCodes" onpopupshowing="custombb.createSmileys(this);" onpopuphidden="custombb.setShowStatus(this);" />
+		</toolbarbutton>
+		<toolbarbutton id="custombb-button-smiley-url" label="&custombb.smiley.url;" type="menu" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.smileysURLs;" class="toolbarbutton-1 custombb-v" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" onmouseover="custombb.openToolbarButton(this);" >
+			<menupopup id="custombb-mpopup-tb-smiley-url" cbbsource="smileysURLs" onpopupshowing="custombb.createSmileys(this);" onpopuphidden="custombb.setShowStatus(this);" />
 		</toolbarbutton>
 
-		<toolbarbutton id="custombb-button-font" label="&custombb.font;" type="menu" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;" class="toolbarbutton-1 custombb-v" onpopupshowing="custombb.initFonts('tb');" onclick="custombb.showAllSubItems(event, 'font', 'tb');" onmouseover="custombb.openToolbarButton(this);" >
-			<menupopup>
-				<menuitem id="custombb-popup-tb-font-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 1, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 2, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 3, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 4, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 5, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 6, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 7, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 8, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 9, 'tb');" />
-				<menuitem id="custombb-popup-tb-font-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.font;:" onclick="custombb.openEditor(event, 'font', 10, 'tb');" />
-			</menupopup>
+		<toolbarbutton id="custombb-button-style" cbbkey="custombb-key-style-main" command="custombb-cmd-style" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.style;" class="toolbarbutton-1 custombb-v" />
+
+		<toolbarbutton id="custombb-button-custom" cbbkey="custombb-key-custom-main" label="&custombb.custom;" type="menu" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.customs;" class="toolbarbutton-1 custombb-v" cbbeditable="menu" onclick="custombb.showAllSubItems(event);" onmouseover="custombb.openToolbarButton(this);" >
+			<menupopup id="custombb-mpopup-tb-custom" cbbsource="customs" onpopupshowing="custombb.createPopup(this);" onpopuphidden="custombb.setShowStatus(this);" />
 		</toolbarbutton>
 
-		<toolbarbutton	id="custombb-button-quote"	command="custombb-cmd-quote"		tooltiptext="&custombb.tooltip.quote;"		class="toolbarbutton-1 custombb-v" />
-		<toolbarbutton	id="custombb-button-inv_commas"	command="custombb-cmd-inv_commas"	tooltiptext="&custombb.tooltip.inv_commas;"	class="toolbarbutton-1 custombb-v" />
-		<toolbarbutton	id="custombb-button-list"	command="custombb-cmd-list"		tooltiptext="&custombb.tooltip.list;"		class="toolbarbutton-1 custombb-v" />
-		<toolbarbutton	id="custombb-button-img"	command="custombb-cmd-img"		tooltiptext="&custombb.tooltip.img;"		class="toolbarbutton-1 custombb-v" />
+		<toolbarbutton id="custombb-button-custom-b-1" label="CustomBB 1" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" cbbeditable="button" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
+		<toolbarbutton id="custombb-button-custom-b-2" label="CustomBB 2" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" cbbeditable="button" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
+		<toolbarbutton id="custombb-button-custom-b-3" label="CustomBB 3" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" cbbeditable="button" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
+		<toolbarbutton id="custombb-button-custom-b-4" label="CustomBB 4" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" cbbeditable="button" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
+		<toolbarbutton id="custombb-button-custom-b-5" label="CustomBB 5" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" cbbeditable="button" onclick="custombb.clickHandler(event, true);" oncommand="custombb.clickHandler(event, true);" />
 
-		<toolbarbutton	id="custombb-button-symbol" label="&custombb.symbol;" type="menu" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;" class="toolbarbutton-1 custombb-v" onpopupshowing="custombb.initSymbols('tb');" onclick="custombb.showAllSubItems(event, 'symbol', 'tb');" onmouseover="custombb.openToolbarButton(this);" >
-			<menupopup>
-				<menuitem id="custombb-popup-tb-symbol-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 1, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 2, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 3, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 4, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 5, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 6, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 7, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 8, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 9, 'tb');" />
-				<menuitem id="custombb-popup-tb-symbol-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.symbol;:" onclick="custombb.openEditor(event, 'symbol', 10, 'tb');" />
-			</menupopup>
-		</toolbarbutton>
-
-		<toolbarbutton id="custombb-button-smile-code" label="&custombb.smile.code;" type="menu" tooltip="custombb-tooltip" line1="&custombb.tooltip.smilesCodes;" class="toolbarbutton-1 custombb-v" onpopupshowing="custombb.initSmiles('code', 'tb');" onclick="custombb.showAllSubItems(event, 'smile-code', 'tb');" onmouseover="custombb.openToolbarButton(this);" >
-			<menupopup>
-			<grid>
-			  <columns>
-				<column />
-				<column />
-				<column />
-				<column />
-			  </columns>
-			  <rows>
-			    <row>
-				<menuitem id="custombb-popup-tb-smile-code-1" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 1, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-2" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 2, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-3" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 3, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-4" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 4, 'tb');" />
-			    </row>
-			    <row>
-				<menuitem id="custombb-popup-tb-smile-code-5" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 5, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-6" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 6, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-7" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 7, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-8" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 8, 'tb');" />
-			    </row>
-			    <row>
-				<menuitem id="custombb-popup-tb-smile-code-9" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 9, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-10" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 10, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-11" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 11, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-12" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 12, 'tb');" />
-			    </row>
-			    <row>
-				<menuitem id="custombb-popup-tb-smile-code-13" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 13, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-14" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 14, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-15" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 15, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-16" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 16, 'tb');" />
-			    </row>
-			    <row>
-				<menuitem id="custombb-popup-tb-smile-code-17" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 17, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-18" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 18, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-19" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 19, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-code-20" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileCode;:" onclick="custombb.openEditor(event, 'smile-code', 20, 'tb');" />
-			    </row>
-			  </rows>
-			</grid>
-			</menupopup>
-		</toolbarbutton>
-
-		<toolbarbutton id="custombb-button-smile-url" label="&custombb.smile.url;" type="menu" tooltip="custombb-tooltip" line1="&custombb.tooltip.smilesURL;" class="toolbarbutton-1 custombb-v" onpopupshowing="custombb.initSmiles('url', 'tb');" onclick="custombb.showAllSubItems(event, 'smile-url', 'tb');" onmouseover="custombb.openToolbarButton(this);" >
-			<menupopup>
-			<grid>
-			  <columns>
-				<column />
-				<column />
-				<column />
-				<column />
-			  </columns>
-			  <rows>
-			     <row>
-				<menuitem id="custombb-popup-tb-smile-url-1" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 1, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-2" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 2, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-3" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 3, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-4" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 4, 'tb');" />
-			     </row>
-			     <row>
-				<menuitem id="custombb-popup-tb-smile-url-5" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 5, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-6" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 6, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-7" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 7, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-8" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 8, 'tb');" />
-			     </row>
-			     <row>
-				<menuitem id="custombb-popup-tb-smile-url-9" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 9, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-10" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 10, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-11" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 11, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-12" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 12, 'tb');" />
-			     </row>
-			     <row>
-				<menuitem id="custombb-popup-tb-smile-url-13" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 13, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-14" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 14, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-15" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 15, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-16" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 16, 'tb');" />
-			     </row>
-			     <row>
-				<menuitem id="custombb-popup-tb-smile-url-17" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 17, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-18" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 18, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-19" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 19, 'tb');" />
-				<menuitem id="custombb-popup-tb-smile-url-20" class="menuitem-iconic custombb-popup-smile" tooltip="custombb-tooltip" line1="&custombb.tooltip.smileURL;:" onclick="custombb.openEditor(event, 'smile-url', 20, 'tb');" />
-			     </row>
-			  </rows>
-			</grid>
-			</menupopup>
-		</toolbarbutton>
-
-		<toolbarbutton id="custombb-button-style" command="custombb-cmd-style" tooltiptext="&custombb.tooltip.style;" class="toolbarbutton-1 custombb-v" />
-
-		<toolbarbutton id="custombb-button-custom" label="&custombb.custom;" type="menu" tooltip="custombb-tooltip" line1="&custombb.tooltip.customs;" class="toolbarbutton-1 custombb-v" onpopupshowing="custombb.initCustom('tb');" onclick="custombb.showAllSubItems(event, 'custom', 'tb');" onmouseover="custombb.openToolbarButton(this);" >
-			<menupopup>
-				<menuitem id="custombb-popup-tb-custom-1" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '1', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-2" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '2', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-3" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '3', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-4" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '4', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-5" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '5', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-6" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '6', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-7" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '7', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-8" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '8', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-9" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '9', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-10" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '10', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-11" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '11', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-12" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '12', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-13" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '13', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-14" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '14', 'tb');" />
-				<menuitem id="custombb-popup-tb-custom-15" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" onclick="custombb.openEditor(event, 'custom', '15', 'tb');" />
-			</menupopup>
-		</toolbarbutton>
-
-		<toolbarbutton id="custombb-button-settings" label="&custombb.settings;" tooltip="custombb-tooltip" line1="&custombb.tooltip.settings;" line2="&custombb.tooltip.settings.middle;" class="toolbarbutton-1 custombb-v" onclick="custombb.openSettings(event);" />
-
-		<toolbarbutton id="custombb-button-custom-1" label="CustomBB 1" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" onclick="custombb.openButtonsEditor(event, 'b1', 'tb');" />
-		<toolbarbutton id="custombb-button-custom-2" label="CustomBB 2" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" onclick="custombb.openButtonsEditor(event, 'b2', 'tb');" />
-		<toolbarbutton id="custombb-button-custom-3" label="CustomBB 3" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" onclick="custombb.openButtonsEditor(event, 'b3', 'tb');" />
-		<toolbarbutton id="custombb-button-custom-4" label="CustomBB 4" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" onclick="custombb.openButtonsEditor(event, 'b4', 'tb');" />
-		<toolbarbutton id="custombb-button-custom-5" label="CustomBB 5" tooltip="custombb-tooltip" line1="&custombb.tooltip.custom;:" class="toolbarbutton-1 custombb-button" onclick="custombb.openButtonsEditor(event, 'b5', 'tb');" />
+		<toolbarbutton id="custombb-button-settings" label="&custombb.settings;" tooltip="custombb-tooltip" popupsinherittooltip="true" line1="&custombb.tooltip.settings;" line2="&custombb.tooltip.settings.middle;" class="toolbarbutton-1 custombb-v" onclick="custombb.switchClick(event);" />
 
 	</toolbarpalette>
 
@@ -486,49 +197,55 @@
 			accesskey="C"
 			class="chromeclass-toolbar"
 			context="toolbar-context-menu"
+			cbbsource="customButtons"
+			ondblclick="custombb.openPreview(event);"
+			tooltip="custombb-tooltip"
+			line1="&custombb.tooltip.preview;"
 			customizable="true"
 			hidden="false"
 			iconsize="small"
 			inherits="collapsed,hidden"
 			persist="collapsed,hidden"
 			mode="icons"
-			defaultset="custombb-button-code,custombb-button-url,separator,custombb-button-bold,custombb-button-italic,custombb-button-underline,custombb-button-strike,custombb-button-color,custombb-button-size,custombb-button-font,separator,custombb-button-quote,custombb-button-inv_commas,custombb-button-list,custombb-button-img,custombb-button-symbol,custombb-button-smile-code,custombb-button-smile-url,custombb-button-style,custombb-button-custom,custombb-button-custom-1,custombb-button-custom-2,custombb-button-custom-3,custombb-button-custom-4,custombb-button-custom-5,spring,custombb-button-settings"/>
+			defaultset="custombb-button-autohide,separator,custombb-button-code,custombb-button-url,separator,custombb-button-bold,custombb-button-italic,custombb-button-underline,custombb-button-strike,custombb-button-color,custombb-button-size,custombb-button-font,separator,custombb-button-quote,custombb-button-invCommas,custombb-button-list,custombb-button-img,custombb-button-symbol,custombb-button-smiley-code,custombb-button-smiley-url,custombb-button-style,custombb-button-custom,custombb-button-custom-b-1,custombb-button-custom-b-2,custombb-button-custom-b-3,custombb-button-custom-b-4,custombb-button-custom-b-5,spring,custombb-button-settings"
+		/>
 	</toolbox>
 
 	<!-- Tooltip -->
 	<window id="main-window">
-		<tooltip id="custombb-tooltip" noautohide="true" onpopupshowing="return custombb.fillTooltip();">
-			<vbox id="custombb-tooltip-vbox" flex="1">
-				<label id="custombb-tooltip-line1" value="Line 1" />
-				<label id="custombb-tooltip-line2" value="Line 2" />
-				<!-- Help -->
-				<vbox id="custombb-tooltip-help" >
-					<separator id="custombb-tooltip-separator" class="groove" />
-					<label id="custombb-tooltip-line3" value="&custombb.tooltip.showAllsubItems;" />
 
-					<grid id="custombb-tooltip-lines4-6" >
-					    <columns>
+		<tooltip id="custombb-tooltip" noautohide="true" orient="vertical" onpopupshowing="return custombb.fillInTooltip();">
+			<label id="custombb-tooltip-line1" value="Line 1" />
+			<label id="custombb-tooltip-line2" value="Line 2" />
+
+			<!-- Help -->
+			<vbox id="custombb-tooltip-help" >
+				<separator id="custombb-tooltip-separator" class="groove" />
+				<label id="custombb-tooltip-line3" value="&custombb.tooltip.showAllsubItems;" />
+
+				<grid id="custombb-tooltip-lines4-6" >
+					<columns>
 						<column />
 						<column />
-					    </columns>
-					    <rows>
+					</columns>
+					<rows>
 						<row id="custombb-tooltip-line4" >
-						    <label value="&custombb.tooltip.R-shiftM_click;" />
-						    <label value=" &custombb.tooltip.editItem;" />
+							<label value="&custombb.tooltip.R-shiftM_click;" />
+							<label value=" &custombb.tooltip.editItem;" />
 						</row>
 						<row id="custombb-tooltip-line5" >
-						    <label value="&custombb.tooltip.M-shiftR_click;" />
-						    <label value=" &custombb.tooltip.showAllItems;" />
+							<label value="&custombb.tooltip.M-shiftR_click;" />
+							<label value=" &custombb.tooltip.showAllItems;" />
 						</row>
 						<row id="custombb-tooltip-line6" >
-						    <label value="&custombb.tooltip.ctrlR-ctrlM_click;" />
-						    <label value=" &custombb.tooltip.copySet;" />
+							<label value="&custombb.tooltip.ctrlR-ctrlM_click;" />
+							<label value=" &custombb.tooltip.copySet;" />
 						</row>
-					    </rows>
-					</grid>
-				</vbox>
+					</rows>
+				</grid>
 			</vbox>
 		</tooltip>
+
 	</window>
 
 </overlay>

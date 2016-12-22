@@ -1,83 +1,100 @@
-﻿<!-- Text for settings window -->
-<!ENTITY custombb.settings.title "Настройки CustomBB">
-<!ENTITY custombb.settings.tabMain "Основные">
-<!ENTITY custombb.settings.constrain "Основные настройки">
-<!ENTITY custombb.settings.constrain.sites "Включить контекстное меню на следующих сайтах:">
-<!ENTITY custombb.settings.constrain.sites_help "Справка">
-<!ENTITY custombb.settings.list "Обозначать начало элементов списка с помощью «*»">
-<!ENTITY custombb.settings.constrain.links "Не использовать некорректные ссылки">
+<!-- Text for main settings window -->
+<!ENTITY custombb.options.title "Настройки CustomBB">
 
-<!ENTITY custombb.settings.constrain.style "Кнопка «Стиль»:">
-<!ENTITY custombb.settings.constrain.style.dash "Заменять короткие тире длинными">
-<!ENTITY custombb.settings.constrain.style.dashPlus "Заменять также « -» и «- »">
-<!ENTITY custombb.settings.constrain.style.commas 'Заменять "прямые" кавычки «парными»'>
-<!ENTITY custombb.settings.constrain.style.symbols "Заменять (с), (тм) и (р) соответствующими символами">
-<!ENTITY custombb.settings.constrain.style.punktMarks "Исправлять пробелы при знаках препинания">
-<!ENTITY custombb.settings.selectOutput "Выделять вставляемый текст">
+<!ENTITY custombb.options.main "Основные">
+<!ENTITY custombb.options.mainSet "Основные настройки">
+<!ENTITY custombb.options.constrain.sites "Показывать контекстное меню на следующих сайтах:">
+<!ENTITY custombb.options.constrain.sites_help "Справка">
+<!ENTITY custombb.options.list "Обозначать начало элементов списка с помощью «*»">
+<!ENTITY custombb.options.constrain.links "Не использовать некорректные ссылки">
 
-<!ENTITY custombb.settings.tabKeys "Сочетания клавиш">
+<!ENTITY custombb.options.shift "(используйте Shift для переключения)">
 
-<!ENTITY custombb.settings.keysSet "Настройки сочетаний клавиш">
-<!ENTITY custombb.settings.enableKey "Вкл.">
-<!ENTITY custombb.settings.key "Клавиша">
+<!ENTITY custombb.options.constrain.style "Настройки кнопки «Стиль»">
+<!ENTITY custombb.options.constrain.style.dash "Заменять короткие тире длинными">
+<!ENTITY custombb.options.constrain.style.dashPlus "Заменять также « -» и «- »">
+<!ENTITY custombb.options.constrain.style.commas 'Заменять "прямые" кавычки «парными»'>
+<!ENTITY custombb.options.constrain.style.symbols "Заменять (с), (тм) и (р) соответствующими символами">
+<!ENTITY custombb.options.constrain.style.punktMarks "Исправлять пробелы при знаках препинания">
 
-<!ENTITY custombb.settings.key.show_toolbar "Показать / скрыть панель CustomBB">
-<!ENTITY custombb.settings.key.code "Код">
-<!ENTITY custombb.settings.key.url "Ссылка">
-<!ENTITY custombb.settings.key.bold "Жирный">
-<!ENTITY custombb.settings.key.italic "Курсив">
-<!ENTITY custombb.settings.key.underline "Подчеркнутый">
-<!ENTITY custombb.settings.key.color "Цвет">
-<!ENTITY custombb.settings.key.quote "Цитата">
-<!ENTITY custombb.settings.key.inv_commas "Кавычки">
-<!ENTITY custombb.settings.key.list "Список">
-<!ENTITY custombb.settings.key.img "Картинка">
-<!ENTITY custombb.settings.key.symbol "Символ">
-<!ENTITY custombb.settings.key.style "Стиль">
+<!ENTITY custombb.options.selectOutput "Выделять вставляемый текст (используйте Ctrl для переключения)">
 
-<!ENTITY custombb.settings.keyNote "Сочетание клавиш будет отображаться в подсказках">
+<!ENTITY custombb.options.keys "Горячие клавиши">
+<!ENTITY custombb.options.keysSet "Настройки горячих клавиш">
+<!ENTITY custombb.options.enableKey "Вкл.">
+<!ENTITY custombb.options.key "Клавиша">
 
-<!ENTITY custombb.settings.tabSmiles "Смайлы">
-<!ENTITY custombb.settings.tabSmilesCodes "Смайлы-коды">
-<!ENTITY custombb.settings.tabSmilesURL "Смайлы-ссылки">
+<!ENTITY custombb.options.keyNote "Сочетание клавиш будет отображаться в подсказках">
 
-<!ENTITY custombb.settings.smilesCodesSet "Настройки смайлов-кодов">
-<!ENTITY custombb.settings.smilesURLSet "Настройки смайлов-ссылок">
+<!ENTITY custombb.options.advanced "Дополнительно">
+<!ENTITY custombb.options.advancedSet "Дополнительные настройки">
+<!ENTITY custombb.options.toolbarBehaviour "Поведение панели инструментов">
+<!ENTITY custombb.options.toolbarAutoShow "Автоматически скрывать панель CustomBB">
+<!ENTITY custombb.options.toolbarAutoShowAlways "Показывать всегда (не только на разрешенных сайтах)">
+<!ENTITY custombb.options.misc "Разное">
+<!ENTITY custombb.options.showAllTooltips "Показывать дополнительные всплывающие подсказки">
+<!ENTITY custombb.options.invCommasClip "Кнопка «Кавычки» использует содержимое буфера обмена">
 
-<!ENTITY custombb.settings.tabCustom "Дополнительные тэги">
-<!ENTITY custombb.settings.customSet "Настройки дополнительных тэгов">
-<!ENTITY custombb.settings.text "Текст">
+<!ENTITY custombb.options.extendedSet "Для продвинутых пользователей">
+<!ENTITY custombb.options.urlMask "Маска для определения ссылок">
+<!ENTITY custombb.options.urlImgMask "Маска для определения ссылок на изображения">
 
-<!ENTITY custombb.settings.tabAdditional "Дополнительные">
-<!ENTITY custombb.settings.additionalSet "Дополнительные настройки">
-<!ENTITY custombb.settings.toolbarBehaviour "Поведение панели инструментов">
-<!ENTITY custombb.settings.toolbarAutoShow "Автоматически показывать панель CustomBB при наведении курсора">
-<!ENTITY custombb.settings.toolbarAutoShowAlways "Показывать всегда (не только на разрешенных сайтах)">
-<!ENTITY custombb.settings.misc "Разное">
-<!ENTITY custombb.settings.showAllTooltips "Показывать дополнительные всплывающие подсказки">
+<!ENTITY custombb.options.VKpopupSymbol "Символ">
 
-<!ENTITY custombb.settings.VKpopupSymbol "Символ">
-
-<!ENTITY custombb.settings.browse "Обзор">
+<!ENTITY custombb.options.browse "Обзор">
 
 <!ENTITY custombb.apply.label "Применить">
-<!ENTITY custombb.settings.label "Настройки">
-<!ENTITY custombb.settings.toDefault "По умолчанию">
-<!ENTITY custombb.settings.import "Импорт из файла">
-<!ENTITY custombb.settings.export "Экспорт в файл">
+<!ENTITY custombb.options.label "Настройки">
+<!ENTITY custombb.options.toDefault "По умолчанию">
+<!ENTITY custombb.options.import "Импорт из файла">
+<!ENTITY custombb.options.export "Экспорт в файл">
 
-<!ENTITY custombb.settings.onlyNewWindowNote "изменения вступят в силу только в новых окнах">
+<!ENTITY custombb.options.onlyNewWindowNote "изменения вступят в силу только в новых окнах">
 
 <!-- Text for small settings windows (right click on the custom menu item) -->
-<!ENTITY custombb.editor.custom "CustomBB: настройки дополнительного тэга">
-<!ENTITY custombb.editor.smile "CustomBB: настройки смайла">
 <!ENTITY custombb.editor.color "CustomBB: настройки цвета">
-<!ENTITY custombb.editor.symbol "CustomBB: настройки символа">
-<!ENTITY custombb.editor.size "CustomBB: настройки размера шрифта">
-<!ENTITY custombb.editor.font "CustomBB: настройки шрифта">
+<!ENTITY custombb.editor.color.name "Цвет">
+<!ENTITY custombb.editor.accesskey.colorIns "Ц">
 <!ENTITY custombb.editor.color.style "Стиль">
 <!ENTITY custombb.editor.color.style.black "Черный">
 <!ENTITY custombb.editor.color.style.white "Белый">
 <!ENTITY custombb.editor.color.style.none "Без стиля">
-<!ENTITY custombb.editor.size.style "Размер">
+
+<!ENTITY custombb.editor.size "CustomBB: настройки размера шрифта">
+<!ENTITY custombb.editor.size.name "Размер">
+<!ENTITY custombb.editor.accesskey.sizeIns "Р">
+<!ENTITY custombb.editor.size.style "Стиль">
+<!ENTITY custombb.editor.accesskey.sizeStyle "С">
+
+<!ENTITY custombb.editor.font "CustomBB: настройки шрифта">
+<!ENTITY custombb.editor.accesskey.fontIns "Ш">
 <!ENTITY custombb.editor.font.example "Шрифт">
+
+<!ENTITY custombb.editor.symbol "CustomBB: настройки символа">
+<!ENTITY custombb.editor.symbol.name "Символ">
+<!ENTITY custombb.editor.accesskey.symbolIns "С">
+
+<!ENTITY custombb.editor.smiley "CustomBB: настройки смайлика">
+<!ENTITY custombb.editor.smiley.name "Смайлик">
+<!ENTITY custombb.editor.accesskey.smileyIns "С">
+<!ENTITY custombb.editor.smiley.style "Внешний вид">
+<!ENTITY custombb.editor.accesskey.smileyStyle "В">
+<!ENTITY custombb.editor.columns.name "Количество столбцов">
+<!ENTITY custombb.editor.accesskey.columns "Т">
+
+<!ENTITY custombb.editor.custom "CustomBB: настройки дополнительного тэга">
+<!ENTITY custombb.editor.custom.top "Открывающий тэг">
+<!ENTITY custombb.editor.accesskey.customTop "О">
+<!ENTITY custombb.editor.custom.tcl "Закрывающий тэг">
+<!ENTITY custombb.editor.accesskey.customTcl "З">
+<!ENTITY custombb.editor.custom.icon "Иконка">
+<!ENTITY custombb.editor.accesskey.customIco "И">
+<!ENTITY custombb.editor.text "Текст">
+
+<!ENTITY custombb.editor.label.name "Название">
+<!ENTITY custombb.editor.accesskey.label "Н">
+<!ENTITY custombb.editor.quantity.name "Количество элементов">
+<!ENTITY custombb.editor.accesskey.quantity "К">
+<!ENTITY custombb.editor.edit.name "Редактировать элемент №">
+
+<!ENTITY custombb.editor.key "Использовать сочетание клавиш для этого элемента">

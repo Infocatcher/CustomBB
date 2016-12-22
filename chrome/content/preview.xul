@@ -1,0 +1,256 @@
+<?xml version="1.0" ?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
+
+<!DOCTYPE overlay [
+	<!ENTITY % label SYSTEM "chrome://custombb/locale/label.dtd" >
+	%label;
+	<!ENTITY % tooltip SYSTEM "chrome://custombb/locale/tooltip.dtd" >
+	%tooltip;
+]>
+
+<window	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="custombb-preview-window"
+	title="&custombb.prev.title;"
+	onload="init();"
+	onunload="destroy();"
+	width="640px"
+	height="480px"
+	persist="screenX screenY width height" >
+
+	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
+
+	<script type="application/x-javascript">
+	<![CDATA[
+		function init() {
+			setColors(true);
+			setButton(document.getElementById("previewColorsShowHide"));
+
+			window.addEventListener("select", colorToText, false);
+			window.addEventListener("input", textToColor, false);
+			window.addEventListener("dragexit", textToColor, false);
+		}
+		function destroy() {
+			window.removeEventListener("select", colorToText, false);
+			window.removeEventListener("input", textToColor, false);
+			window.removeEventListener("dragexit", textToColor, false);
+
+			setColors();
+		}
+		function colorToText(event) {
+			var et = event.target;
+			if(et.tagName != "colorpicker")
+				return;
+
+			var clr = et.color;
+			var tb = et.nextSibling;
+			tb.value = clr;
+			tb.setAttribute("value", clr); // persist="value" - attribute (.value - property)
+		}
+		function setColors(set) {
+			var cps = document.getElementsByTagName("colorpicker");
+			for(var i = 0; i < cps.length; i++) {
+				var cp = cps[i];
+
+				var tb = cp.nextSibling; // textbox
+				var val = tb.value;
+				if(set) {
+					if(val)
+						cp.color = repColor(val);
+				}
+				else {
+					tb.setAttribute("value", val);
+				}
+			}
+		}
+		var repColor = function(clr) {
+			return custombbCommon.repairStyle.color(clr, true);
+		}
+		function textToColor(event) {
+			var et = event.target;
+			if(et.tagName != "textbox")
+				return;
+
+			var cp = et.previousSibling;
+			cp.color = repColor(et.value);
+		}
+		function fillInTooltip(tt) {
+			var tn = document.tooltipNode;
+			var Ls = tt.getElementsByTagName("label");
+			var L1 = Ls[0], L2 = Ls[1], L3 = Ls[2], L4 = Ls[3];
+
+			try {
+				try {
+					var ttlIt = tn;
+					var ttl = ttlIt.getAttribute("title");
+					while(!ttl) {
+						var ttlIt = ttlIt.parentNode;
+						var ttl = ttlIt.getAttribute("title");
+					}
+				}
+				catch(e) {
+				}
+				try {
+					var hrfIt = tn;
+					var hrf = hrfIt.getAttribute("href");
+					while(!hrf) {
+						var hrfIt = hrfIt.parentNode;
+						var hrf = hrfIt.getAttribute("href");
+					}
+				}
+				catch(e) {
+				}
+				var src = tn.getAttribute("src");
+				var alt = tn.getAttribute("alt");
+			}
+			catch(e) {
+				return false;
+			}
+			L1.value = ttl;	L1.parentNode.style.display = ttl ? "" : "none";
+			L2.value = hrf;	L2.parentNode.style.display = hrf ? "" : "none";
+			L3.value = src;	L3.parentNode.style.display = src ? "" : "none";
+			L4.value = alt;	L4.parentNode.style.display = alt ? "" : "none";
+
+			if(ttl || hrf || src || alt)
+				return true;
+
+			return false;
+		}
+		function setButton(bttn) {
+			var std = !bttn.nextSibling.hidden;
+			bttn.setAttribute("label", bttn.getAttribute("label").replace(/ ?[<>]{2}$/, "") + (std ? " <<" : " >>"));
+		}
+		function showHideColors(bttn) {
+			var gr = bttn.nextSibling;
+			var std = gr.hidden;
+			gr.hidden = !std;
+			setButton(bttn);
+		}
+		var insSmileys = function(val) {
+			var ccs = custombbCmmSet;
+			var cc = custombbCommon;
+			var ccp = cc.prefs;
+
+			ccp.init("smileysCodes", true);
+			var smCodes = ccp.getAll();
+			for(var i = 0; i < smCodes.nums; i++) {
+				var sm = smCodes[i][0];
+				if(sm)
+					val = val.replace(
+						ccs.textToRegExp(sm, true),
+						"[$-img src='" + cc.testPatch(smCodes[i][1]) + "' alt='" + sm + "'-$]"
+					);
+			}
+
+			ccp.init("smileysURLs", true);
+			var smURLs = ccp.getAll();
+			for(var i = 0; i < smURLs.nums; i++) {
+				var sm = smURLs[i][0];
+				var url = nsPreferences.getBoolPref("custombb.previewUseExternalSmileysURLs", false)
+					? sm
+					: cc.testPatch(smURLs[i][1]);
+				if(sm)
+					val = val.replace(
+						ccs.textToRegExp("[img]" + sm + "[/img]", true),
+						"[$-img src='" + url + "' alt='" + sm + "'-$]"
+					);
+			}
+			return val;
+		};
+		var getH = function() {
+			var fr = document.getElementById("prevFrame");
+			return parseInt(window.getComputedStyle(fr, "").height.replace(/[^\d\.]/g, ""));
+		};
+	]]>
+	</script>
+
+	<keyset>
+		<key keycode="VK_ESCAPE" oncommand="window.close();" />
+	</keyset>
+
+	<iframe id="prevFrame" tooltip="previewTooltip" flex="1" src="chrome://custombb/content/preview.html" style="color: red;" />
+
+	<button id="previewColorsShowHide" label="&custombb.prev.colors;" oncommand="showHideColors(this);" tooltip="previewSetColorsTooltip" />
+	<grid id="previewColorsGrid" hidden="true" persist="hidden" >
+		<columns>
+			<column />
+			<column />
+			<column />
+			<column flex="1" />
+			<column />
+			<column />
+			<column />
+		</columns>
+		<rows>
+			<row align="center" >
+				<label value="&custombb.prev.bgColor;" />
+				<colorpicker type="button" />
+				<textbox id="bodyBGColor" value="" persist="value" />
+				<spacer flex="1" />
+				<label value="&custombb.prev.txtColor;" />
+				<colorpicker type="button" />
+				<textbox id="bodyColor" value="" persist="value" />
+			</row>
+			<row align="center" >
+				<label value="&custombb.prev.linksColor;" />
+				<colorpicker type="button" />
+				<textbox id="linkColor" value="" persist="value" />
+			</row>
+			<row align="center" >
+				<label value="&custombb.prev.codeBgColor;" />
+				<colorpicker type="button" />
+				<textbox id="codeBGColor" value="" persist="value" />
+				<spacer flex="1" />
+				<label value="&custombb.prev.codeBorderColor;" />
+				<colorpicker type="button" />
+				<textbox id="codeBColor" value="" persist="value" />
+			</row>
+			<row align="center" >
+				<label value="&custombb.prev.quoteBgColor;" />
+				<colorpicker type="button" />
+				<textbox id="quoteBGColor" value="" persist="value" />
+				<spacer flex="1" />
+				<label value="&custombb.prev.quoteBorderColor;" />
+				<colorpicker type="button" />
+				<textbox id="quoteBColor" value="" persist="value" />
+			</row>
+		</rows>
+	</grid>
+
+	<popupset>
+		<tooltip id="previewTooltip" onpopupshowing="return fillInTooltip(this);" noautohide="true" >
+			<grid>
+				<columns>
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						<description value="title:" />
+						<label />
+					</row>
+					<row>
+						<description value="href:" />
+						<label />
+					</row>
+					<row>
+						<description value="src:" />
+						<label />
+					</row>
+					<row>
+						<description value="alt:" />
+						<label />
+					</row>
+				</rows>
+			</grid>
+		</tooltip>
+		<tooltip id="previewSetColorsTooltip" orient="vertical" noautohide="true" >
+			<label value="&custombb.tooltip.prev.ctrlL;" />
+			<label value="&custombb.tooltip.prev.ctrlDbl;" />
+		</tooltip>
+	</popupset>
+
+</window>

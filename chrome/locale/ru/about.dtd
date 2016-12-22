@@ -1,9 +1,0 @@
-﻿<!-- About dialog -->
-<!ENTITY custombb.about "О CustomBB">
-<!ENTITY custombb.about.version "версия">
-<!ENTITY custombb-description "Добавляет панель инструментов и контекстное меню для вставления тэгов (для форумов и т.д.).">
-<!ENTITY custombb.about.creators "Разработчики">
-<!ENTITY custombb.about.original "оригинальный">
-<!ENTITY custombb.about.creatAction "пользовательские настройки">
-
-<!ENTITY custombb.about.settings "Настройки">

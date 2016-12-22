@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="cbbNotify"
+	windowtype="alert:alert"
+	align="start"
+	onload="cbbNotify.init();"
+	onclick="cbbNotify.click(event);">
+
+	<script type="application/x-javascript">
+	<![CDATA[
+		var cbbNotify = {
+			timeout: null,
+			init: function() {
+				var wa = window.arguments;
+				document.getElementById("cbbNotifyHeader").value = "CustomBB: " + wa[1];
+				document.getElementById("cbbNotifyDesc").textContent = wa[2];
+				window.sizeToContent();
+				window.moveTo(window.opener.screenX + window.opener.outerWidth - window.outerWidth, window.opener.screenY + window.opener.outerHeight - window.outerHeight);
+				var hb = document.getElementById("cbbNotifyBox");
+				setTimeout( function() { hb.style.borderColor = "blue"; }, 200);
+				setTimeout( function() { hb.style.borderColor = "#000"; }, 400);
+				this.timeout = setTimeout( function() { window.close(); }, wa[0]);
+			},
+			click: function(e) {
+				clearTimeout(this.timeout);
+				if(typeof window.arguments[3] == "function")
+					window.arguments[3]();
+				window.close();
+			}
+		};
+	]]>
+	</script>
+
+	<hbox id="cbbNotifyBox" style="border: 2px solid #000; padding: 10px;">
+		<hbox align="center" valign="top">
+			<image src="chrome://custombb-icon/skin/icon.png" autostretch="never" />
+		</hbox>
+		<vbox style="margin-left: 5px;">
+			<label id="cbbNotifyHeader" class="header" value="Header" />
+			<description id="cbbNotifyDesc" style="white-space: pre;">Description</description>
+		</vbox>
+	</hbox>
+
+</window>

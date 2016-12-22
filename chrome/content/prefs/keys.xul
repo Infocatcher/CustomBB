@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE prefwindow [
+	<!ENTITY % settings SYSTEM "chrome://custombb/locale/settings.dtd" >
+	%settings;
+]>
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="custombbKeysPaneOverlay">
+
+	<prefpane id="custombb-options-keys" onpaneload="custombbOpts.initKeys();" >
+
+		<groupbox>
+		<caption label="&custombb.options.keysSet; (&custombb.options.onlyNewWindowNote;)" />
+
+			<grid flex="1" >
+				<columns>
+					<column style="width: 4em" />
+					<column style="width: 3.5em" />
+					<column style="width: 3.5em" />
+					<column style="width: 3.5em" />
+					<column style="width: 3.5em" />
+					<column style="width: 3.5em" />
+					<column style="width: 10em" />
+				</columns>
+				<rows>
+					<row id="custombb-keys-modifiers" >
+						<label value="&custombb.options.enableKey;" />
+						<label value="Ctrl" />
+						<label value="Alt" />
+						<label value="Shift" />
+						<label value="Accel" />
+						<label value="Meta" />
+						<label value="&custombb.options.key;" />
+					</row>
+				</rows>
+			</grid>
+
+			<grid id="custombb-options-keysGrid" flex="1" >
+				<columns>
+					<column style="width: 4em"/>
+					<column style="width: 3.5em" />
+					<column style="width: 3.5em" />
+					<column style="width: 3.5em" />
+					<column style="width: 3.5em" />
+					<column style="width: 3.5em" />
+					<column style="width: 10em" />
+					<column />
+				</columns>
+				<rows id="custombb-options-keysRows" />
+			</grid>
+
+			<label value="* &custombb.options.keyNote;" />
+
+		</groupbox>
+
+		<popupset>
+			<menupopup id="custombb-VKpopup" position="overlap" tooltip="phpcode-VKtooltip" onpopupshowing="return custombbOpts.HLRow(this);" onpopuphiding="custombbOpts.clearHL(this);"  >
+				<menuitem value="" label="&custombb.options.VKpopupSymbol;..." />
+				<menuseparator />
+				<menuitem value="VK_F1" label="F1" />
+				<menuitem value="VK_F2" label="F2" />
+				<menuitem value="VK_F3" label="F3" />
+				<menuitem value="VK_F4" label="F4" />
+				<menuitem value="VK_F5" label="F5" />
+				<menuitem value="VK_F6" label="F6" />
+				<menuitem value="VK_F7" label="F7" />
+				<menuitem value="VK_F8" label="F8" />
+				<menuitem value="VK_F9"  label="F9" />
+				<menuitem value="VK_F10" label="F10" />
+				<menuitem value="VK_F11" label="F11" />
+				<menuitem value="VK_F12" label="F12" />
+
+				<menuitem value="VK_LEFT" label="Left" />
+				<menuitem value="VK_RIGHT" label="Right" />
+				<menuitem value="VK_UP" label="Up" />
+				<menuitem value="VK_DOWN" label="Down" />
+
+				<menuitem value="VK_TAB" label="Tab" />
+				<menuitem value="VK_ENTER" label="Enter" />
+				<menuitem value="VK_RETURN" label="Return" />
+				<menuitem value="VK_ESCAPE" label="Escape" />
+
+				<menuitem value="VK_PAGE_UP" label="Page Up" />
+				<menuitem value="VK_PAGE_DOWN" label="Page Down" />
+				<menuitem value="VK_END" label="End" />
+				<menuitem value="VK_HOME" label="Home" />
+
+				<menuitem value="VK_PRINTSCREEN" label="PrintScreen" />
+				<menuitem value="VK_PAUSE" label="Pause" />
+				<menuitem value="VK_INSERT" label="Insert" />
+				<menuitem value="VK_DELETE" label="Delete" />
+				<menuitem value="VK_BACK" label="BackSpace" />
+
+				<menuitem value="VK_CAPS_LOCK" label="Caps Lock" />
+				<menuitem value="VK_NUM_LOCK" label="Num Lock" />
+				<menuitem value="VK_SCROLL_LOCK" label="Scroll Lock" />
+			</menupopup>
+
+			<tooltip id="phpcode-VKtooltip" orient="vertical" onpopupshowing="return custombbOpts.fillInVKtooltip(this.lastChild);" >
+				<label value="keycode:" />
+				<label value="value" />
+			</tooltip>
+		</popupset>
+
+	</prefpane>
+
+</overlay>

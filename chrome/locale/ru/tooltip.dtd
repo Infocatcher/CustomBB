@@ -1,64 +1,39 @@
-﻿<!-- Pop-up text -->
+<!-- Pop-up text -->
 <!ENTITY custombb.tooltip.code "Код">
-<!ENTITY custombb.tooltip.bold "Жирный">
+<!ENTITY custombb.tooltip.bold "Полужирный">
 <!ENTITY custombb.tooltip.italic "Курсив">
 <!ENTITY custombb.tooltip.underline "Подчеркнутый">
 <!ENTITY custombb.tooltip.strike "Зачеркнутый">
 
 <!ENTITY custombb.tooltip.color "Цвет">
-<!ENTITY custombb.tooltip.size "Размер">
+<!ENTITY custombb.tooltip.size "Размер шрифта">
 <!ENTITY custombb.tooltip.font "Шрифт">
 
 <!ENTITY custombb.tooltip.quote "Цитата">
-<!ENTITY custombb.tooltip.inv_commas "Кавычки">
-<!ENTITY custombb.tooltip.img "Картинка">
+<!ENTITY custombb.tooltip.invCommas "Кавычки">
+<!ENTITY custombb.tooltip.img "Изображение">
 <!ENTITY custombb.tooltip.url "Ссылка">
 <!ENTITY custombb.tooltip.list "Список">
 
 <!ENTITY custombb.tooltip.symbol "Символ">
 
-<!ENTITY custombb.tooltip.smilesCodes "Смайлы (коды)">
-<!ENTITY custombb.tooltip.smileCode "Смайл (код)">
-<!ENTITY custombb.tooltip.smilesURL "Смайлы (ссылки)">
-<!ENTITY custombb.tooltip.smileURL "Смайл (ссылка)">
+<!ENTITY custombb.tooltip.smileysCodes "Смайлики (коды)">
+<!ENTITY custombb.tooltip.smileysURLs "Смайлики (ссылки)">
 
 <!ENTITY custombb.tooltip.style "Стиль">
 <!ENTITY custombb.tooltip.customs "Дополнительные тэги">
 <!ENTITY custombb.tooltip.custom "Дополнительный тэг">
+
 <!ENTITY custombb.tooltip.settings "Настройки CustomBB">
 <!ENTITY custombb.tooltip.settings.middle "Ctrl+ЛКМ / СКМ – переключить режим вставки">
+<!ENTITY custombb.tooltip.settings2 "Ctrl+ЛКМ / СКМ – настройки CustomBB">
 
-<!-- Editor pop-ups -->
-<!ENTITY custombb.tooltip.custom.browse "Выбрать иконку для пункта меню">
+<!ENTITY custombb.tooltip.preview "Двойной клик – предпросмотр">
 
-<!ENTITY custombb.tooltip.profileDir "– путь к профилю">
+<!-- If JavaScript not set... (button in toolbarpalette) -->
+<!ENTITY custombb.tooltip.autohide "Закрепить / включить автоскрытие панели CustomBB">
+<!ENTITY custombb.tooltip.showTb "Показать / скрыть панель CustomBB">
 
-<!ENTITY custombb.tooltip.custom.src "Ссылка на иконку">
-<!ENTITY custombb.tooltip.custom.lbl "Название пункта меню">
-<!ENTITY custombb.tooltip.custom.top1 "Открывающий тэг">
-<!ENTITY custombb.tooltip.custom.top2 "– заголовок запроса текста">
-<!ENTITY custombb.tooltip.custom.tcl "Закрывающий тэг (\n - перевод строки)">
-
-<!ENTITY custombb.tooltip.smile.src "Ссылка на смайл">
-<!ENTITY custombb.tooltip.smile.browse "Выбрать смайл">
-<!ENTITY custombb.tooltip.smile.ins "Вставляемый текст">
-<!ENTITY custombb.tooltip.smile.label "Смайл">
-<!ENTITY custombb.tooltip.smile.URLerror "Ошибка: необходимо использовать изображения из Интернета">
-
-<!ENTITY custombb.tooltip.color.ex "Внешний вид текущего стиля">
-<!ENTITY custombb.tooltip.color.lbl "Название пункта меню">
-
-<!ENTITY custombb.tooltip.symbol "Вставляемый символ">
-<!ENTITY custombb.tooltip.symbol.lbl "Название пункта меню">
-
-<!ENTITY custombb.tooltip.sizeIns "Размер шрифта для вставки">
-<!ENTITY custombb.tooltip.styleSize "Размер шрифта пункта меню">
-<!ENTITY custombb.tooltip.size.lbl "Название пункта меню">
-<!ENTITY custombb.tooltip.size.ex "Внешний вид текущего размера шрифта">
-<!ENTITY custombb.tooltip.sizeUnit "Единица измерения">
-
-<!ENTITY custombb.tooltip.font.lbl "Название пункта меню">
-<!ENTITY custombb.tooltip.font.ex "Внешний вид текущего шрифта">
 
 <!-- Additional tooltips -->
 <!ENTITY custombb.tooltip.showAllsubItems "Shift+ЛКМ – показать все подъэлементы">
@@ -71,3 +46,7 @@
 
 <!ENTITY custombb.tooltip.ctrlR-ctrlM_click "Ctrl+ПКМ / Ctrl+СКМ">
 <!ENTITY custombb.tooltip.copySet "– выбрать элементы для обмена настройками">
+
+<!-- Preview window tooltips -->
+<!ENTITY custombb.tooltip.prev.ctrlL "Ctrl+ЛКМ в области просмотра – применить цвета">
+<!ENTITY custombb.tooltip.prev.ctrlDbl "Ctrl+двойной клик – восстановить значения по умолчанию">

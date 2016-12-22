@@ -1,40 +1,65 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
 <?xml-stylesheet href="chrome://custombb/skin/settings.css" type="text/css" ?>
 
 <!DOCTYPE dialog [
 	<!ENTITY % settings SYSTEM "chrome://custombb/locale/settings.dtd" >
 	%settings;
-	<!ENTITY % tooltip SYSTEM "chrome://custombb/locale/tooltip.dtd" >
-	%tooltip;
+	<!ENTITY % setTooltip SYSTEM "chrome://custombb/locale/settings_tooltips.dtd" >
+	%setTooltip;
 ]>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id="custombb-editor-font-dialog"
 	title="&custombb.editor.font;"
-	buttons="accept, cancel, extra2"
-	buttonlabelextra2="&custombb.settings.toDefault;"
-	onload="custombbSet.fontEditor('load');"
-	ondialogaccept="custombbSet.fontEditor('write');"
-	ondialogextra2="custombbSet.fontEditor('default');" >
+	buttons="accept, cancel, extra1, extra2"
+	buttonlabelextra1="&custombb.apply.label;"
+	buttonlabelextra2="&custombb.options.toDefault;"
+	onload="custombbEdit.init();"
+	onunload="custombbEdit.destroy();"
+	ondialogaccept="custombbEdit.settings('save');"
+	ondialogextra1="custombbEdit.settings('apply');"
+	ondialogextra2="custombbEdit.settings('default');" >
 
-  <script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
-  <script type="application/x-javascript" src="chrome://custombb/content/settings.js" />
-  <script type="application/x-javascript" src="editor.js" />
-  <script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/editor/editor.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/common.js" />
+	<script type="application/x-javascript" src="chrome://custombb/content/commonset.js" />
 
-  <keyset>
-	<key modifiers="control" key="S"	oncommand="custombbSet.fontEditor('write');" />
-	<key keycode="VK_F5"			oncommand="custombbSet.fontEditor('load');" />
-	<key modifiers="control" key="R"	oncommand="custombbSet.fontEditor('load');" />
-  </keyset>
+	<stringbundleset id="custombb-stringbundleset-font">
+		<stringbundle id="custombb-strings" src="chrome://custombb/locale/jstext.properties" />
+	</stringbundleset>
+
+	<keyset>
+		<key modifiers="control" key="S" oncommand="custombbEdit.settings('apply');" />
+		<key keycode="VK_F5" oncommand="custombbEdit.settings('load');" />
+		<key modifiers="control" key="R" oncommand="custombbEdit.settings('load');" />
+	</keyset>
 
 	<groupbox flex="1" >
 		<hbox align="center" >
-			<label id="custombb.fontEditor.example" value="&custombb.editor.font.example;:" tooltiptext="&custombb.tooltip.font.ex;" />
-			<textbox id="custombb.fontEditor.font" tooltiptext="&custombb.tooltip.font;" oninput="custombbEdit.textToFont();" ondragexit="custombbEdit.textToFont();" flex="1" />
+			<label id="custombb-fontEditor-example" value="&custombb.editor.font.example;:" tooltiptext="&custombb.tooltip.font.ex;" />
+			<textbox id="custombb-fontEditor-font" tooltiptext="&custombb.tooltip.fontIns;" accesskey="&custombb.editor.accesskey.fontIns;"
+				oninput="custombbEdit.textToFont();" ondragexit="custombbEdit.textToFont();" flex="1" />
 		</hbox>
-		<textbox id="custombb.fontEditor.label" tooltiptext="&custombb.tooltip.font.lbl;" />
+
+		<hbox align="center" >
+			<label value="&custombb.editor.label.name;:" />
+			<textbox id="custombb-fontEditor-label" tooltiptext="&custombb.tooltip.font.lbl;" accesskey="&custombb.editor.accesskey.label;" flex="1" />
+		</hbox>
+
+		<spacer flex="1" />
+
+		<hbox align="center">
+			<label value="&custombb.editor.quantity.name;:" />
+			<textbox id="custombb-fontEditor-quantity" maxlength="3" size="3" accesskey="&custombb.editor.accesskey.quantity;" cbbnumbers="int" />
+			<spacer flex="1" />
+			<label value="&custombb.editor.edit.name;" />
+			<menulist id="custombb-fontEditor-num" width="140px" oncommand="custombbEdit.setLoad(this);" >
+				<menupopup onpopupshowing="custombbCmmSet.createNumPopup(this, 'fonts');" />
+			</menulist>
+		</hbox>
 
 	</groupbox>
 

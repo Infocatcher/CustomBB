@@ -1,81 +1,100 @@
-﻿<!-- Text for settings window -->
-<!ENTITY custombb.settings.title "CustomBB Settings">
-<!ENTITY custombb.settings.tabMain "Main">
-<!ENTITY custombb.settings.constrain "Main settings">
-<!ENTITY custombb.settings.constrain.sites "To include the context menu on the following sites:">
-<!ENTITY custombb.settings.constrain.sites_help "Help">
-<!ENTITY custombb.settings.constrain.links "To not use non-correct links">
+<!-- Text for main settings window -->
+<!ENTITY custombb.options.title "CustomBB Settings">
 
-<!ENTITY custombb.settings.constrain.style "The «Style» button:">
-<!ENTITY custombb.settings.constrain.style.dash "To replace short dashes with long dashes">
-<!ENTITY custombb.settings.constrain.style.dashPlus "To replace also « -» and «- »">
-<!ENTITY custombb.settings.constrain.style.commas 'To replace "direct" inverted commas with «pair» inverted commas'>
-<!ENTITY custombb.settings.constrain.style.symbols "To replace (c), (tm) and (r) with corresponding symbols">
-<!ENTITY custombb.settings.constrain.style.punktMarks "To correct blanks at punctuation marks">
-<!ENTITY custombb.settings.list "To designate the beginning of elements of the list with «*»">
-<!ENTITY custombb.settings.selectOutput "To select the inserted text">
+<!ENTITY custombb.options.main "Main">
+<!ENTITY custombb.options.mainSet "Main settings">
+<!ENTITY custombb.options.constrain.sites "Show context menu on following sites:">
+<!ENTITY custombb.options.constrain.sites_help "Help">
+<!ENTITY custombb.options.list "Designate beginning of elements of the list with «*»">
+<!ENTITY custombb.options.constrain.links "Not use non-correct links">
 
-<!ENTITY custombb.settings.tabKeys "Hotkeys">
-<!ENTITY custombb.settings.keysSet "Hotkeys settings">
-<!ENTITY custombb.settings.enableKey "Enable">
-<!ENTITY custombb.settings.key "Key">
+<!ENTITY custombb.options.shift "(use Shift for switching)">
 
-<!ENTITY custombb.settings.key.show_toolbar "Show / collaps CustomBB toolbar">
-<!ENTITY custombb.settings.key.code "Code">
-<!ENTITY custombb.settings.key.url "URL">
-<!ENTITY custombb.settings.key.bold "Bold">
-<!ENTITY custombb.settings.key.italic "Italic">
-<!ENTITY custombb.settings.key.underline "Underline">
-<!ENTITY custombb.settings.key.color "Color">
-<!ENTITY custombb.settings.key.quote "Quote">
-<!ENTITY custombb.settings.key.inv_commas "Inverted commas">
-<!ENTITY custombb.settings.key.list "List">
-<!ENTITY custombb.settings.key.img "Image">
-<!ENTITY custombb.settings.key.symbol "Symbol">
-<!ENTITY custombb.settings.key.style "Style">
+<!ENTITY custombb.options.constrain.style "Settings of «Style» button">
+<!ENTITY custombb.options.constrain.style.dash "Replace short dashes with long dashes">
+<!ENTITY custombb.options.constrain.style.dashPlus "Replace also « -» and «- »">
+<!ENTITY custombb.options.constrain.style.commas 'Replace "direct" inverted commas with «pair» inverted commas'>
+<!ENTITY custombb.options.constrain.style.symbols "Replace (c), (tm) and (r) with corresponding symbols">
+<!ENTITY custombb.options.constrain.style.punktMarks "Correct blanks at punctuation marks">
 
-<!ENTITY custombb.settings.keyNote "The hotkeys are shown in the context menu">
+<!ENTITY custombb.options.selectOutput "Select inserted text (use Ctrl for switching)">
 
-<!ENTITY custombb.settings.tabSmiles "Smiles">
-<!ENTITY custombb.settings.tabSmilesCodes "Smiles codes">
-<!ENTITY custombb.settings.tabSmilesURL "Smiles URL">
+<!ENTITY custombb.options.keys "Hotkeys">
+<!ENTITY custombb.options.keysSet "Hotkeys settings">
+<!ENTITY custombb.options.enableKey "On">
+<!ENTITY custombb.options.key "Key">
 
-<!ENTITY custombb.settings.smilesCodesSet "Smiles codes settings">
-<!ENTITY custombb.settings.smilesURLSet "Smiles URL settings">
+<!ENTITY custombb.options.keyNote "Hotkey are shown in context menu">
 
-<!ENTITY custombb.settings.tabCustom "Custom tags">
-<!ENTITY custombb.settings.customSet "Custom tags settings">
-<!ENTITY custombb.settings.text "Text">
+<!ENTITY custombb.options.advanced "Advanced">
+<!ENTITY custombb.options.advancedSet "Advanced settings">
+<!ENTITY custombb.options.toolbarBehaviour "Toolbar behaviour">
+<!ENTITY custombb.options.toolbarAutoShow "Autohiding of CustomBB toolbar">
+<!ENTITY custombb.options.toolbarAutoShowAlways "Show always (not only on resolved sites)">
+<!ENTITY custombb.options.misc "Misc">
+<!ENTITY custombb.options.showAllTooltips "Show additional tooltips">
+<!ENTITY custombb.options.invCommasClip "«Commas» button use clipboard contents">
 
-<!ENTITY custombb.settings.tabAdditional "Additional">
-<!ENTITY custombb.settings.additionalSet "Additional settings">
-<!ENTITY custombb.settings.toolbarBehaviour "Toolbar behaviour">
-<!ENTITY custombb.settings.toolbarAutoShow "Autoshow CustomBB toolbar over cursor">
-<!ENTITY custombb.settings.toolbarAutoShowAlways "To autoshow always (not only on the resolved sites)">
-<!ENTITY custombb.settings.misc "Misc">
-<!ENTITY custombb.settings.showAllTooltips "Show additional tooltips">
+<!ENTITY custombb.options.extendedSet "For advanced users">
+<!ENTITY custombb.options.urlMask "Mask for definition of links">
+<!ENTITY custombb.options.urlImgMask "Mask for definition of links to images">
 
-<!ENTITY custombb.settings.VKpopupSymbol "Symbol">
+<!ENTITY custombb.options.VKpopupSymbol "Symbol">
 
-<!ENTITY custombb.settings.browse "Browse">
+<!ENTITY custombb.options.browse "Browse">
 
 <!ENTITY custombb.apply.label "Apply">
-<!ENTITY custombb.settings.label "Settings">
-<!ENTITY custombb.settings.toDefault "Restore defaults">
-<!ENTITY custombb.settings.import "Import from file">
-<!ENTITY custombb.settings.export "Export to file">
+<!ENTITY custombb.options.label "Settings">
+<!ENTITY custombb.options.toDefault "Restore defaults">
+<!ENTITY custombb.options.import "Import from file">
+<!ENTITY custombb.options.export "Export to file">
 
-<!ENTITY custombb.settings.onlyNewWindowNote "changes will come into force only for new windows">
+<!ENTITY custombb.options.onlyNewWindowNote "changes will come into force only for new windows">
 
-<!-- Text for small settings window (right click on the custom menu item) -->
-<!ENTITY custombb.editor.custom "CustomBB: custom tag settings">
-<!ENTITY custombb.editor.smile "CustomBB: smile settings">
+<!-- Text for small settings windows (right click on the custom menu item) -->
 <!ENTITY custombb.editor.color "CustomBB: color settings">
-<!ENTITY custombb.editor.symbol "CustomBB: symbol settings">
-<!ENTITY custombb.editor.size "CustomBB: font size settings">
+<!ENTITY custombb.editor.color.name "Color">
+<!ENTITY custombb.editor.accesskey.colorIns "C">
 <!ENTITY custombb.editor.color.style "Style">
 <!ENTITY custombb.editor.color.style.black "Black">
 <!ENTITY custombb.editor.color.style.white "White">
-<!ENTITY custombb.editor.color.style.none "No style">
-<!ENTITY custombb.editor.size.style "Size">
+<!ENTITY custombb.editor.color.style.none "None">
+
+<!ENTITY custombb.editor.size "CustomBB: font size settings">
+<!ENTITY custombb.editor.size.name "Size">
+<!ENTITY custombb.editor.accesskey.sizeIns "S">
+<!ENTITY custombb.editor.size.style "Style">
+<!ENTITY custombb.editor.accesskey.sizeStyle "S">
+
+<!ENTITY custombb.editor.font "CustomBB: font settings">
+<!ENTITY custombb.editor.accesskey.fontIns "F">
 <!ENTITY custombb.editor.font.example "Font">
+
+<!ENTITY custombb.editor.symbol "CustomBB: symbol settings">
+<!ENTITY custombb.editor.symbol.name "Symbol">
+<!ENTITY custombb.editor.accesskey.symbolIns "S">
+
+<!ENTITY custombb.editor.smiley "CustomBB: smiley settings">
+<!ENTITY custombb.editor.smiley.name "Smiley">
+<!ENTITY custombb.editor.accesskey.smileyIns "S">
+<!ENTITY custombb.editor.smiley.style "Appearance">
+<!ENTITY custombb.editor.accesskey.smileyStyle "A">
+<!ENTITY custombb.editor.columns.name "Quantity of columns">
+<!ENTITY custombb.editor.accesskey.columns "C">
+
+<!ENTITY custombb.editor.custom "CustomBB: custom tag settings">
+<!ENTITY custombb.editor.custom.top "Open tag">
+<!ENTITY custombb.editor.accesskey.customTop "O">
+<!ENTITY custombb.editor.custom.tcl "Close tag">
+<!ENTITY custombb.editor.accesskey.customTcl "C">
+<!ENTITY custombb.editor.custom.icon "Icon">
+<!ENTITY custombb.editor.accesskey.customIco "I">
+<!ENTITY custombb.editor.text "Text">
+
+<!ENTITY custombb.editor.label.name "Label">
+<!ENTITY custombb.editor.accesskey.label "L">
+<!ENTITY custombb.editor.quantity.name "Quantity of items">
+<!ENTITY custombb.editor.accesskey.quantity "Q">
+<!ENTITY custombb.editor.edit.name "Edit item #">
+
+<!ENTITY custombb.editor.key "Use hotkey for this item">

@@ -1,0 +1,33 @@
+<!-- Tooltips for small settings windows -->
+<!ENTITY custombb.tooltip.colorIns "Inserted color">
+<!ENTITY custombb.tooltip.color.ex "Example of current style">
+<!ENTITY custombb.tooltip.color.sel "Click for choosing color">
+<!ENTITY custombb.tooltip.color.lbl "Label of menu item">
+
+<!ENTITY custombb.tooltip.sizeIns "Inserted font size">
+<!ENTITY custombb.tooltip.styleSize "Font size for menu item">
+<!ENTITY custombb.tooltip.size.lbl "Label of menu item">
+<!ENTITY custombb.tooltip.size.ex "Example of current font size">
+<!ENTITY custombb.tooltip.sizeUnit "Unit of measurements">
+
+<!ENTITY custombb.tooltip.font.lbl "Label of menu item">
+<!ENTITY custombb.tooltip.font.ex "Example of current font">
+<!ENTITY custombb.tooltip.fontIns "Inserted font">
+
+<!ENTITY custombb.tooltip.symbolIns "Inserted symbol">
+<!ENTITY custombb.tooltip.symbol.lbl "Label of menu item">
+
+<!ENTITY custombb.tooltip.smiley.src "Link to smiley">
+<!ENTITY custombb.tooltip.smiley.browse "Select smiley">
+<!ENTITY custombb.tooltip.smileyIns "Inserted text">
+<!ENTITY custombb.tooltip.smiley.label "Smiley">
+<!ENTITY custombb.tooltip.smiley.URLerror "Error: required image from Internet">
+
+<!ENTITY custombb.tooltip.custom.src "Link to icon">
+<!ENTITY custombb.tooltip.custom.browse "Select icon for menu item">
+<!ENTITY custombb.tooltip.custom.lbl "Label of menu item">
+<!ENTITY custombb.tooltip.custom.top1 "Open tag">
+<!ENTITY custombb.tooltip.custom.top2 "– title of text's inquiry">
+<!ENTITY custombb.tooltip.custom.tcl "Close tag (\n – line feed)">
+
+<!ENTITY custombb.tooltip.profileDir "– path to profile">

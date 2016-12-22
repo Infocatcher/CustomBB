@@ -1,0 +1,33 @@
+<!-- Tooltips for small settings windows -->
+<!ENTITY custombb.tooltip.colorIns "Вставляемый цвет">
+<!ENTITY custombb.tooltip.color.ex "Внешний вид текущего стиля">
+<!ENTITY custombb.tooltip.color.sel "Кликните для выбора цвета">
+<!ENTITY custombb.tooltip.color.lbl "Название пункта меню">
+
+<!ENTITY custombb.tooltip.sizeIns "Вставляемый размер шрифта">
+<!ENTITY custombb.tooltip.styleSize "Размер шрифта пункта меню">
+<!ENTITY custombb.tooltip.size.lbl "Название пункта меню">
+<!ENTITY custombb.tooltip.size.ex "Внешний вид текущего размера шрифта">
+<!ENTITY custombb.tooltip.sizeUnit "Единица измерения">
+
+<!ENTITY custombb.tooltip.font.lbl "Название пункта меню">
+<!ENTITY custombb.tooltip.font.ex "Внешний вид текущего шрифта">
+<!ENTITY custombb.tooltip.fontIns "Шрифт для вставки">
+
+<!ENTITY custombb.tooltip.symbolIns "Вставляемый символ">
+<!ENTITY custombb.tooltip.symbol.lbl "Название пункта меню">
+
+<!ENTITY custombb.tooltip.smiley.src "Ссылка на смайлик">
+<!ENTITY custombb.tooltip.smiley.browse "Выбрать смайлик">
+<!ENTITY custombb.tooltip.smileyIns "Вставляемый текст">
+<!ENTITY custombb.tooltip.smiley.label "Смайлик">
+<!ENTITY custombb.tooltip.smiley.URLerror "Ошибка: необходимо использовать изображение из Интернета">
+
+<!ENTITY custombb.tooltip.custom.src "Ссылка на иконку">
+<!ENTITY custombb.tooltip.custom.browse "Выбрать иконку для пункта меню">
+<!ENTITY custombb.tooltip.custom.lbl "Название пункта меню">
+<!ENTITY custombb.tooltip.custom.top1 "Открывающий тэг">
+<!ENTITY custombb.tooltip.custom.top2 "– заголовок запроса текста">
+<!ENTITY custombb.tooltip.custom.tcl "Закрывающий тэг (\n – перевод строки)">
+
+<!ENTITY custombb.tooltip.profileDir "– путь к профилю">
