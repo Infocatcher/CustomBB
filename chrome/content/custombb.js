@@ -1040,7 +1040,8 @@ var custombb = {
 						line1: cc.getLocalised(tp + "Tooltip") + ":",
 						cbbeditable: "menuitem",
 						onclick: "custombb.clickHandler(event);",
-						oncommand: "custombb.clickHandler(event);"
+						oncommand: "custombb.clickHandler(event);",
+						oncontextmenu: "custombb.preventContextMenu(event);"
 					});
 					mp.appendChild(mi);
 				}
@@ -1254,7 +1255,8 @@ var custombb = {
 						"class": clss,
 						cbbeditable: "menuitem",
 						onclick: "custombb.clickHandler(event);",
-						oncommand: "custombb.clickHandler(event);"
+						oncommand: "custombb.clickHandler(event);",
+						oncontextmenu: "custombb.preventContextMenu(event);"
 					});
 					rw.appendChild(mi);
 
@@ -1440,6 +1442,10 @@ var custombb = {
 				this.oldSelectedItem = null;
 			}
 		}
+	},
+	preventContextMenu: function(e) {
+		if(!e.ctrlKey && !e.altKey && !e.shiftKey && !e.metaKey)
+			e.preventDefault();
 	},
 
 	switchClick: function(event) {
