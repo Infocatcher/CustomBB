@@ -1444,7 +1444,10 @@ var custombb = {
 		}
 	},
 	preventContextMenu: function(e) {
-		if(!e.ctrlKey && !e.altKey && !e.shiftKey && !e.metaKey)
+		if(
+			(!e.ctrlKey && !e.shiftKey || e.target.getAttribute("cbbeditable") == "menuitem")
+			&& !e.altKey && !e.metaKey
+		)
 			e.preventDefault();
 	},
 
