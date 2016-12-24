@@ -1010,7 +1010,7 @@ var custombb = {
 
 		var pId = mp.getAttribute("cbbsource");
 		var fpId = "custombb." + pId;
-		var miId = mp.getAttribute("id").replace(/^custombb-mpopup/, ""); // -tb-custom
+		var miId = mp.id.replace(/^custombb-mpopup/, ""); // -tb-custom
 		var tp = miId.replace(/^-(tb|cm)-/, ""); // type
 
 		var num = custombbPrefs.getPref(fpId + "Quantity", 15); // max
@@ -1156,7 +1156,7 @@ var custombb = {
 
 		if(color && reNum) {
 			var ms = d.createElement("menuseparator");
-			ms.setAttribute("id", "custombb" + miId + "-custom-sep")
+			ms.id = "custombb" + miId + "-custom-sep";
 			mp.appendChild(ms);
 
 			var mi = d.createElement("menuitem");
@@ -1195,7 +1195,7 @@ var custombb = {
 
 		this.oldSelectedItem = null; // Clear replace cache
 
-		var mpId = mp.getAttribute("id");
+		var mpId = mp.id;
 
 		var pId = mp.getAttribute("cbbsource");
 		var miId = mpId.replace(/^custombb-mpopup/, "");
@@ -1341,7 +1341,7 @@ var custombb = {
 		for(var i = 0; i < mis.length; i++) {
 			var mi = mis[i];
 
-			if((!b && !mi.hasAttribute("cbbnoteditable")) || /-custom-b-/.test(mi.getAttribute("id"))) {
+			if((!b && !mi.hasAttribute("cbbnoteditable")) || /-custom-b-/.test(mi.id)) {
 				var lbl = mi.getAttribute("label");
 				lbl = ind + ". " + lbl.replace(new RegExp("^" + ind + "\\. "), "");
 				mi.setAttribute("label", lbl);
@@ -1368,7 +1368,7 @@ var custombb = {
 		var cc = custombbCommon;
 
 		var mi = event.target;
-		var miId = mi.getAttribute("id");
+		var miId = mi.id;
 
 		var tp = miId.replace(/^custombb-(popup-(tb|cm)|button|popup)-/, "");
 		var num = parseInt(tp.replace(/^[a-z-]+/, ""));
