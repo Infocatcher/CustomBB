@@ -16,8 +16,8 @@ row > .custombb-hover:hover {
 
 /* Settings swap */
 .custombb-prefs-copied {
-	border: 1px solid red;
-	-moz-border-radius: 6px;
+	outline: 1px dashed red;
+	outline-offset: -1px;
 }
 menupopup.custombb-select menuitem:not(.custombb-prefs-copied) {
 	cursor: crosshair;
