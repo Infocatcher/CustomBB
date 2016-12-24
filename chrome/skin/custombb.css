@@ -39,6 +39,12 @@ menupopup.custombb-select menuitem:not(.custombb-prefs-copied) {
 	background-color: Highlight;
 	color: HighlightText;
 }
+#custombb-mpopup-tb-color .menu-accel,
+#custombb-mpopup-cm-color .menu-accel {
+	/* Override "color: graytext;" */
+	color: inherit;
+	opacity: 0.75;
+}
 
 .custombb-button {
 	-moz-box-orient: vertical;
