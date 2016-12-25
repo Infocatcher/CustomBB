@@ -6,31 +6,31 @@
 <!ENTITY custombb.options.constrain.sites "Show context menu on following sites:">
 <!ENTITY custombb.options.constrain.sites_help "Help">
 <!ENTITY custombb.options.list "Designate beginning of elements of the list with «*»">
-<!ENTITY custombb.options.constrain.links "Not use non-correct links">
+<!ENTITY custombb.options.constrain.links "Don't use invalid links">
 
-<!ENTITY custombb.options.shift "(use Shift for switching)">
+<!ENTITY custombb.options.shift "(hold Shift to invert behavior)">
 
-<!ENTITY custombb.options.constrain.style "Settings of «Style» button">
+<!ENTITY custombb.options.constrain.style "Settings for «Style» button">
 <!ENTITY custombb.options.constrain.style.dash "Replace short dashes with long dashes">
-<!ENTITY custombb.options.constrain.style.dashPlus "Replace also « -» and «- »">
-<!ENTITY custombb.options.constrain.style.commas 'Replace "direct" inverted commas with «pair» inverted commas'>
+<!ENTITY custombb.options.constrain.style.dashPlus "Also replace « -» and «- »">
+<!ENTITY custombb.options.constrain.style.commas 'Replace "straight" quotation marks with «typographic» ones'>
 <!ENTITY custombb.options.constrain.style.symbols "Replace (c), (tm) and (r) with corresponding symbols">
-<!ENTITY custombb.options.constrain.style.punktMarks "Correct blanks at punctuation marks">
+<!ENTITY custombb.options.constrain.style.punktMarks "Correct spaces at punctuation marks">
 
-<!ENTITY custombb.options.selectOutput "Select inserted text (use Ctrl for switching)">
+<!ENTITY custombb.options.selectOutput "Select inserted text (hold Ctrl to invert behavior)">
 
 <!ENTITY custombb.options.keys "Hotkeys">
 <!ENTITY custombb.options.keysSet "Hotkeys settings">
 <!ENTITY custombb.options.enableKey "On">
 <!ENTITY custombb.options.key "Key">
 
-<!ENTITY custombb.options.keyNote "Hotkey are shown in context menu">
+<!ENTITY custombb.options.keyNote "Hotkey will be shown in menu">
 
 <!ENTITY custombb.options.advanced "Advanced">
 <!ENTITY custombb.options.advancedSet "Advanced settings">
 <!ENTITY custombb.options.toolbarBehaviour "Toolbar behaviour">
 <!ENTITY custombb.options.toolbarAutoShow "Autohiding of CustomBB toolbar">
-<!ENTITY custombb.options.toolbarAutoShowAlways "Show always (not only on resolved sites)">
+<!ENTITY custombb.options.toolbarAutoShowAlways "Show always (not only on allowed sites)">
 <!ENTITY custombb.options.misc "Misc">
 <!ENTITY custombb.options.showAllTooltips "Show additional tooltips">
 <!ENTITY custombb.options.invCommasClip "«Commas» button use clipboard contents">

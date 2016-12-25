@@ -8,7 +8,7 @@
 <!ENTITY custombb.options.list "Обозначать начало элементов списка с помощью «*»">
 <!ENTITY custombb.options.constrain.links "Не использовать некорректные ссылки">
 
-<!ENTITY custombb.options.shift "(используйте Shift для переключения)">
+<!ENTITY custombb.options.shift "(удерживайте Shift, чтобы инвертировать поведение)">
 
 <!ENTITY custombb.options.constrain.style "Настройки кнопки «Стиль»">
 <!ENTITY custombb.options.constrain.style.dash "Заменять короткие тире длинными">
@@ -17,14 +17,14 @@
 <!ENTITY custombb.options.constrain.style.symbols "Заменять (с), (тм) и (р) соответствующими символами">
 <!ENTITY custombb.options.constrain.style.punktMarks "Исправлять пробелы при знаках препинания">
 
-<!ENTITY custombb.options.selectOutput "Выделять вставляемый текст (используйте Ctrl для переключения)">
+<!ENTITY custombb.options.selectOutput "Выделять вставляемый текст (удерживайте Ctrl, чтобы инвертировать поведение)">
 
 <!ENTITY custombb.options.keys "Горячие клавиши">
 <!ENTITY custombb.options.keysSet "Настройки горячих клавиш">
 <!ENTITY custombb.options.enableKey "Вкл.">
 <!ENTITY custombb.options.key "Клавиша">
 
-<!ENTITY custombb.options.keyNote "Сочетание клавиш будет отображаться в подсказках">
+<!ENTITY custombb.options.keyNote "Сочетание клавиш будет отображаться в меню">
 
 <!ENTITY custombb.options.advanced "Дополнительно">
 <!ENTITY custombb.options.advancedSet "Дополнительные настройки">
