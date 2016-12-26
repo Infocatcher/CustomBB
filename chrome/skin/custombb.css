@@ -19,7 +19,7 @@ row > .custombb-hover:hover {
 	outline: 1px dashed red;
 	outline-offset: -1px;
 }
-menupopup.custombb-select menuitem:not(.custombb-prefs-copied) {
+menupopup.custombb-select menuitem[cbbeditable]:not(.custombb-prefs-copied) {
 	cursor: crosshair;
 }
 
