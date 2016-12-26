@@ -36,16 +36,16 @@
 
 
 <!-- Additional tooltips -->
-<!ENTITY custombb.tooltip.showAllsubItems "Shift+ЛКМ – показать все подъэлементы">
+<!ENTITY custombb.tooltip.showAllsubItems "Shift+ЛКМ – показать все пункты меню">
 
 <!ENTITY custombb.tooltip.R-shiftM_click "ПКМ / Shift+СКМ">
-<!ENTITY custombb.tooltip.editItem "– редактировать элемент">
+<!ENTITY custombb.tooltip.editItem "– редактировать пункт меню">
 
 <!ENTITY custombb.tooltip.M-shiftR_click "СКМ / Shift+ПКМ">
-<!ENTITY custombb.tooltip.showAllItems "– показать все элементы">
+<!ENTITY custombb.tooltip.showAllItems "– показать все пункты меню">
 
 <!ENTITY custombb.tooltip.ctrlR-ctrlM_click "Ctrl+ПКМ / Ctrl+СКМ">
-<!ENTITY custombb.tooltip.copySet "– выбрать элементы для обмена настройками">
+<!ENTITY custombb.tooltip.copySet "– выбрать пункт меню для обмена настройками">
 
 <!-- Preview window tooltips -->
 <!ENTITY custombb.tooltip.prev.ctrlL "Ctrl+ЛКМ в области просмотра – применить цвета">

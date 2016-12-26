@@ -35,7 +35,7 @@
 <!ENTITY custombb.tooltip.showTb "Show / hide CustomBB toolbar">
 
 <!-- Additional tooltips -->
-<!ENTITY custombb.tooltip.showAllsubItems "Shift+click – show all sub items">
+<!ENTITY custombb.tooltip.showAllsubItems "Shift+click – show all menu items">
 
 <!ENTITY custombb.tooltip.R-shiftM_click "Right-click / Shift+Middle-click">
 <!ENTITY custombb.tooltip.editItem "– edit item">
@@ -44,7 +44,7 @@
 <!ENTITY custombb.tooltip.showAllItems "– show all items">
 
 <!ENTITY custombb.tooltip.ctrlR-ctrlM_click "Ctrl+Right-click / Ctrl+Middle-click">
-<!ENTITY custombb.tooltip.copySet "– select items for settings swap">
+<!ENTITY custombb.tooltip.copySet "– select items to swap settings">
 
 <!-- Preview window tooltips -->
 <!ENTITY custombb.tooltip.prev.ctrlL "Ctrl+Clck in preview area – set colors">
